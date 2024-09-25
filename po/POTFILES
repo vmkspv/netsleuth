@@ -1,0 +1,4 @@
+data/io.github.vmkspv.netsleuth.desktop.in
+src/calculator.py
+src/window.py
+src/window.ui

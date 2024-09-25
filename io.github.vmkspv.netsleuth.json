@@ -1,0 +1,25 @@
+{
+    "id" : "io.github.vmkspv.netsleuth",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "47",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "netsleuth",
+    "finish-args" : [
+        "--share=ipc",
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--device=dri"
+    ],
+    "modules" : [
+        {
+            "name" : "netsleuth",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "."
+                }
+            ]
+        }
+    ]
+}

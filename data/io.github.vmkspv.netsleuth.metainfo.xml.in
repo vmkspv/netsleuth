@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.vmkspv.netsleuth</id>
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer_name>Vladimir Kosolapov</developer_name>
+
+  <name>Netsleuth</name>
+  <summary>Calculate IP subnets</summary>
+  <description>
+    <p>Netsleuth is a simple utility for calculating and analyzing an IP subnet values.</p>
+  </description>
+
+  <categories>
+    <category>Utility</category>
+  </categories>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#00574C</color>
+    <color type="primary" scheme_preference="dark">#002A25</color>
+  </branding>
+
+  <url type="homepage">https://github.com/vmkspv/netsleuth</url>
+  <url type="bugtracker">https://github.com/vmkspv/netsleuth/issues</url>
+  <url type="vcs-browser">https://github.com/vmkspv/netsleuth</url>
+  <url type="translate">https://github.com/vmkspv/netsleuth/tree/main/po</url>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/preview-1.png</image>
+      <caption>Calculation options</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/preview-2.png</image>
+      <caption>List of results</caption>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1" />
+
+  <launchable type="desktop-id">io.github.vmkspv.netsleuth.desktop</launchable>
+  <translation type="gettext">netsleuth</translation>
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
+
+  <releases>
+    <release version="1.0.0" date="2024-09-28">
+      <description>
+        <p>
+          Initial release!
+        </p>
+      </description>
+    </release>
+  </releases>
+</component>

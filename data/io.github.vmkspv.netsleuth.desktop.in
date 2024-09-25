@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Netsleuth
+GenericName=IP Subnet Calculator
+Exec=netsleuth
+Icon=io.github.vmkspv.netsleuth
+Terminal=false
+Type=Application
+Categories=GTK;Utility;
+Keywords=Network;IP;Subnet;Mask;Host;Calculator;
+StartupNotify=true
+X-Purism-FormFactor=Workstation;Mobile;

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="NetsleuthWindow" parent="AdwApplicationWindow">
+    <property name="default-width">460</property>
+    <property name="default-height">640</property>
+    <property name="content">
+      <object class="AdwToastOverlay" id="toast_overlay">
+        <child>
+          <object class="AdwToolbarView">
+            <child type="top">
+              <object class="AdwHeaderBar">
+                <property name="centering-policy">strict</property>
+                <property name="show-title">true</property>
+                <property name="title-widget">
+                  <object class="AdwWindowTitle">
+                    <property name="title">Netsleuth</property>
+                    <property name="subtitle">IP Subnet Calculator</property>
+                  </object>
+                </property>
+                <child type="start">
+                  <object class="GtkButton" id="about_button">
+                    <property name="icon-name">help-about-symbolic</property>
+                    <signal name="clicked" handler="on_about_button_clicked" swapped="no"/>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <property name="content">
+              <object class="GtkScrolledWindow" id="main_content">
+                <property name="hscrollbar-policy">never</property>
+                <child>
+                  <object class="AdwClamp">
+                    <property name="maximum-size">420</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">16</property>
+                        <property name="margin-top">24</property>
+                        <property name="margin-bottom">24</property>
+                        <property name="margin-start">16</property>
+                        <property name="margin-end">16</property>
+                        <child>
+                          <object class="AdwPreferencesGroup">
+                            <property name="title">Details</property>
+                            <child>
+                              <object class="AdwEntryRow" id="ip_entry">
+                                <property name="title">IP Address</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwComboRow" id="mask_dropdown">
+                                <property name="title">Subnet Mask</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwSwitchRow" id="show_binary_switch">
+                                <property name="title">Show Binary</property>
+                                <property name="subtitle">Display binary representation of IP addresses</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="halign">center</property>
+                            <property name="margin-top">4</property>
+                            <property name="margin-bottom">4</property>
+                            <child>
+                              <object class="GtkButton" id="calculate_button">
+                                <property name="label">Calculate</property>
+                                <signal name="clicked" handler="on_calculate_clicked" swapped="no"/>
+                                <style>
+                                  <class name="suggested-action"/>
+                                  <class name="pill"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwPreferencesGroup" id="results_group">
+                            <property name="title">Results</property>
+                            <property name="visible">false</property>
+                            <child>
+                              <object class="GtkListBox" id="results_box">
+                                <style>
+                                  <class name="boxed-list"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>
