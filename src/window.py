@@ -40,6 +40,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.setup_mask_dropdown()
         self.calculate_button.connect("clicked", self.on_calculate_clicked)
         self.show_binary_switch.connect("notify::active", self.on_show_binary_changed)
+        self.ip_entry.connect("changed", self.on_ip_entry_changed)
+        self.ip_entry_timeout_id = None
+        self.calculate_button.set_sensitive(False)
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
@@ -120,3 +123,38 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         toast = Adw.Toast.new(message)
         toast.set_timeout(2)
         self.toast_overlay.add_toast(toast)
+
+    def on_ip_entry_changed(self, entry):
+        if self.ip_entry_timeout_id:
+            GLib.source_remove(self.ip_entry_timeout_id)
+        self.ip_entry_timeout_id = GLib.timeout_add(0, self.delayed_ip_validation, entry)
+
+    def delayed_ip_validation(self, entry):
+        text = entry.get_text()
+        valid_text = self.validate_ip_input(text)
+        if valid_text != text:
+            entry.set_text(valid_text)
+            entry.set_position(-1)
+        self.calculate_button.set_sensitive(self.is_valid_ip(valid_text))
+        self.ip_entry_timeout_id = None
+        return GLib.SOURCE_REMOVE
+
+    def validate_ip_input(self, text):
+        clean_text = ''.join(c for c in text if c.isdigit() or c == '.')
+        octets = clean_text.split('.')
+        octets = octets[:4]
+        for i, octet in enumerate(octets):
+            if octet:
+                octets[i] = octet[:3]
+                if int(octets[i]) > 255:
+                    octets[i] = '255'
+        return '.'.join(octets)
+
+    def is_valid_ip(self, ip):
+        octets = ip.split('.')
+        if len(octets) != 4:
+            return False
+        for octet in octets:
+            if not octet or not octet.isdigit() or int(octet) > 255:
+                return False
+        return True
