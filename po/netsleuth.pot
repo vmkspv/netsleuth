@@ -1,0 +1,137 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: netsleuth\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-26 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.ui:19
+msgid "IP Subnet Calculator"
+msgstr ""
+
+#: data/io.github.vmkspv.netsleuth.desktop.in:10
+msgid "Network;IP;Subnet;Mask;Host;Calculator;"
+msgstr ""
+
+#: src/calculator.py:34
+msgid "Address"
+msgstr ""
+
+#: src/calculator.py:35
+msgid "Netmask"
+msgstr ""
+
+#: src/calculator.py:36
+msgid "Wildcard"
+msgstr ""
+
+#: src/calculator.py:37
+msgid "Network"
+msgstr ""
+
+#: src/calculator.py:38
+msgid "First Host"
+msgstr ""
+
+#: src/calculator.py:39
+msgid "Last Host"
+msgstr ""
+
+#: src/calculator.py:40
+msgid "Broadcast"
+msgstr ""
+
+#: src/calculator.py:41
+msgid "Total Hosts"
+msgstr ""
+
+#: src/calculator.py:42
+msgid "Category"
+msgstr ""
+
+#: src/calculator.py:46
+msgid "Error"
+msgstr ""
+
+#: src/calculator.py:46
+msgid "Invalid IP address or mask"
+msgstr ""
+
+#: src/calculator.py:59
+msgid "Private (Class A)"
+msgstr ""
+
+#: src/calculator.py:61
+msgid "Private (Class B)"
+msgstr ""
+
+#: src/calculator.py:63
+msgid "Private (Class C)"
+msgstr ""
+
+#: src/calculator.py:65
+msgid "Loopback"
+msgstr ""
+
+#: src/calculator.py:67
+msgid "Link-Local (APIPA)"
+msgstr ""
+
+#: src/calculator.py:69
+msgid "Multicast"
+msgstr ""
+
+#: src/calculator.py:71
+msgid "Reserved"
+msgstr ""
+
+#: src/calculator.py:73
+msgid "Public"
+msgstr ""
+
+#: src/window.py:111
+msgid "Recalculation needed"
+msgstr ""
+
+#: src/window.py:120
+msgid "Copied to clipboard"
+msgstr ""
+
+#: src/window.ui:46
+msgid "Details"
+msgstr ""
+
+#: src/window.ui:49
+msgid "IP Address"
+msgstr ""
+
+#: src/window.ui:54
+msgid "Subnet Mask"
+msgstr ""
+
+#: src/window.ui:59
+msgid "Show Binary"
+msgstr ""
+
+#: src/window.ui:60
+msgid "Display binary representation of IP addresses"
+msgstr ""
+
+#: src/window.ui:72
+msgid "Calculate"
+msgstr ""
+
+#: src/window.ui:84
+msgid "Results"
+msgstr ""

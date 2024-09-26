@@ -108,7 +108,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def on_show_binary_changed(self, switch, pspec):
         self.calculator.set_show_binary(switch.get_active())
         if self.results_group.get_visible():
-            self.show_toast("Recalculation needed")
+            self.show_toast(_('Recalculation needed'))
 
     @Gtk.Template.Callback()
     def on_about_button_clicked(self, button):
@@ -117,7 +117,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def on_copy_clicked(self, button, text):
         clipboard = Gdk.Display.get_default().get_clipboard()
         clipboard.set(text)
-        self.show_toast("Copied to clipboard")
+        self.show_toast(_('Copied to clipboard'))
 
     def show_toast(self, message):
         toast = Adw.Toast.new(message)
