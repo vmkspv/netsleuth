@@ -2,7 +2,7 @@
 
 # Netsleuth
 
-_Netsleuth_ is a simple utility for calculating and analyzing an IP subnet values.
+_Netsleuth_ is a simple utility for calculating and analyzing IP subnet values.
 
 <img src="data/screenshots/preview-1.png" width="756" title="Calculation options">
 
