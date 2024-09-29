@@ -19,6 +19,7 @@
 
 import sys
 import gi
+import locale
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
@@ -26,12 +27,17 @@ gi.require_version('Adw', '1')
 from gi.repository import Gtk, Gio, Adw
 from .window import NetsleuthWindow
 
+translators = {
+    'ru': 'Vladimir Kosolapov https://github.com/vmkspv',
+    'uk': 'Vladimir Kosolapov https://github.com/vmkspv'
+}
+
 class NetsleuthApplication(Adw.Application):
 
     def __init__(self):
         super().__init__(application_id='io.github.vmkspv.netsleuth',
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
-        self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
+        self.create_action('quit', self.quit, ['<primary>q'])
         self.create_action('about', self.on_about_action)
 
     def do_activate(self):
@@ -39,6 +45,10 @@ class NetsleuthApplication(Adw.Application):
         if not win:
             win = NetsleuthWindow(application=self)
         win.present()
+
+    def get_translator_credits(self):
+        locale_code = locale.getlocale()[0] or ''
+        return translators.get(locale_code) or translators.get(locale_code[:2], '')
 
     def on_about_action(self, widget, _):
         about = Adw.AboutDialog.new()
@@ -48,6 +58,7 @@ class NetsleuthApplication(Adw.Application):
         about.set_version('1.0.0')
         about.set_developers(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_designers(['Vladimir Kosolapov https://github.com/vmkspv'])
+        about.set_translator_credits(self.get_translator_credits())
         about.set_copyright('© 2024 Vladimir Kosolapov')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_issue_url('https://github.com/vmkspv/netsleuth/issues')
