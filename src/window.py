@@ -140,15 +140,20 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         return GLib.SOURCE_REMOVE
 
     def validate_ip_input(self, text):
-        clean_text = ''.join(c for c in text if c.isdigit() or c == '.')
-        octets = clean_text.split('.')
-        octets = octets[:4]
-        for i, octet in enumerate(octets):
-            if octet:
-                octets[i] = octet[:3]
-                if int(octets[i]) > 255:
-                    octets[i] = '255'
-        return '.'.join(octets)
+        parts = text.split('.')
+        valid_parts = []
+
+        for part in parts[:4]:
+            if not part and len(valid_parts) < 3:
+                continue
+            num = ''.join(c for c in part if c.isdigit())[:3]
+            if num:
+                valid_parts.append(str(min(int(num), 255)))
+
+        result = '.'.join(valid_parts)
+        if text.endswith('.') and len(valid_parts) < 4:
+            result += '.'
+        return result
 
     def is_valid_ip(self, ip):
         octets = ip.split('.')
