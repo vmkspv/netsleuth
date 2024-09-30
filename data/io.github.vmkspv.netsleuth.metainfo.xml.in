@@ -23,11 +23,23 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.0.1" date="2024-09-30">
+      <description translate="no">
+        <p>Changes in the release:</p>
+        <ul>
+          <li>Optimized IP lookup</li>
+          <li>Improved input validation</li>
+          <li>Added translator credits</li>
+        </ul>
+        <p>Updated/added translations:</p>
+        <ul>
+          <li>Italian (Albano Battistella)</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.0" date="2024-09-28">
       <description translate="no">
-        <p>
-          Initial release!
-        </p>
+        <p>Initial release!</p>
       </description>
     </release>
   </releases>
@@ -43,5 +55,13 @@
   <developer id="io.github.vmkspv">
     <name translate="no">Vladimir Kosolapov</name>
   </developer>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
   <content_rating type="oars-1.1"/>
 </component>
