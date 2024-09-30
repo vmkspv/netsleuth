@@ -18,6 +18,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import ipaddress
+from ipaddress import IPv4Address
 
 class IPCalculator:
     def __init__(self):
@@ -31,19 +32,19 @@ class IPCalculator:
             interface = ipaddress.IPv4Interface(f"{ip}/{mask}")
             network = interface.network
             results = {
-                (_('Address')): self.format_ip(interface.ip),
-                (_('Netmask')): self.format_ip(network.netmask),
-                (_('Wildcard')): self.format_ip(network.hostmask),
-                (_('Network')): self.format_ip(network.network_address),
-                (_('First Host')): self.format_ip(network.network_address + 1),
-                (_('Last Host')): self.format_ip(network.broadcast_address - 1),
-                (_('Broadcast')): self.format_ip(network.broadcast_address),
-                (_('Total Hosts')): str(network.num_addresses - 2),
-                (_('Category')): self.get_ip_class(interface.ip)
+                _('Address'): self.format_ip(interface.ip),
+                _('Netmask'): self.format_ip(network.netmask),
+                _('Wildcard'): self.format_ip(network.hostmask),
+                _('Network'): self.format_ip(network.network_address),
+                _('First Host'): self.format_ip(network.network_address + 1),
+                _('Last Host'): self.format_ip(network.broadcast_address - 1),
+                _('Broadcast'): self.format_ip(network.broadcast_address),
+                _('Total Hosts'): str(network.num_addresses - 2),
+                _('Category'): self.get_ip_class(interface.ip)
             }
             return results
         except ValueError:
-            return {(_('Error')): (_('Invalid IP address or mask'))}
+            return {_('Error'): _('Invalid IP address or mask')}
 
     def format_ip(self, ip):
         if self.show_binary:
@@ -54,23 +55,22 @@ class IPCalculator:
         return '.'.join([bin(int(x)+256)[3:] for x in str(ip).split('.')])
 
     def get_ip_class(self, ip):
-        ip_int = int(ipaddress.IPv4Address(ip))
-        if ipaddress.IPv4Address('10.0.0.0') <= ip <= ipaddress.IPv4Address('10.255.255.255'):
-            return (_('Private (Class A)'))
-        elif ipaddress.IPv4Address('172.16.0.0') <= ip <= ipaddress.IPv4Address('172.31.255.255'):
-            return (_('Private (Class B)'))
-        elif ipaddress.IPv4Address('192.168.0.0') <= ip <= ipaddress.IPv4Address('192.168.255.255'):
-            return (_('Private (Class C)'))
-        elif ipaddress.IPv4Address('127.0.0.0') <= ip <= ipaddress.IPv4Address('127.255.255.255'):
-            return (_('Loopback'))
-        elif ipaddress.IPv4Address('169.254.0.0') <= ip <= ipaddress.IPv4Address('169.254.255.255'):
-            return (_('Link-Local (APIPA)'))
-        elif ipaddress.IPv4Address('224.0.0.0') <= ip <= ipaddress.IPv4Address('239.255.255.255'):
-            return (_('Multicast'))
-        elif ipaddress.IPv4Address('240.0.0.0') <= ip <= ipaddress.IPv4Address('255.255.255.255'):
-            return (_('Reserved'))
-        else:
-            return (_('Public'))
+        ip_int = int(IPv4Address(ip))
+        ip_ranges = [
+            (167772160, 184549375, _('Private (Class A)')),
+            (2886729728, 2887778303, _('Private (Class B)')),
+            (3232235520, 3232301055, _('Private (Class C)')),
+            (2130706432, 2147483647, _('Loopback')),
+            (2851995648, 2852061183, _('Link-Local (APIPA)')),
+            (3758096384, 4026531839, _('Multicast')),
+            (4026531840, 4294967295, _('Reserved')),
+        ]
+
+        for start, end, category in ip_ranges:
+            if start <= ip_int <= end:
+                return category
+
+        return _('Public')
 
     def int_to_dotted_netmask(self, mask_int):
         mask = (0xffffffff >> (32 - mask_int)) << (32 - mask_int)
