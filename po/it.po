@@ -1,7 +1,7 @@
-# ITALIAN TRANSLATION.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# ALBANO BATTISTELLA <ALBANOBATTISTELLA@GMAIL.COM>, 2024.
+# Italian translations for Netsleuth package.
+# Copyright (C) 2024 Vladimir Kosolapov
+# This file is distributed under the same license as the Netsleuth package.
+# Albano Battistella <albanobattistella@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
