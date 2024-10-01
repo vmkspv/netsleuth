@@ -28,6 +28,7 @@ from gi.repository import Gtk, Gio, Adw
 from .window import NetsleuthWindow
 
 translators = {
+    'bg': 'twlvnn kraftwerk https://github.com/twlvnn',
     'it': 'Albano Battistella https://github.com/albanobattistella',
     'ru': 'Vladimir Kosolapov https://github.com/vmkspv',
     'uk': 'Vladimir Kosolapov https://github.com/vmkspv'
