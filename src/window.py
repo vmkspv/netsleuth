@@ -66,7 +66,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
             copy_button = Gtk.Button(icon_name="edit-copy-symbolic")
             copy_button.add_css_class("flat")
+            copy_button.set_valign(Gtk.Align.CENTER)
             copy_button.connect("clicked", self.on_copy_clicked, str(value))
+            copy_button.set_tooltip_text(_('Copy'))
             row.add_suffix(copy_button)
 
             self.results_box.append(row)
@@ -112,6 +114,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     @Gtk.Template.Callback()
     def on_about_button_clicked(self, button):
+        button.set_tooltip_text(_('About Netsleuth'))
         self.get_application().on_about_action(None, None)
 
     def on_copy_clicked(self, button, text):
