@@ -4,7 +4,13 @@
 
 _Netsleuth_ is a simple utility for calculating and analyzing IP subnet values.
 
-<img src="data/screenshots/preview-1.png" width="756" title="Calculation options">
+<img src="data/screenshots/preview-1.png" width="756" title="Calculation options"/>
+
+## Installation
+
+The recommended installation method is via Flatpak.
+
+<a href="https://flathub.org/apps/details/io.github.vmkspv.netsleuth"><img src="https://flathub.org/api/badge?svg&locale=en" width="196"/></a>
 
 ## Building from source
 
