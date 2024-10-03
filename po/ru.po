@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
 "POT-Creation-Date: 2024-09-26 12:00+0000\n"
-"PO-Revision-Date: 2024-10-02 19:00+0000\n"
+"PO-Revision-Date: 2024-10-03 19:50+0000\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -61,6 +61,10 @@ msgstr "Всего хостов"
 #: src/calculator.py:42
 msgid "Category"
 msgstr "Категория"
+
+#: src/calculator.py:43
+msgid "PTR Record"
+msgstr "Обратный адрес"
 
 #: src/calculator.py:46
 msgid "Error"

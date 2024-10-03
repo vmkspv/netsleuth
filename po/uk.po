@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
 "POT-Creation-Date: 2024-09-26 12:00+0000\n"
-"PO-Revision-Date: 2024-10-02 19:00+0000\n"
+"PO-Revision-Date: 2024-10-03 19:50+0000\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -36,7 +36,7 @@ msgstr "Маска"
 
 #: src/calculator.py:36
 msgid "Wildcard"
-msgstr "Зворотна маска"
+msgstr "Зворотня маска"
 
 #: src/calculator.py:37
 msgid "Network"
@@ -61,6 +61,10 @@ msgstr "Усього хостів"
 #: src/calculator.py:42
 msgid "Category"
 msgstr "Категорія"
+
+#: src/calculator.py:43
+msgid "PTR Record"
+msgstr "Зворотня адреса"
 
 #: src/calculator.py:46
 msgid "Error"
@@ -140,7 +144,7 @@ msgstr "Відображати двійкове представлення IP-а
 
 #: src/window.ui:72
 msgid "Calculate"
-msgstr "Розрахувавши"
+msgstr "Розрахувати"
 
 #: src/window.ui:84
 msgid "Results"

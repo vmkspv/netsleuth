@@ -61,6 +61,10 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
+#: src/calculator.py:43
+msgid "PTR Record"
+msgstr ""
+
 #: src/calculator.py:46
 msgid "Error"
 msgstr ""
