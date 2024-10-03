@@ -40,6 +40,7 @@ class IPCalculator:
                 _('Last Host'): self.format_ip(network.broadcast_address - (0 if mask >= 31 else 1)),
                 _('Broadcast'): self.format_ip(network.broadcast_address) if mask < 31 else None,
                 _('Total Hosts'): f"{host_count}{self.get_host_count_math(mask)}",
+                _('PTR Record'): self.get_ptr_record(interface.ip),
                 _('Category'): self.get_ip_class(interface.ip)
             }
             return results
@@ -80,3 +81,7 @@ class IPCalculator:
         exponent = 32 - mask
         superscript = ''.join('⁰¹²³⁴⁵⁶⁷⁸⁹'[int(d)] for d in str(exponent))
         return f" (2{superscript} - 2)"
+
+    def get_ptr_record(self, ip):
+        reversed_ip = '.'.join(reversed(str(ip).split('.')))
+        return f"{reversed_ip}.in-addr.arpa"
