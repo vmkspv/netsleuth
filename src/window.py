@@ -61,7 +61,13 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             self.results_box.remove(self.results_box.get_first_child())
 
         for key, value in results.items():
-            row = Adw.ActionRow(title=key, subtitle=str(value))
+            if value is None:
+                continue
+            subtitle = str(value)
+            if key == _('Total Hosts'):
+                count, *math = subtitle.split(' ', 1)
+                subtitle = f"{count}{' ' + math[0] if math else ''}"
+            row = Adw.ActionRow(title=key, subtitle=subtitle)
             row.add_css_class("property-row")
 
             copy_button = Gtk.Button(icon_name="edit-copy-symbolic")

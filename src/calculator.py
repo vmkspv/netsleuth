@@ -18,7 +18,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import ipaddress
-from ipaddress import IPv4Address
 
 class IPCalculator:
     def __init__(self):
@@ -31,15 +30,16 @@ class IPCalculator:
         try:
             interface = ipaddress.IPv4Interface(f"{ip}/{mask}")
             network = interface.network
+            host_count = network.num_addresses - (2 if mask < 31 else 0)
             results = {
                 _('Address'): self.format_ip(interface.ip),
                 _('Netmask'): self.format_ip(network.netmask),
                 _('Wildcard'): self.format_ip(network.hostmask),
                 _('Network'): self.format_ip(network.network_address),
-                _('First Host'): self.format_ip(network.network_address + 1),
-                _('Last Host'): self.format_ip(network.broadcast_address - 1),
-                _('Broadcast'): self.format_ip(network.broadcast_address),
-                _('Total Hosts'): str(network.num_addresses - 2),
+                _('First Host'): self.format_ip(network.network_address + (0 if mask >= 31 else 1)),
+                _('Last Host'): self.format_ip(network.broadcast_address - (0 if mask >= 31 else 1)),
+                _('Broadcast'): self.format_ip(network.broadcast_address) if mask < 31 else None,
+                _('Total Hosts'): f"{host_count}{self.get_host_count_math(mask)}",
                 _('Category'): self.get_ip_class(interface.ip)
             }
             return results
@@ -47,15 +47,13 @@ class IPCalculator:
             return {_('Error'): _('Invalid IP address or mask')}
 
     def format_ip(self, ip):
-        if self.show_binary:
-            return f"{ip} ({self.ip_to_binary(ip)})"
-        return str(ip)
+        return f"{ip} ({self.ip_to_binary(ip)})" if self.show_binary else str(ip)
 
     def ip_to_binary(self, ip):
         return '.'.join([bin(int(x)+256)[3:] for x in str(ip).split('.')])
 
     def get_ip_class(self, ip):
-        ip_int = int(IPv4Address(ip))
+        ip_int = int(ipaddress.IPv4Address(ip))
         ip_ranges = [
             (167772160, 184549375, _('Private (Class A)')),
             (2886729728, 2887778303, _('Private (Class B)')),
@@ -75,3 +73,10 @@ class IPCalculator:
     def int_to_dotted_netmask(self, mask_int):
         mask = (0xffffffff >> (32 - mask_int)) << (32 - mask_int)
         return '.'.join([str((mask >> (8 * i)) & 0xff) for i in range(3, -1, -1)])
+
+    def get_host_count_math(self, mask):
+        if mask >= 31:
+            return ""
+        exponent = 32 - mask
+        superscript = ''.join('⁰¹²³⁴⁵⁶⁷⁸⁹'[int(d)] for d in str(exponent))
+        return f" (2{superscript} - 2)"
