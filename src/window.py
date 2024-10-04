@@ -38,16 +38,19 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.set_title("Netsleuth")
         self.calculator = IPCalculator()
         self.setup_mask_dropdown()
-        self.calculate_button.connect("clicked", self.on_calculate_clicked)
-        self.show_binary_switch.connect("notify::active", self.on_show_binary_changed)
-        self.ip_entry.connect("changed", self.on_ip_entry_changed)
-        self.ip_entry_timeout_id = None
+        self.connect_signals()
         self.calculate_button.set_sensitive(False)
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
         self.mask_dropdown.set_model(Gtk.StringList.new(masks))
         self.mask_dropdown.set_selected(24)
+
+    def connect_signals(self):
+        self.calculate_button.connect("clicked", self.on_calculate_clicked)
+        self.show_binary_switch.connect("notify::active", self.on_show_binary_changed)
+        self.ip_entry.connect("changed", self.on_ip_entry_changed)
+        self.ip_entry_timeout_id = None
 
     @Gtk.Template.Callback()
     def on_calculate_clicked(self, button):
@@ -79,35 +82,26 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
             self.results_box.append(row)
 
-        if not self.results_group.get_visible():
-            self.results_group.set_visible(True)
-            self.results_group.set_opacity(0)
-            self.fade_in_results()
-
+        self.results_group.set_opacity(0)
+        self.results_group.set_visible(True)
+        self.fade_in_results()
         self.scroll_to_results()
 
     def fade_in_results(self):
         target = Adw.PropertyAnimationTarget.new(self.results_group, "opacity")
-        animation = Adw.TimedAnimation.new(
-            self.results_group,
-            0,
-            1,
-            300,
-            target
-        )
+        animation = Adw.TimedAnimation.new(self.results_group, 0, 1, 350, target)
+        animation.set_easing(Adw.Easing.EASE_OUT_CUBIC)
         animation.play()
 
     def scroll_to_results(self):
         def on_map(widget):
             adjustment = self.main_content.get_vadjustment()
+            start_value = adjustment.get_value()
+            end_value = adjustment.get_upper() - adjustment.get_page_size()
+
             target = Adw.PropertyAnimationTarget.new(adjustment, "value")
-            animation = Adw.TimedAnimation.new(
-                adjustment,
-                adjustment.get_value(),
-                adjustment.get_upper() - adjustment.get_page_size(),
-                500,
-                target
-            )
+            animation = Adw.TimedAnimation.new(adjustment, start_value, end_value, 500, target)
+            animation.set_easing(Adw.Easing.EASE_OUT_CUBIC)
             animation.play()
             widget.disconnect(self.scroll_handler_id)
 
@@ -149,13 +143,13 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         return GLib.SOURCE_REMOVE
 
     def validate_ip_input(self, text):
-        parts = text.split('.')
+        parts = text.split('.')[:4]
         valid_parts = []
 
-        for part in parts[:4]:
+        for part in parts:
             if not part and len(valid_parts) < 3:
                 continue
-            num = ''.join(c for c in part if c.isdigit())[:3]
+            num = ''.join(filter(str.isdigit, part))[:3]
             if num:
                 valid_parts.append(str(min(int(num), 255)))
 

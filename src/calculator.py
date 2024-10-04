@@ -22,6 +22,7 @@ import ipaddress
 class IPCalculator:
     def __init__(self):
         self.show_binary = False
+        self.binary_cache = {}
 
     def set_show_binary(self, show_binary):
         self.show_binary = show_binary
@@ -48,7 +49,11 @@ class IPCalculator:
             return {_('Error'): _('Invalid IP address or mask')}
 
     def format_ip(self, ip):
-        return f"{ip} ({self.ip_to_binary(ip)})" if self.show_binary else str(ip)
+        if self.show_binary:
+            if ip not in self.binary_cache:
+                self.binary_cache[ip] = self.ip_to_binary(ip)
+            return f"{ip} ({self.binary_cache[ip]})"
+        return str(ip)
 
     def ip_to_binary(self, ip):
         return '.'.join([bin(int(x)+256)[3:] for x in str(ip).split('.')])
@@ -72,8 +77,8 @@ class IPCalculator:
         return _('Public')
 
     def int_to_dotted_netmask(self, mask_int):
-        mask = (0xffffffff >> (32 - mask_int)) << (32 - mask_int)
-        return '.'.join([str((mask >> (8 * i)) & 0xff) for i in range(3, -1, -1)])
+        mask = (0xffffffff << (32 - mask_int)) & 0xffffffff
+        return f"{mask>>24 & 255}.{mask>>16 & 255}.{mask>>8 & 255}.{mask & 255}"
 
     def get_host_count_math(self, mask):
         if mask >= 31:
