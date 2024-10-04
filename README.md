@@ -4,7 +4,7 @@
 
 _Netsleuth_ is a simple utility for calculating and analyzing IP subnet values.
 
-<img src="data/screenshots/preview-1.png" width="756" title="Calculation options"/>
+<img src="data/screenshots/preview.png" width="756" title="Main window"/>
 
 ## Installation
 
