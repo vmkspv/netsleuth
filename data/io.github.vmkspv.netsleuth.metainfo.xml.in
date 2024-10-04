@@ -14,18 +14,39 @@
   </branding>
   <screenshots>
     <screenshot type="default" xml:lang="en">
-      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/preview-1.png</image>
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/light-1.png</image>
       <caption>Calculation options</caption>
     </screenshot>
     <screenshot xml:lang="en">
-      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/preview-2.png</image>
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/light-2.png</image>
       <caption>List of results</caption>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/dark-1.png</image>
+      <caption>Calculation options (dark mode)</caption>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/dark-2.png</image>
+      <caption>List of results (dark mode)</caption>
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.0.2" date="2024-10-04">
+      <description translate="no">
+        <ul>
+          <li>Added host exponent</li>
+          <li>Added PTR generation</li>
+          <li>Added button tooltips</li>
+          <li>Minor code optimization</li>
+        </ul>
+        <p>Updated/added translations:</p>
+        <ul>
+          <li>Bulgarian (twlvnn kraftwerk)</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.1" date="2024-09-30">
       <description translate="no">
-        <p>Changes in the release:</p>
         <ul>
           <li>Optimized IP lookup</li>
           <li>Improved input validation</li>
