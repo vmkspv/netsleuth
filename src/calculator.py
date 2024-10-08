@@ -52,7 +52,7 @@ class IPCalculator:
         if self.show_binary:
             if ip not in self.binary_cache:
                 self.binary_cache[ip] = self.ip_to_binary(ip)
-            return f"{ip} ({self.binary_cache[ip]})"
+            return f"{ip}\n<tt>{self.binary_cache[ip]}</tt>"
         return str(ip)
 
     def ip_to_binary(self, ip):
