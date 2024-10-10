@@ -47,6 +47,17 @@
                             <child>
                               <object class="AdwEntryRow" id="ip_entry">
                                 <property name="title" translatable="yes">IP Address</property>
+                                <child type="suffix">
+                                  <object class="GtkButton" id="history_button">
+                                    <property name="icon-name">document-open-recent-symbolic</property>
+                                    <property name="valign">center</property>
+                                    <property name="tooltip-text" translatable="yes">History</property>
+                                    <signal name="clicked" handler="on_history_button_clicked" swapped="no"/>
+                                    <style>
+                                      <class name="flat"/>
+                                    </style>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                             <child>

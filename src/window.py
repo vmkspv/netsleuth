@@ -19,17 +19,20 @@
 
 from gi.repository import Adw, Gtk, Gdk, GLib
 from .calculator import IPCalculator
+from json import dump, load
+from os import path, makedirs
 
 @Gtk.Template(resource_path='/io/github/vmkspv/netsleuth/window.ui')
 class NetsleuthWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'NetsleuthWindow'
 
     ip_entry = Gtk.Template.Child()
+    history_button = Gtk.Template.Child()
     mask_dropdown = Gtk.Template.Child()
     show_binary_switch = Gtk.Template.Child()
     calculate_button = Gtk.Template.Child()
-    results_box = Gtk.Template.Child()
     results_group = Gtk.Template.Child()
+    results_box = Gtk.Template.Child()
     main_content = Gtk.Template.Child()
     toast_overlay = Gtk.Template.Child()
 
@@ -37,6 +40,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         super().__init__(**kwargs)
         self.set_title("Netsleuth")
         self.calculator = IPCalculator()
+        self.history = self.load_history()
+        self.history_dialog = None
         self.setup_mask_dropdown()
         self.connect_signals()
         self.calculate_button.set_sensitive(False)
@@ -56,8 +61,21 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def on_calculate_clicked(self, button):
         ip = self.ip_entry.get_text()
         mask = int(self.mask_dropdown.get_selected_item().get_string().split()[0])
+
+        new_item = {'ip': ip, 'mask': mask}
+        if new_item in self.history:
+            self.history.remove(new_item)
+        self.history.insert(0, new_item)
+        self.history = self.history[:10]
+
+        self.save_history()
+
         results = self.calculator.calculate(ip, mask)
         self.display_results(results)
+
+        if self.history_dialog:
+            self.update_history_list()
+        self.update_clear_button_state()
 
     def display_results(self, results):
         while self.results_box.get_first_child():
@@ -166,3 +184,146 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             if not octet or not octet.isdigit() or int(octet) > 255:
                 return False
         return True
+
+    @Gtk.Template.Callback()
+    def on_history_button_clicked(self, button):
+        if not self.history_dialog:
+            self.history_dialog = self.create_history_dialog()
+        self.update_history_list()
+        self.history_dialog.present(self)
+
+    def create_history_dialog(self):
+        dialog = Adw.Dialog()
+        dialog.set_title(_('History'))
+        dialog.set_size_request(350, 400)
+
+        toolbar_view = Adw.ToolbarView()
+
+        header_bar = Adw.HeaderBar()
+        header_bar.add_css_class("flat")
+
+        self.clear_button = Gtk.Button(icon_name="user-trash-symbolic")
+        self.clear_button.add_css_class("flat")
+        self.clear_button.add_css_class("error")
+        self.clear_button.connect("clicked", self.on_clear_history)
+        self.clear_button.set_tooltip_text(_('Clear'))
+        header_bar.pack_start(self.clear_button)
+
+        toolbar_view.add_top_bar(header_bar)
+
+        self.history_list = Gtk.ListBox()
+        self.history_list.set_selection_mode(Gtk.SelectionMode.NONE)
+        self.history_list.add_css_class("boxed-list")
+
+        self.empty_history_page = Adw.StatusPage(
+            icon_name="document-open-recent-symbolic",
+            title=_('Empty'),
+            description=_('Your calculation history will appear here')
+        )
+
+        self.history_stack = Gtk.Stack()
+        self.history_stack.add_named(self.history_list, "history")
+        self.history_stack.add_named(self.empty_history_page, "empty")
+
+        scrolled_window = Gtk.ScrolledWindow(
+            hscrollbar_policy=Gtk.PolicyType.NEVER,
+            vscrollbar_policy=Gtk.PolicyType.AUTOMATIC,
+            vexpand=True,
+            child=self.history_stack
+        )
+
+        content_box = Gtk.Box(
+            orientation=Gtk.Orientation.VERTICAL,
+            spacing=16,
+            margin_top=24,
+            margin_bottom=24,
+            margin_start=16,
+            margin_end=16
+        )
+        content_box.append(scrolled_window)
+
+        toolbar_view.set_content(content_box)
+
+        self.history_toast_overlay = Adw.ToastOverlay()
+        self.history_toast_overlay.set_child(toolbar_view)
+
+        dialog.set_child(self.history_toast_overlay)
+
+        return dialog
+
+    def update_clear_button_state(self):
+        if hasattr(self, 'clear_button'):
+            self.clear_button.set_sensitive(bool(self.history))
+
+    def update_history_list(self):
+        while self.history_list.get_first_child():
+            self.history_list.remove(self.history_list.get_first_child())
+
+        if not self.history:
+            self.history_stack.set_visible_child_name("empty")
+            self.update_clear_button_state()
+            return
+
+        self.history_stack.set_visible_child_name("history")
+
+        for item in self.history:
+            title = f"{item['ip']}/{item['mask']}"
+            mask_string = self.mask_dropdown.get_model().get_string(item['mask']).split('-', 1)[1].strip()
+
+            row = Adw.ActionRow(
+                title=title,
+                subtitle=mask_string,
+                activatable=True
+            )
+            row.connect("activated", self.on_history_item_activated, item)
+
+            use_button = Gtk.Button(
+                icon_name="object-select-symbolic",
+                valign=Gtk.Align.CENTER,
+                tooltip_text=_('Select')
+            )
+            use_button.add_css_class("flat")
+            use_button.connect("clicked", self.on_history_item_activated, item)
+            row.add_suffix(use_button)
+
+            self.history_list.append(row)
+
+        self.update_clear_button_state()
+
+    def on_history_item_activated(self, widget, item):
+        self.ip_entry.set_text(item['ip'])
+        self.mask_dropdown.set_selected(item['mask'])
+        self.history_dialog.close()
+        self.on_calculate_clicked(None)
+        self.show_toast(_('Calculated: {ip}/{mask}').format(ip=item['ip'], mask=item['mask']))
+
+    def on_clear_history(self, button):
+        self.history.clear()
+        self.save_history()
+        self.update_history_list()
+        toast = Adw.Toast.new(_('History cleared'))
+        toast.set_timeout(2)
+        self.history_toast_overlay.add_toast(toast)
+        self.update_clear_button_state()
+
+    def save_history(self):
+        config_dir = GLib.get_user_config_dir()
+        app_config_dir = path.join(config_dir, "netsleuth")
+        makedirs(app_config_dir, exist_ok=True)
+        history_file = path.join(app_config_dir, "history.json")
+
+        with open(history_file, 'w') as f:
+            dump(self.history, f, indent=4, ensure_ascii=False)
+
+    def load_history(self):
+        config_dir = GLib.get_user_config_dir()
+        history_file = path.join(config_dir, "netsleuth", "history.json")
+
+        if path.exists(history_file):
+            with open(history_file, 'r') as f:
+                return load(f)
+        return []
+
+    def do_close_request(self):
+        self.save_history()
+        return False
