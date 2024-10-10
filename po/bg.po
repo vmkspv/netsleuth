@@ -26,67 +26,67 @@ msgstr "Калкулатор на IP за подмрежи"
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "мрежа;подмрежа;маска;хост;калкулатор;"
 
-#: src/calculator.py:34
+#: src/calculator.py:36
 msgid "Address"
 msgstr "Адрес"
 
-#: src/calculator.py:35
+#: src/calculator.py:37
 msgid "Netmask"
 msgstr "Мрежова маска"
 
-#: src/calculator.py:36
+#: src/calculator.py:38
 msgid "Wildcard"
 msgstr "Заместваща маска"
 
-#: src/calculator.py:37
+#: src/calculator.py:39
 msgid "Network"
 msgstr "Мрежа"
 
-#: src/calculator.py:38
+#: src/calculator.py:40
 msgid "First Host"
 msgstr "Първи хост"
 
-#: src/calculator.py:39
+#: src/calculator.py:41
 msgid "Last Host"
 msgstr "Последен хост"
 
-#: src/calculator.py:40
+#: src/calculator.py:42
 msgid "Broadcast"
 msgstr "Разпръскване"
 
-#: src/calculator.py:41
+#: src/calculator.py:43 src/window.py:88
 msgid "Total Hosts"
 msgstr "Общо хостове"
 
-#: src/calculator.py:42
+#: src/calculator.py:45
 msgid "Category"
 msgstr "Категория"
 
-#: src/calculator.py:46
+#: src/calculator.py:49
 msgid "Error"
 msgstr "Грешка"
 
-#: src/calculator.py:46
+#: src/calculator.py:49
 msgid "Invalid IP address or mask"
 msgstr "Неправилен IP адрес или маска"
 
-#: src/calculator.py:59
+#: src/calculator.py:64
 msgid "Private (Class A)"
 msgstr "Частен (Клас A)"
 
-#: src/calculator.py:61
+#: src/calculator.py:65
 msgid "Private (Class B)"
 msgstr "Частен (Клас B)"
 
-#: src/calculator.py:63
+#: src/calculator.py:66
 msgid "Private (Class C)"
 msgstr "Частен (Клас C)"
 
-#: src/calculator.py:65
+#: src/calculator.py:67
 msgid "Loopback"
 msgstr "Локален интерфейс"
 
-#: src/calculator.py:67
+#: src/calculator.py:68
 msgid "Link-Local (APIPA)"
 msgstr "Локална връзка (APIPA)"
 
@@ -94,19 +94,19 @@ msgstr "Локална връзка (APIPA)"
 msgid "Multicast"
 msgstr "Мултикаст"
 
-#: src/calculator.py:71
+#: src/calculator.py:70
 msgid "Reserved"
 msgstr "Запазен"
 
-#: src/calculator.py:73
+#: src/calculator.py:77
 msgid "Public"
 msgstr "Публичен"
 
-#: src/window.py:111
+#: src/window.py:131
 msgid "Recalculation needed"
 msgstr "Необходимо е преизчисляване"
 
-#: src/window.py:120
+#: src/window.py:141
 msgid "Copied to clipboard"
 msgstr "Копирано в буфера за обмен"
 
@@ -118,22 +118,22 @@ msgstr "Подробности"
 msgid "IP Address"
 msgstr "IP адрес"
 
-#: src/window.ui:54
+#: src/window.ui:65
 msgid "Subnet Mask"
 msgstr "Маска на подмрежата"
 
-#: src/window.ui:59
+#: src/window.ui:70
 msgid "Show Binary"
 msgstr "Показване в двоичен код"
 
-#: src/window.ui:60
+#: src/window.ui:71
 msgid "Display binary representation of IP addresses"
 msgstr "Показване на двоично представяне на IP адреси"
 
-#: src/window.ui:72
+#: src/window.ui:83
 msgid "Calculate"
 msgstr "Изчисляване"
 
-#: src/window.ui:84
+#: src/window.ui:95
 msgid "Results"
 msgstr "Резултати"

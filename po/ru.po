@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-09-26 12:00+0000\n"
-"PO-Revision-Date: 2024-10-03 19:50+0000\n"
+"POT-Creation-Date: 2024-10-10 15:00+0300\n"
+"PO-Revision-Date: 2024-10-10 15:30+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -26,71 +26,71 @@ msgstr "Калькулятор IP-подсетей"
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "Сеть;IP;Подсеть;Маска;Хост;Калькулятор;"
 
-#: src/calculator.py:34
+#: src/calculator.py:36
 msgid "Address"
 msgstr "Адрес"
 
-#: src/calculator.py:35
+#: src/calculator.py:37
 msgid "Netmask"
 msgstr "Маска"
 
-#: src/calculator.py:36
+#: src/calculator.py:38
 msgid "Wildcard"
 msgstr "Обратная маска"
 
-#: src/calculator.py:37
+#: src/calculator.py:39
 msgid "Network"
-msgstr "Сеть"
+msgstr "Адрес сети"
 
-#: src/calculator.py:38
+#: src/calculator.py:40
 msgid "First Host"
 msgstr "Первый хост"
 
-#: src/calculator.py:39
+#: src/calculator.py:41
 msgid "Last Host"
 msgstr "Последний хост"
 
-#: src/calculator.py:40
+#: src/calculator.py:42
 msgid "Broadcast"
 msgstr "Широковещательный адрес"
 
-#: src/calculator.py:41
+#: src/calculator.py:43 src/window.py:88
 msgid "Total Hosts"
 msgstr "Всего хостов"
 
-#: src/calculator.py:42
-msgid "Category"
-msgstr "Категория"
-
-#: src/calculator.py:43
+#: src/calculator.py:44
 msgid "PTR Record"
 msgstr "Обратный адрес"
 
-#: src/calculator.py:46
+#: src/calculator.py:45
+msgid "Category"
+msgstr "Категория"
+
+#: src/calculator.py:49
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/calculator.py:46
+#: src/calculator.py:49
 msgid "Invalid IP address or mask"
 msgstr "Недопустимый IP-адрес или маска"
 
-#: src/calculator.py:59
+#: src/calculator.py:64
 msgid "Private (Class A)"
-msgstr "Частный (Класс A)"
-
-#: src/calculator.py:61
-msgid "Private (Class B)"
-msgstr "Частный (Класс B)"
-
-#: src/calculator.py:63
-msgid "Private (Class C)"
-msgstr "Частный (Класс C)"
+msgstr "Частный (класс A)"
 
 #: src/calculator.py:65
+msgid "Private (Class B)"
+msgstr "Частный (класс B)"
+
+#: src/calculator.py:66
+msgid "Private (Class C)"
+msgstr "Частный (класс C)"
+
+#: src/calculator.py:67
 msgid "Loopback"
 msgstr "Обратная связь (Loopback)"
 
-#: src/calculator.py:67
+#: src/calculator.py:68
 msgid "Link-Local (APIPA)"
 msgstr "Локальная связь (APIPA)"
 
@@ -98,29 +98,57 @@ msgstr "Локальная связь (APIPA)"
 msgid "Multicast"
 msgstr "Мультикаст"
 
-#: src/calculator.py:71
+#: src/calculator.py:70
 msgid "Reserved"
 msgstr "Зарезервированный"
 
-#: src/calculator.py:73
+#: src/calculator.py:77
 msgid "Public"
 msgstr "Публичный"
 
-#: src/window.py:71
+#: src/window.py:98
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/window.py:111
+#: src/window.py:131
 msgid "Recalculation needed"
 msgstr "Требуется пересчёт"
 
-#: src/window.py:117
+#: src/window.py:135
 msgid "About Netsleuth"
 msgstr "О приложении"
 
-#: src/window.py:120
+#: src/window.py:141
 msgid "Copied to clipboard"
 msgstr "Скопировано в буфер обмена"
+
+#: src/window.py:197 src/window.ui:54
+msgid "History"
+msgstr "История"
+
+#: src/window.py:209
+msgid "Clear"
+msgstr "Очистить"
+
+#: src/window.py:220
+msgid "Empty"
+msgstr "Ничего нет"
+
+#: src/window.py:221
+msgid "Your calculation history will appear here"
+msgstr "История ваших расчётов появится здесь"
+
+#: src/window.py:283
+msgid "Select"
+msgstr "Выбрать"
+
+#: src/window.py:298
+msgid "Calculated: {ip}/{mask}"
+msgstr "Рассчитано: {ip}/{mask}"
+
+#: src/window.py:304
+msgid "History cleared"
+msgstr "История очищена"
 
 #: src/window.ui:46
 msgid "Details"
@@ -130,22 +158,22 @@ msgstr "Детали"
 msgid "IP Address"
 msgstr "IP-адрес"
 
-#: src/window.ui:54
+#: src/window.ui:65
 msgid "Subnet Mask"
 msgstr "Маска подсети"
 
-#: src/window.ui:59
+#: src/window.ui:70
 msgid "Show Binary"
 msgstr "Двоичные значения"
 
-#: src/window.ui:60
+#: src/window.ui:71
 msgid "Display binary representation of IP addresses"
 msgstr "Отображать двоичное представление IP-адресов"
 
-#: src/window.ui:72
+#: src/window.ui:83
 msgid "Calculate"
 msgstr "Рассчитать"
 
-#: src/window.ui:84
+#: src/window.ui:95
 msgid "Results"
 msgstr "Результаты"

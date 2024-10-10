@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-09-26 12:00+0000\n"
+"POT-Creation-Date: 2024-10-10 15:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,71 +25,71 @@ msgstr ""
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr ""
 
-#: src/calculator.py:34
+#: src/calculator.py:36
 msgid "Address"
 msgstr ""
 
-#: src/calculator.py:35
+#: src/calculator.py:37
 msgid "Netmask"
 msgstr ""
 
-#: src/calculator.py:36
+#: src/calculator.py:38
 msgid "Wildcard"
 msgstr ""
 
-#: src/calculator.py:37
+#: src/calculator.py:39
 msgid "Network"
 msgstr ""
 
-#: src/calculator.py:38
+#: src/calculator.py:40
 msgid "First Host"
 msgstr ""
 
-#: src/calculator.py:39
+#: src/calculator.py:41
 msgid "Last Host"
 msgstr ""
 
-#: src/calculator.py:40
+#: src/calculator.py:42
 msgid "Broadcast"
 msgstr ""
 
-#: src/calculator.py:41
+#: src/calculator.py:43 src/window.py:88
 msgid "Total Hosts"
 msgstr ""
 
-#: src/calculator.py:42
-msgid "Category"
-msgstr ""
-
-#: src/calculator.py:43
+#: src/calculator.py:44
 msgid "PTR Record"
 msgstr ""
 
-#: src/calculator.py:46
+#: src/calculator.py:45
+msgid "Category"
+msgstr ""
+
+#: src/calculator.py:49
 msgid "Error"
 msgstr ""
 
-#: src/calculator.py:46
+#: src/calculator.py:49
 msgid "Invalid IP address or mask"
 msgstr ""
 
-#: src/calculator.py:59
+#: src/calculator.py:64
 msgid "Private (Class A)"
 msgstr ""
 
-#: src/calculator.py:61
+#: src/calculator.py:65
 msgid "Private (Class B)"
 msgstr ""
 
-#: src/calculator.py:63
+#: src/calculator.py:66
 msgid "Private (Class C)"
 msgstr ""
 
-#: src/calculator.py:65
+#: src/calculator.py:67
 msgid "Loopback"
 msgstr ""
 
-#: src/calculator.py:67
+#: src/calculator.py:68
 msgid "Link-Local (APIPA)"
 msgstr ""
 
@@ -97,28 +97,56 @@ msgstr ""
 msgid "Multicast"
 msgstr ""
 
-#: src/calculator.py:71
+#: src/calculator.py:70
 msgid "Reserved"
 msgstr ""
 
-#: src/calculator.py:73
+#: src/calculator.py:77
 msgid "Public"
 msgstr ""
 
-#: src/window.py:71
+#: src/window.py:98
 msgid "Copy"
 msgstr ""
 
-#: src/window.py:111
+#: src/window.py:131
 msgid "Recalculation needed"
 msgstr ""
 
-#: src/window.py:117
+#: src/window.py:135
 msgid "About Netsleuth"
 msgstr ""
 
-#: src/window.py:120
+#: src/window.py:141
 msgid "Copied to clipboard"
+msgstr ""
+
+#: src/window.py:197 src/window.ui:54
+msgid "History"
+msgstr ""
+
+#: src/window.py:209
+msgid "Clear"
+msgstr ""
+
+#: src/window.py:220
+msgid "Empty"
+msgstr ""
+
+#: src/window.py:221
+msgid "Your calculation history will appear here"
+msgstr ""
+
+#: src/window.py:283
+msgid "Select"
+msgstr ""
+
+#: src/window.py:298
+msgid "Calculated: {ip}/{mask}"
+msgstr ""
+
+#: src/window.py:304
+msgid "History cleared"
 msgstr ""
 
 #: src/window.ui:46
@@ -129,22 +157,22 @@ msgstr ""
 msgid "IP Address"
 msgstr ""
 
-#: src/window.ui:54
+#: src/window.ui:65
 msgid "Subnet Mask"
 msgstr ""
 
-#: src/window.ui:59
+#: src/window.ui:70
 msgid "Show Binary"
 msgstr ""
 
-#: src/window.ui:60
+#: src/window.ui:71
 msgid "Display binary representation of IP addresses"
 msgstr ""
 
-#: src/window.ui:72
+#: src/window.ui:83
 msgid "Calculate"
 msgstr ""
 
-#: src/window.ui:84
+#: src/window.ui:95
 msgid "Results"
 msgstr ""
