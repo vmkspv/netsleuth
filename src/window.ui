@@ -91,6 +91,17 @@
                           </object>
                         </child>
                         <child>
+                          <object class="AdwPreferencesGroup" id="fact_of_the_day_box">
+                            <property name="visible">true</property>
+                            <child>
+                              <object class="AdwActionRow" id="fact_row">
+                                <property name="icon-name">dialog-information-symbolic</property>
+                                <property name="title" translatable="yes">Did you know?</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
                           <object class="AdwPreferencesGroup" id="results_group">
                             <property name="title" translatable="yes">Results</property>
                             <property name="visible">false</property>

@@ -18,13 +18,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import sys
-import gi
 import locale
+import gi
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Gio, Adw
+from gi.repository import Adw, Gtk, Gio
 from .window import NetsleuthWindow
 
 translators = {
@@ -58,7 +58,7 @@ class NetsleuthApplication(Adw.Application):
         about.set_application_name('Netsleuth')
         about.set_application_icon('io.github.vmkspv.netsleuth')
         about.set_developer_name('Vladimir Kosolapov')
-        about.set_version('1.0.2')
+        about.set_version('1.0.3')
         about.set_developers(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_designers(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_translator_credits(self.get_translator_credits())

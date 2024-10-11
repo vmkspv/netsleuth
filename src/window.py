@@ -17,10 +17,12 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+from os import path, makedirs
+from json import dump, load
+from random import choice
+
 from gi.repository import Adw, Gtk, Gdk, GLib
 from .calculator import IPCalculator
-from json import dump, load
-from os import path, makedirs
 
 @Gtk.Template(resource_path='/io/github/vmkspv/netsleuth/window.ui')
 class NetsleuthWindow(Adw.ApplicationWindow):
@@ -31,6 +33,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     mask_dropdown = Gtk.Template.Child()
     show_binary_switch = Gtk.Template.Child()
     calculate_button = Gtk.Template.Child()
+    fact_of_the_day_box = Gtk.Template.Child()
+    fact_row = Gtk.Template.Child()
     results_group = Gtk.Template.Child()
     results_box = Gtk.Template.Child()
     main_content = Gtk.Template.Child()
@@ -40,11 +44,12 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         super().__init__(**kwargs)
         self.set_title("Netsleuth")
         self.calculator = IPCalculator()
-        self.history = self.load_history()
-        self.history_dialog = None
         self.setup_mask_dropdown()
         self.connect_signals()
+        self.history = self.load_history()
+        self.history_dialog = None
         self.calculate_button.set_sensitive(False)
+        self.setup_fact_of_the_day()
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
@@ -56,6 +61,19 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.show_binary_switch.connect("notify::active", self.on_show_binary_changed)
         self.ip_entry.connect("changed", self.on_ip_entry_changed)
         self.ip_entry_timeout_id = None
+
+    def setup_fact_of_the_day(self):
+        facts = [
+            _('The 0.0.0.0 address is used to represent the default route or an unknown target network.'),
+            _('A PTR record enables reverse DNS lookup, translating an IP address back to a domain name.'),
+            _('The 240.0.0.0/4 block was originally reserved for future experiments, but is now considered legacy.'),
+            _('In a /30 subnet, there are only 2 usable IP addresses, often used for point-to-point links.'),
+            _('Wildcard mask inverts subnet masks, providing flexible IP filtering in access lists.'),
+            _('An IP\'s binary representation always has 32 bits, regardless of the decimal notation used.')
+        ]
+        fact = choice(facts)
+        self.fact_of_the_day_box.set_visible(True)
+        self.fact_row.set_subtitle(fact)
 
     @Gtk.Template.Callback()
     def on_calculate_clicked(self, button):
@@ -72,6 +90,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
         results = self.calculator.calculate(ip, mask)
         self.display_results(results)
+        self.fact_of_the_day_box.set_visible(False)
+        self.results_box.set_visible(True)
 
         if self.history_dialog:
             self.update_history_list()
