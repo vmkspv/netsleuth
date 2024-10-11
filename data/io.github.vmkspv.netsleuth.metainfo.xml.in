@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.vmkspv.netsleuth</id>
   <metadata_license>CC-BY-SA-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
+  <id>io.github.vmkspv.netsleuth</id>
   <name>Netsleuth</name>
   <summary>Calculate IP subnets</summary>
   <description>
     <p>A simple utility for the calculation and analysis of IP subnet values, designed to simplify network configuration tasks.</p>
   </description>
-  <branding>
-    <color type="primary" scheme_preference="light">#00574C</color>
-    <color type="primary" scheme_preference="dark">#002A25</color>
-  </branding>
   <screenshots>
     <screenshot type="default" xml:lang="en">
       <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/light-1.png</image>
@@ -30,7 +26,44 @@
       <caption>List of results (dark mode)</caption>
     </screenshot>
   </screenshots>
+  <branding>
+    <color type="primary" scheme_preference="light">#00574C</color>
+    <color type="primary" scheme_preference="dark">#002A25</color>
+  </branding>
+  <url type="homepage">https://github.com/vmkspv/netsleuth</url>
+  <url type="bugtracker">https://github.com/vmkspv/netsleuth/issues</url>
+  <url type="vcs-browser">https://github.com/vmkspv/netsleuth</url>
+  <url type="translate">https://github.com/vmkspv/netsleuth/tree/main/po</url>
+  <developer id="io.github.vmkspv">
+    <name translate="no">Vladimir Kosolapov</name>
+  </developer>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <categories>
+    <category>Utility</category>
+  </categories>
+  <launchable type="desktop-id">io.github.vmkspv.netsleuth.desktop</launchable>
+  <translation type="gettext">netsleuth</translation>
   <releases>
+    <release version="1.0.3" date="2024-10-11">
+      <description translate="no">
+        <ul>
+          <li>Improved binary output</li>
+          <li>Added interesting facts</li>
+          <li>Implemented history saving</li>
+        </ul>
+        <p>Updated/added translations:</p>
+        <ul>
+          <li>Brazilian Portuguese (Kelvin Novais)</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.2" date="2024-10-04">
       <description translate="no">
         <ul>
@@ -64,25 +97,5 @@
       </description>
     </release>
   </releases>
-  <categories>
-    <category>Utility</category>
-  </categories>
-  <url type="homepage">https://github.com/vmkspv/netsleuth</url>
-  <url type="bugtracker">https://github.com/vmkspv/netsleuth/issues</url>
-  <url type="vcs-browser">https://github.com/vmkspv/netsleuth</url>
-  <url type="translate">https://github.com/vmkspv/netsleuth/tree/main/po</url>
-  <launchable type="desktop-id">io.github.vmkspv.netsleuth.desktop</launchable>
-  <translation type="gettext">netsleuth</translation>
-  <developer id="io.github.vmkspv">
-    <name translate="no">Vladimir Kosolapov</name>
-  </developer>
-  <recommends>
-    <control>keyboard</control>
-    <control>pointing</control>
-    <control>touch</control>
-  </recommends>
-  <requires>
-    <display_length compare="ge">360</display_length>
-  </requires>
   <content_rating type="oars-1.1"/>
 </component>
