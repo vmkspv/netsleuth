@@ -54,7 +54,7 @@ msgstr "Último endereço"
 msgid "Broadcast"
 msgstr "Broadcast"
 
-#: src/calculator.py:43 src/window.py:88
+#: src/calculator.py:43 src/window.py:108
 msgid "Total Hosts"
 msgstr "Total de endereços"
 
@@ -106,19 +106,19 @@ msgstr "Reservado"
 msgid "Public"
 msgstr "Público"
 
-#: src/window.py:98
+#: src/window.py:118
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/window.py:131
+#: src/window.py:151
 msgid "Recalculation needed"
 msgstr "Recálculo necessário"
 
-#: src/window.py:135
+#: src/window.py:155
 msgid "About Netsleuth"
 msgstr "Sobre o Netsleuth"
 
-#: src/window.py:141
+#: src/window.py:161
 msgid "Copied to clipboard"
 msgstr "Copiado para área de transferência"
 
@@ -146,6 +146,6 @@ msgstr "Mostrar representação binária dos endereços de IP"
 msgid "Calculate"
 msgstr "Calcular"
 
-#: src/window.ui:95
+#: src/window.ui:106
 msgid "Results"
 msgstr "Resultados"

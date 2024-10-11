@@ -54,7 +54,7 @@ msgstr "Последен хост"
 msgid "Broadcast"
 msgstr "Разпръскване"
 
-#: src/calculator.py:43 src/window.py:88
+#: src/calculator.py:43 src/window.py:108
 msgid "Total Hosts"
 msgstr "Общо хостове"
 
@@ -102,11 +102,11 @@ msgstr "Запазен"
 msgid "Public"
 msgstr "Публичен"
 
-#: src/window.py:131
+#: src/window.py:151
 msgid "Recalculation needed"
 msgstr "Необходимо е преизчисляване"
 
-#: src/window.py:141
+#: src/window.py:161
 msgid "Copied to clipboard"
 msgstr "Копирано в буфера за обмен"
 
@@ -134,6 +134,6 @@ msgstr "Показване на двоично представяне на IP а
 msgid "Calculate"
 msgstr "Изчисляване"
 
-#: src/window.ui:95
+#: src/window.ui:106
 msgid "Results"
 msgstr "Резултати"

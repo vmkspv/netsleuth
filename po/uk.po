@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-10-10 15:00+0300\n"
-"PO-Revision-Date: 2024-10-10 15:30+0300\n"
+"POT-Creation-Date: 2024-10-11 09:00+0300\n"
+"PO-Revision-Date: 2024-10-11 10:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -54,7 +54,7 @@ msgstr "Останній хост"
 msgid "Broadcast"
 msgstr "Широкомовна адреса"
 
-#: src/calculator.py:43 src/window.py:88
+#: src/calculator.py:43 src/window.py:108
 msgid "Total Hosts"
 msgstr "Усього хостів"
 
@@ -106,47 +106,95 @@ msgstr "Зарезервований"
 msgid "Public"
 msgstr "Публічний"
 
-#: src/window.py:98
+#: src/window.py:67
+msgid ""
+"The 0.0.0.0 address is used to represent the default route or an unknown "
+"target network."
+msgstr ""
+"Адреса 0.0.0.0 використовується для позначення невідомої цільової мережі "
+"або маршруту за замовчуванням."
+
+#: src/window.py:68
+msgid ""
+"A PTR record enables reverse DNS lookup, translating an IP address back to "
+"a domain name."
+msgstr ""
+"PTR-запис дозволяє виконувати зворотний пошук DNS, перетворюючи IP-адресу на "
+"доменне ім'я."
+
+#: src/window.py:69
+msgid ""
+"The 240.0.0.0/4 block was originally reserved for future experiments, but "
+"is now considered legacy."
+msgstr ""
+"Спочатку блок 240.0.0.0/4 був зарезервований для майбутніх експериментів, "
+"але тепер вважається застарілим."
+
+#: src/window.py:70
+msgid ""
+"In a /30 subnet, there are only 2 usable IP addresses, often used for "
+"point-to-point links."
+msgstr ""
+"У підмережі /30 є лише 2 IP-адреси, що використовуються, часто застосовуються "
+"для з'єднань точка-точка."
+
+#: src/window.py:71
+msgid ""
+"Wildcard mask inverts subnet masks, providing flexible IP filtering in "
+"access lists."
+msgstr ""
+"Зворотня маска інвертує маски підмереж, забезпечуючи гнучку фільтрацію IP "
+"у списках доступу."
+
+#: src/window.py:72
+msgid ""
+"An IP's binary representation always has 32 bits, regardless of the decimal "
+"notation used."
+msgstr ""
+"Двійкове представлення IP-адреси завжди містить 32 біти, незалежно від "
+"використаної десяткової нотації."
+
+#: src/window.py:118
 msgid "Copy"
 msgstr "Копіювати"
 
-#: src/window.py:131
+#: src/window.py:151
 msgid "Recalculation needed"
 msgstr "Потрібен перерахунок"
 
-#: src/window.py:135
+#: src/window.py:155
 msgid "About Netsleuth"
 msgstr "Про Netsleuth"
 
-#: src/window.py:141
+#: src/window.py:161
 msgid "Copied to clipboard"
 msgstr "Скопійовано до буфера обміну"
 
-#: src/window.py:197 src/window.ui:54
+#: src/window.py:217 src/window.ui:54
 msgid "History"
 msgstr "Історія"
 
-#: src/window.py:209
+#: src/window.py:229
 msgid "Clear"
 msgstr "Очистити"
 
-#: src/window.py:220
+#: src/window.py:240
 msgid "Empty"
 msgstr "Нічого немає"
 
-#: src/window.py:221
+#: src/window.py:241
 msgid "Your calculation history will appear here"
 msgstr "Історія ваших розрахунків з'явиться тут"
 
-#: src/window.py:283
+#: src/window.py:303
 msgid "Select"
 msgstr "Вибрати"
 
-#: src/window.py:298
+#: src/window.py:318
 msgid "Calculated: {ip}/{mask}"
 msgstr "Розраховано: {ip}/{mask}"
 
-#: src/window.py:304
+#: src/window.py:324
 msgid "History cleared"
 msgstr "Історія очищена"
 
@@ -174,6 +222,10 @@ msgstr "Відображати двійкове представлення IP-а
 msgid "Calculate"
 msgstr "Розрахувати"
 
-#: src/window.ui:95
+#: src/window.ui:99
+msgid "Did you know?"
+msgstr "Чи знаєте ви?"
+
+#: src/window.ui:106
 msgid "Results"
 msgstr "Результати"

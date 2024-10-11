@@ -52,7 +52,7 @@ msgstr "Ultimo host"
 msgid "Broadcast"
 msgstr "Broadcast"
 
-#: src/calculator.py:43 src/window.py:88
+#: src/calculator.py:43 src/window.py:108
 msgid "Total Hosts"
 msgstr "Host totali"
 
@@ -100,11 +100,11 @@ msgstr "Privato"
 msgid "Public"
 msgstr "Pubblico"
 
-#: src/window.py:131
+#: src/window.py:151
 msgid "Recalculation needed"
 msgstr "È necessario un nuovo calcolo"
 
-#: src/window.py:141
+#: src/window.py:161
 msgid "Copied to clipboard"
 msgstr "Copiato negli appunti"
 
@@ -132,6 +132,6 @@ msgstr "Visualizza la rappresentazione binaria degli indirizzi IP"
 msgid "Calculate"
 msgstr "Calcola"
 
-#: src/window.ui:95
+#: src/window.ui:106
 msgid "Results"
 msgstr "Risutati"
