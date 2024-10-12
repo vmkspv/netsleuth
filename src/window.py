@@ -245,24 +245,21 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.history_stack.add_named(self.history_list, "history")
         self.history_stack.add_named(self.empty_history_page, "empty")
 
+        content_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        content_box.set_margin_top(16)
+        content_box.set_margin_bottom(22)
+        content_box.set_margin_start(16)
+        content_box.set_margin_end(16)
+        content_box.append(self.history_stack)
+
         scrolled_window = Gtk.ScrolledWindow(
             hscrollbar_policy=Gtk.PolicyType.NEVER,
             vscrollbar_policy=Gtk.PolicyType.AUTOMATIC,
             vexpand=True,
-            child=self.history_stack
+            child=content_box
         )
 
-        content_box = Gtk.Box(
-            orientation=Gtk.Orientation.VERTICAL,
-            spacing=16,
-            margin_top=24,
-            margin_bottom=24,
-            margin_start=16,
-            margin_end=16
-        )
-        content_box.append(scrolled_window)
-
-        toolbar_view.set_content(content_box)
+        toolbar_view.set_content(scrolled_window)
 
         self.history_toast_overlay = Adw.ToastOverlay()
         self.history_toast_overlay.set_child(toolbar_view)
