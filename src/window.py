@@ -36,13 +36,15 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     fact_of_the_day_box = Gtk.Template.Child()
     fact_row = Gtk.Template.Child()
     results_group = Gtk.Template.Child()
+    copy_all_button = Gtk.Template.Child()
+    export_button = Gtk.Template.Child()
     results_box = Gtk.Template.Child()
     main_content = Gtk.Template.Child()
     toast_overlay = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.set_title("Netsleuth")
+        self.set_title('Netsleuth')
         self.calculator = IPCalculator()
         self.setup_mask_dropdown()
         self.connect_signals()
@@ -50,6 +52,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.history_dialog = None
         self.calculate_button.set_sensitive(False)
         self.setup_fact_of_the_day()
+        self.results = {}
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
@@ -89,6 +92,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.save_history()
 
         results = self.calculator.calculate(ip, mask)
+        self.results = results
         self.display_results(results)
         self.fact_of_the_day_box.set_visible(False)
         self.results_box.set_visible(True)
@@ -114,7 +118,10 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             copy_button = Gtk.Button(icon_name="edit-copy-symbolic")
             copy_button.add_css_class("flat")
             copy_button.set_valign(Gtk.Align.CENTER)
-            copy_button.connect("clicked", self.on_copy_clicked, str(value))
+
+            copy_value = value.replace('<tt>', '').replace('</tt>', '') if isinstance(value, str) else str(value)
+            copy_button.connect("clicked", self.on_copy_clicked, copy_value)
+
             copy_button.set_tooltip_text(_('Copy'))
             row.add_suffix(copy_button)
 
@@ -156,6 +163,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.get_application().on_about_action(None, None)
 
     def on_copy_clicked(self, button, text):
+        if '<tt>' in text:
+            parts = text.split('<tt>')
+            text = f"{parts[0].strip()} {parts[1].replace('</tt>', '').strip()}"
         clipboard = Gdk.Display.get_default().get_clipboard()
         clipboard.set(text)
         self.show_toast(_('Copied to clipboard'))
@@ -344,3 +354,79 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def do_close_request(self):
         self.save_history()
         return False
+
+    @Gtk.Template.Callback()
+    def on_copy_all_clicked(self, button):
+        if not hasattr(self, "results") or not self.results:
+            return
+
+        text = "\n".join(f"{key}: {self.format_value(value, exclude_math=True)}"
+                        for key, value in self.results.items()
+                        if value is not None)
+        clipboard = Gdk.Display.get_default().get_clipboard()
+        clipboard.set(text)
+        self.show_toast(_('Copied to clipboard'))
+
+    def _remove_math_formula(self, value):
+        if isinstance(value, str):
+            parts = value.split(' ', 1)
+            if len(parts) > 1 and parts[1].startswith('(2'):
+                return parts[0]
+        return value
+
+    def format_value(self, value, exclude_math=False):
+        if isinstance(value, str):
+            if '<tt>' in value:
+                parts = value.split('<tt>')
+                return f"{parts[0].strip()} {parts[1].replace('</tt>', '').strip()}"
+        if exclude_math:
+            return self._remove_math_formula(value)
+        return str(value)
+
+    @Gtk.Template.Callback()
+    def on_export_clicked(self, button):
+        if not hasattr(self, "results") or not self.results:
+            return
+
+        dialog = Gtk.FileChooserNative.new(
+            title=_('Export results'),
+            parent=self,
+            action=Gtk.FileChooserAction.SAVE
+        )
+        dialog.set_current_name("results.json")
+
+        filter_json = Gtk.FileFilter()
+        filter_json.add_mime_type("application/json")
+        dialog.add_filter(filter_json)
+
+        dialog.connect("response", self.on_export_response)
+        dialog.show()
+
+    def format_value_for_export(self, value):
+        if isinstance(value, str):
+            if '<tt>' in value:
+                parts = value.split('<tt>')
+                return {
+                    "decimal": parts[0].strip(),
+                    "binary": parts[1].replace('</tt>', '').strip()
+                }
+        return self._remove_math_formula(value)
+
+    def on_export_response(self, dialog, response):
+        if response == Gtk.ResponseType.ACCEPT:
+            file = dialog.get_file()
+            file_path = file.get_path()
+            file_name = file.get_basename()
+
+            export_results = {
+                key: self.format_value_for_export(value)
+                for key, value in self.results.items()
+                if value is not None
+            }
+
+            with open(file_path, 'w', encoding='utf-8') as f:
+                dump(export_results, f, ensure_ascii=False, indent=2)
+
+            self.show_toast(_('Saved to {file}').format(file=file_name))
+
+        dialog.destroy()
