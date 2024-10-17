@@ -1,4 +1,5 @@
 [Desktop Entry]
+# Translators: Netsleuth is the application name. Do NOT translate or transliterate this string!
 Name=Netsleuth
 GenericName=IP Subnet Calculator
 Exec=netsleuth
@@ -6,6 +7,7 @@ Icon=io.github.vmkspv.netsleuth
 Terminal=false
 Type=Application
 Categories=GTK;Utility;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 Keywords=Network;IP;Subnet;Mask;Host;Calculator;
 StartupNotify=true
 X-Purism-FormFactor=Workstation;Mobile;

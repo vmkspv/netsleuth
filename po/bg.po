@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-26 12:00+0000\n"
-"PO-Revision-Date: 2024-10-01 20:31+0200\n"
+"PO-Revision-Date: 2024-10-17 16:00+0300\n"
 "Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
 "Language: bg\n"
@@ -18,122 +18,122 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Gtranslator 46.1\n"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.ui:19
+#: data/io.github.vmkspv.netsleuth.desktop.in src/window.ui
 msgid "IP Subnet Calculator"
 msgstr "Калкулатор на IP за подмрежи"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:10
+#: data/io.github.vmkspv.netsleuth.desktop.in
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "мрежа;подмрежа;маска;хост;калкулатор;"
 
-#: src/calculator.py:36
+#: src/calculator.py
 msgid "Address"
 msgstr "Адрес"
 
-#: src/calculator.py:37
+#: src/calculator.py
 msgid "Netmask"
 msgstr "Мрежова маска"
 
-#: src/calculator.py:38
+#: src/calculator.py
 msgid "Wildcard"
 msgstr "Заместваща маска"
 
-#: src/calculator.py:39
+#: src/calculator.py
 msgid "Network"
 msgstr "Мрежа"
 
-#: src/calculator.py:40
+#: src/calculator.py
 msgid "First Host"
 msgstr "Първи хост"
 
-#: src/calculator.py:41
+#: src/calculator.py
 msgid "Last Host"
 msgstr "Последен хост"
 
-#: src/calculator.py:42
+#: src/calculator.py
 msgid "Broadcast"
 msgstr "Разпръскване"
 
-#: src/calculator.py:43 src/window.py:108
+#: src/calculator.py src/window.py
 msgid "Total Hosts"
 msgstr "Общо хостове"
 
-#: src/calculator.py:45
+#: src/calculator.py
 msgid "Category"
 msgstr "Категория"
 
-#: src/calculator.py:49
+#: src/calculator.py
 msgid "Error"
 msgstr "Грешка"
 
-#: src/calculator.py:49
+#: src/calculator.py
 msgid "Invalid IP address or mask"
 msgstr "Неправилен IP адрес или маска"
 
-#: src/calculator.py:64
+#: src/calculator.py
 msgid "Private (Class A)"
 msgstr "Частен (Клас A)"
 
-#: src/calculator.py:65
+#: src/calculator.py
 msgid "Private (Class B)"
 msgstr "Частен (Клас B)"
 
-#: src/calculator.py:66
+#: src/calculator.py
 msgid "Private (Class C)"
 msgstr "Частен (Клас C)"
 
-#: src/calculator.py:67
+#: src/calculator.py
 msgid "Loopback"
 msgstr "Локален интерфейс"
 
-#: src/calculator.py:68
+#: src/calculator.py
 msgid "Link-Local (APIPA)"
 msgstr "Локална връзка (APIPA)"
 
-#: src/calculator.py:69
+#: src/calculator.py
 msgid "Multicast"
 msgstr "Мултикаст"
 
-#: src/calculator.py:70
+#: src/calculator.py
 msgid "Reserved"
 msgstr "Запазен"
 
-#: src/calculator.py:77
+#: src/calculator.py
 msgid "Public"
 msgstr "Публичен"
 
-#: src/window.py:151
+#: src/window.py
 msgid "Recalculation needed"
 msgstr "Необходимо е преизчисляване"
 
-#: src/window.py:161
+#: src/window.py
 msgid "Copied to clipboard"
 msgstr "Копирано в буфера за обмен"
 
-#: src/window.ui:46
+#: src/window.ui
 msgid "Details"
 msgstr "Подробности"
 
-#: src/window.ui:49
+#: src/window.ui
 msgid "IP Address"
 msgstr "IP адрес"
 
-#: src/window.ui:65
+#: src/window.ui
 msgid "Subnet Mask"
 msgstr "Маска на подмрежата"
 
-#: src/window.ui:70
+#: src/window.ui
 msgid "Show Binary"
 msgstr "Показване в двоичен код"
 
-#: src/window.ui:71
+#: src/window.ui
 msgid "Display binary representation of IP addresses"
 msgstr "Показване на двоично представяне на IP адреси"
 
-#: src/window.ui:83
+#: src/window.ui
 msgid "Calculate"
 msgstr "Изчисляване"
 
-#: src/window.ui:106
+#: src/window.ui
 msgid "Results"
 msgstr "Резултати"

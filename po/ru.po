@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-10-11 09:00+0300\n"
-"PO-Revision-Date: 2024-10-11 10:00+0300\n"
+"POT-Creation-Date: 2024-10-16 18:00+0300\n"
+"PO-Revision-Date: 2024-10-17 16:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -18,135 +18,170 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.ui:19
+#. Translators: Netsleuth is the application name. Do NOT translate or transliterate this string!
+#: data/io.github.vmkspv.netsleuth.desktop.in
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "Netsleuth"
+msgstr "Netsleuth"
+
+#: data/io.github.vmkspv.netsleuth.desktop.in src/window.ui
 msgid "IP Subnet Calculator"
 msgstr "Калькулятор IP-подсетей"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:10
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/io.github.vmkspv.netsleuth.desktop.in
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "Сеть;IP;Подсеть;Маска;Хост;Калькулятор;"
 
-#: src/calculator.py:36
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "Calculate IP subnets"
+msgstr "Рассчитывайте IP подсетей"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid ""
+"A simple utility for the calculation and analysis of IP subnet values, "
+"designed to simplify network configuration tasks."
+msgstr ""
+"Простая утилита для расчёта и анализа значений IP-подсетей, позволяющая "
+"упростить задачи конфигурирования сети."
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "Calculation options"
+msgstr "Параметры расчёта"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "List of results"
+msgstr "Список результатов"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "Calculation options (dark style)"
+msgstr "Параметры расчёта (тёмный стиль)"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "List of results (dark style)"
+msgstr "Список результатов (тёмный стиль)"
+
+#: src/calculator.py
 msgid "Address"
 msgstr "Адрес"
 
-#: src/calculator.py:37
+#: src/calculator.py
 msgid "Netmask"
 msgstr "Маска"
 
-#: src/calculator.py:38
+#: src/calculator.py
 msgid "Wildcard"
 msgstr "Обратная маска"
 
-#: src/calculator.py:39
+#: src/calculator.py
 msgid "Network"
 msgstr "Адрес сети"
 
-#: src/calculator.py:40
+#: src/calculator.py
 msgid "First Host"
 msgstr "Первый хост"
 
-#: src/calculator.py:41
+#: src/calculator.py
 msgid "Last Host"
 msgstr "Последний хост"
 
-#: src/calculator.py:42
+#: src/calculator.py
 msgid "Broadcast"
 msgstr "Широковещательный адрес"
 
-#: src/calculator.py:43 src/window.py:108
+#: src/calculator.py src/window.py
 msgid "Total Hosts"
 msgstr "Всего хостов"
 
-#: src/calculator.py:44
+#: src/calculator.py
 msgid "PTR Record"
 msgstr "Обратный адрес"
 
-#: src/calculator.py:45
+#: src/calculator.py
 msgid "Category"
 msgstr "Категория"
 
-#: src/calculator.py:49
+#: src/calculator.py
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/calculator.py:49
+#: src/calculator.py
 msgid "Invalid IP address or mask"
 msgstr "Недопустимый IP-адрес или маска"
 
-#: src/calculator.py:64
+#: src/calculator.py
 msgid "Private (Class A)"
-msgstr "Частный (класс A)"
+msgstr "Частный (Класс A)"
 
-#: src/calculator.py:65
+#: src/calculator.py
 msgid "Private (Class B)"
-msgstr "Частный (класс B)"
+msgstr "Частный (Класс B)"
 
-#: src/calculator.py:66
+#: src/calculator.py
 msgid "Private (Class C)"
-msgstr "Частный (класс C)"
+msgstr "Частный (Класс C)"
 
-#: src/calculator.py:67
+#: src/calculator.py
 msgid "Loopback"
 msgstr "Обратная связь (Loopback)"
 
-#: src/calculator.py:68
+#: src/calculator.py
 msgid "Link-Local (APIPA)"
 msgstr "Локальная связь (APIPA)"
 
-#: src/calculator.py:69
+#: src/calculator.py
 msgid "Multicast"
 msgstr "Мультикаст"
 
-#: src/calculator.py:70
+#: src/calculator.py
 msgid "Reserved"
 msgstr "Зарезервированный"
 
-#: src/calculator.py:77
+#: src/calculator.py
 msgid "Public"
 msgstr "Публичный"
 
-#: src/window.py:67
+#: src/window.py
 msgid ""
 "The 0.0.0.0 address is used to represent the default route or an unknown "
 "target network."
 msgstr ""
-"Адрес 0.0.0.0 используется для обозначения неизвестной целевой сети "
-"или маршрута по умолчанию."
+"Адрес 0.0.0.0 используется для обозначения неизвестной целевой сети или "
+"маршрута по умолчанию."
 
-#: src/window.py:68
+#: src/window.py
 msgid ""
-"A PTR record enables reverse DNS lookup, translating an IP address back to "
-"a domain name."
+"A PTR record enables reverse DNS lookup, translating an IP address back to a "
+"domain name."
 msgstr ""
 "PTR-запись позволяет выполнять обратный поиск DNS, преобразуя IP-адрес в "
 "доменное имя."
 
-#: src/window.py:69
+#: src/window.py
 msgid ""
-"The 240.0.0.0/4 block was originally reserved for future experiments, but "
-"is now considered legacy."
+"The 240.0.0.0/4 block was originally reserved for future experiments, but is "
+"now considered legacy."
 msgstr ""
-"Изначально блок 240.0.0.0/4 был зарезервирован для будущих экспериментов, "
-"но теперь считается устаревшим."
+"Изначально блок 240.0.0.0/4 был зарезервирован для будущих экспериментов, но "
+"теперь считается устаревшим."
 
-#: src/window.py:70
+#: src/window.py
 msgid ""
-"In a /30 subnet, there are only 2 usable IP addresses, often used for "
-"point-to-point links."
+"In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
+"to-point links."
 msgstr ""
 "В подсети /30 есть только 2 используемых IP-адреса, часто применяемых для "
 "соединений точка-точка."
 
-#: src/window.py:71
+#: src/window.py
 msgid ""
 "Wildcard mask inverts subnet masks, providing flexible IP filtering in "
 "access lists."
 msgstr ""
-"Обратная маска инвертирует маски подсетей, обеспечивая гибкую фильтрацию IP "
-"в списках доступа."
+"Обратная маска инвертирует маски подсетей, обеспечивая гибкую фильтрацию IP в "
+"списках доступа."
 
-#: src/window.py:72
+#: src/window.py
 msgid ""
 "An IP's binary representation always has 32 bits, regardless of the decimal "
 "notation used."
@@ -154,78 +189,96 @@ msgstr ""
 "Двоичное представление IP-адреса всегда содержит 32 бита, независимо от "
 "используемой десятичной нотации."
 
-#: src/window.py:118
+#: src/window.py
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/window.py:151
+#: src/window.py
 msgid "Recalculation needed"
 msgstr "Требуется пересчёт"
 
-#: src/window.py:155
+#: src/window.py
 msgid "About Netsleuth"
 msgstr "О приложении"
 
-#: src/window.py:161
+#: src/window.py
 msgid "Copied to clipboard"
 msgstr "Скопировано в буфер обмена"
 
-#: src/window.py:217 src/window.ui:54
+#: src/window.py src/window.ui
 msgid "History"
 msgstr "История"
 
-#: src/window.py:229
+#: src/window.py
 msgid "Clear"
 msgstr "Очистить"
 
-#: src/window.py:240
+#: src/window.py
 msgid "Empty"
 msgstr "Ничего нет"
 
-#: src/window.py:241
+#: src/window.py
 msgid "Your calculation history will appear here"
 msgstr "История ваших расчётов появится здесь"
 
-#: src/window.py:303
+#: src/window.py
 msgid "Select"
 msgstr "Выбрать"
 
-#: src/window.py:318
+#: src/window.py
+#, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Рассчитано: {ip}/{mask}"
 
-#: src/window.py:324
+#: src/window.py
 msgid "History cleared"
 msgstr "История очищена"
 
-#: src/window.ui:46
+#: src/window.py
+msgid "Export results"
+msgstr "Экспорт результатов"
+
+#: src/window.py
+#, python-brace-format
+msgid "Saved to {file}"
+msgstr "Сохранено в {file}"
+
+#: src/window.ui
 msgid "Details"
 msgstr "Детали"
 
-#: src/window.ui:49
+#: src/window.ui
 msgid "IP Address"
 msgstr "IP-адрес"
 
-#: src/window.ui:65
+#: src/window.ui
 msgid "Subnet Mask"
 msgstr "Маска подсети"
 
-#: src/window.ui:70
+#: src/window.ui
 msgid "Show Binary"
 msgstr "Двоичные значения"
 
-#: src/window.ui:71
+#: src/window.ui
 msgid "Display binary representation of IP addresses"
 msgstr "Отображать двоичное представление IP-адресов"
 
-#: src/window.ui:83
+#: src/window.ui
 msgid "Calculate"
 msgstr "Рассчитать"
 
-#: src/window.ui:99
+#: src/window.ui
 msgid "Did you know?"
 msgstr "Знаете ли вы?"
 
-#: src/window.ui:106
+#: src/window.ui
 msgid "Results"
 msgstr "Результаты"
+
+#: src/window.ui
+msgid "Copy All"
+msgstr "Копировать всё"
+
+#: src/window.ui
+msgid "Export"
+msgstr "Экспортировать"

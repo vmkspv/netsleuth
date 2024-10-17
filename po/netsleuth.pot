@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# LANGUAGE translations for Netsleuth package.
+# Copyright (C) 2024 Vladimir Kosolapov
+# This file is distributed under the same license as the Netsleuth package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-10-11 09:00+0300\n"
+"POT-Creation-Date: 2024-10-16 18:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,202 +17,253 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.ui:19
+#. Translators: Netsleuth is the application name. Do NOT translate or transliterate this string!
+#: data/io.github.vmkspv.netsleuth.desktop.in
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "Netsleuth"
+msgstr ""
+
+#: data/io.github.vmkspv.netsleuth.desktop.in src/window.ui
 msgid "IP Subnet Calculator"
 msgstr ""
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:10
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/io.github.vmkspv.netsleuth.desktop.in
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr ""
 
-#: src/calculator.py:36
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "Calculate IP subnets"
+msgstr ""
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid ""
+"A simple utility for the calculation and analysis of IP subnet values, "
+"designed to simplify network configuration tasks."
+msgstr ""
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "Calculation options"
+msgstr ""
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "List of results"
+msgstr ""
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "Calculation options (dark style)"
+msgstr ""
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in
+msgid "List of results (dark style)"
+msgstr ""
+
+#: src/calculator.py
 msgid "Address"
 msgstr ""
 
-#: src/calculator.py:37
+#: src/calculator.py
 msgid "Netmask"
 msgstr ""
 
-#: src/calculator.py:38
+#: src/calculator.py
 msgid "Wildcard"
 msgstr ""
 
-#: src/calculator.py:39
+#: src/calculator.py
 msgid "Network"
 msgstr ""
 
-#: src/calculator.py:40
+#: src/calculator.py
 msgid "First Host"
 msgstr ""
 
-#: src/calculator.py:41
+#: src/calculator.py
 msgid "Last Host"
 msgstr ""
 
-#: src/calculator.py:42
+#: src/calculator.py
 msgid "Broadcast"
 msgstr ""
 
-#: src/calculator.py:43 src/window.py:108
+#: src/calculator.py src/window.py
 msgid "Total Hosts"
 msgstr ""
 
-#: src/calculator.py:44
+#: src/calculator.py
 msgid "PTR Record"
 msgstr ""
 
-#: src/calculator.py:45
+#: src/calculator.py
 msgid "Category"
 msgstr ""
 
-#: src/calculator.py:49
+#: src/calculator.py
 msgid "Error"
 msgstr ""
 
-#: src/calculator.py:49
+#: src/calculator.py
 msgid "Invalid IP address or mask"
 msgstr ""
 
-#: src/calculator.py:64
+#: src/calculator.py
 msgid "Private (Class A)"
 msgstr ""
 
-#: src/calculator.py:65
+#: src/calculator.py
 msgid "Private (Class B)"
 msgstr ""
 
-#: src/calculator.py:66
+#: src/calculator.py
 msgid "Private (Class C)"
 msgstr ""
 
-#: src/calculator.py:67
+#: src/calculator.py
 msgid "Loopback"
 msgstr ""
 
-#: src/calculator.py:68
+#: src/calculator.py
 msgid "Link-Local (APIPA)"
 msgstr ""
 
-#: src/calculator.py:69
+#: src/calculator.py
 msgid "Multicast"
 msgstr ""
 
-#: src/calculator.py:70
+#: src/calculator.py
 msgid "Reserved"
 msgstr ""
 
-#: src/calculator.py:77
+#: src/calculator.py
 msgid "Public"
 msgstr ""
 
-#: src/window.py:67
+#: src/window.py
 msgid ""
 "The 0.0.0.0 address is used to represent the default route or an unknown "
 "target network."
 msgstr ""
 
-#: src/window.py:68
+#: src/window.py
 msgid ""
-"A PTR record enables reverse DNS lookup, translating an IP address back to "
-"a domain name."
+"A PTR record enables reverse DNS lookup, translating an IP address back to a "
+"domain name."
 msgstr ""
 
-#: src/window.py:69
+#: src/window.py
 msgid ""
-"The 240.0.0.0/4 block was originally reserved for future experiments, but "
-"is now considered legacy."
+"The 240.0.0.0/4 block was originally reserved for future experiments, but is "
+"now considered legacy."
 msgstr ""
 
-#: src/window.py:70
+#: src/window.py
 msgid ""
-"In a /30 subnet, there are only 2 usable IP addresses, often used for "
-"point-to-point links."
+"In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
+"to-point links."
 msgstr ""
 
-#: src/window.py:71
+#: src/window.py
 msgid ""
 "Wildcard mask inverts subnet masks, providing flexible IP filtering in "
 "access lists."
 msgstr ""
 
-#: src/window.py:72
+#: src/window.py
 msgid ""
 "An IP's binary representation always has 32 bits, regardless of the decimal "
 "notation used."
 msgstr ""
 
-#: src/window.py:118
+#: src/window.py
 msgid "Copy"
 msgstr ""
 
-#: src/window.py:151
+#: src/window.py
 msgid "Recalculation needed"
 msgstr ""
 
-#: src/window.py:155
+#: src/window.py
 msgid "About Netsleuth"
 msgstr ""
 
-#: src/window.py:161
+#: src/window.py
 msgid "Copied to clipboard"
 msgstr ""
 
-#: src/window.py:217 src/window.ui:54
+#: src/window.py src/window.ui
 msgid "History"
 msgstr ""
 
-#: src/window.py:229
+#: src/window.py
 msgid "Clear"
 msgstr ""
 
-#: src/window.py:240
+#: src/window.py
 msgid "Empty"
 msgstr ""
 
-#: src/window.py:241
+#: src/window.py
 msgid "Your calculation history will appear here"
 msgstr ""
 
-#: src/window.py:303
+#: src/window.py
 msgid "Select"
 msgstr ""
 
-#: src/window.py:318
+#: src/window.py
+#, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr ""
 
-#: src/window.py:324
+#: src/window.py
 msgid "History cleared"
 msgstr ""
 
-#: src/window.ui:46
+#: src/window.py
+msgid "Export results"
+msgstr ""
+
+#: src/window.py
+#, python-brace-format
+msgid "Saved to {file}"
+msgstr ""
+
+#: src/window.ui
 msgid "Details"
 msgstr ""
 
-#: src/window.ui:49
+#: src/window.ui
 msgid "IP Address"
 msgstr ""
 
-#: src/window.ui:65
+#: src/window.ui
 msgid "Subnet Mask"
 msgstr ""
 
-#: src/window.ui:70
+#: src/window.ui
 msgid "Show Binary"
 msgstr ""
 
-#: src/window.ui:71
+#: src/window.ui
 msgid "Display binary representation of IP addresses"
 msgstr ""
 
-#: src/window.ui:83
+#: src/window.ui
 msgid "Calculate"
 msgstr ""
 
-#: src/window.ui:99
+#: src/window.ui
 msgid "Did you know?"
 msgstr ""
 
-#: src/window.ui:106
+#: src/window.ui
 msgid "Results"
+msgstr ""
+
+#: src/window.ui
+msgid "Copy All"
+msgstr ""
+
+#: src/window.ui
+msgid "Export"
 msgstr ""

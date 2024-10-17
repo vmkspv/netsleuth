@@ -9,21 +9,21 @@
     <p>A simple utility for the calculation and analysis of IP subnet values, designed to simplify network configuration tasks.</p>
   </description>
   <screenshots>
-    <screenshot type="default" xml:lang="en">
+    <screenshot type="default">
       <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/light-1.png</image>
       <caption>Calculation options</caption>
     </screenshot>
-    <screenshot xml:lang="en">
+    <screenshot>
       <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/light-2.png</image>
       <caption>List of results</caption>
     </screenshot>
-    <screenshot xml:lang="en">
+    <screenshot>
       <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/dark-1.png</image>
-      <caption>Calculation options (dark mode)</caption>
+      <caption>Calculation options (dark style)</caption>
     </screenshot>
-    <screenshot xml:lang="en">
+    <screenshot>
       <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/dark-2.png</image>
-      <caption>List of results (dark mode)</caption>
+      <caption>List of results (dark style)</caption>
     </screenshot>
   </screenshots>
   <branding>
@@ -43,6 +43,7 @@
     <control>touch</control>
   </recommends>
   <requires>
+    <internet>offline-only</internet>
     <display_length compare="ge">360</display_length>
   </requires>
   <categories>
