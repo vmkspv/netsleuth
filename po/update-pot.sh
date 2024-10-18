@@ -31,7 +31,6 @@ xgettext --files-from=po/POTFILES \
          --keyword=C_:1c,2 \
          --keyword=N_ \
          --keyword=Q_ \
-         --add-location=file \
          2>/dev/null
 
 print_step "Updating POT creation date..."

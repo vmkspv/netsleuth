@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-26 12:00+0000\n"
-"PO-Revision-Date: 2024-10-17 16:00+0300\n"
+"PO-Revision-Date: 2024-10-18 14:00+0300\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -16,122 +16,122 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in src/window.ui
+#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:18
 msgid "IP Subnet Calculator"
 msgstr "Calcolatore della sottorete IP"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in
+#: data/io.github.vmkspv.netsleuth.desktop.in:12
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "Rete;IP;Subnet;Maschera;Host;Calcolatrice;"
 
-#: src/calculator.py
+#: src/calculator.py:36
 msgid "Address"
 msgstr "Indirizzo"
 
-#: src/calculator.py
+#: src/calculator.py:37
 msgid "Netmask"
 msgstr "Maschera di rete"
 
-#: src/calculator.py
+#: src/calculator.py:38
 msgid "Wildcard"
 msgstr "Carattere jolly"
 
-#: src/calculator.py
+#: src/calculator.py:39
 msgid "Network"
 msgstr "Rete"
 
-#: src/calculator.py
+#: src/calculator.py:40
 msgid "First Host"
 msgstr "Primo host"
 
-#: src/calculator.py
+#: src/calculator.py:41
 msgid "Last Host"
 msgstr "Ultimo host"
 
-#: src/calculator.py
+#: src/calculator.py:42
 msgid "Broadcast"
 msgstr "Broadcast"
 
-#: src/calculator.py src/window.py
+#: src/calculator.py:43 src/window.py:113
 msgid "Total Hosts"
 msgstr "Host totali"
 
-#: src/calculator.py
+#: src/calculator.py:45
 msgid "Category"
 msgstr "Categoria"
 
-#: src/calculator.py
+#: src/calculator.py:49
 msgid "Error"
 msgstr "Errore"
 
-#: src/calculator.py
+#: src/calculator.py:49
 msgid "Invalid IP address or mask"
 msgstr "Indirizzo IP o maschera non validi"
 
-#: src/calculator.py
+#: src/calculator.py:64
 msgid "Private (Class A)"
 msgstr "Privato (Classe A)"
 
-#: src/calculator.py
+#: src/calculator.py:65
 msgid "Private (Class B)"
 msgstr "Privato (Classe B)"
 
-#: src/calculator.py
+#: src/calculator.py:66
 msgid "Private (Class C)"
 msgstr "Privato (Classe C)"
 
-#: src/calculator.py
+#: src/calculator.py:67
 msgid "Loopback"
 msgstr "Loopback"
 
-#: src/calculator.py
+#: src/calculator.py:68
 msgid "Link-Local (APIPA)"
 msgstr "Link-Locale (APIPA)"
 
-#: src/calculator.py
+#: src/calculator.py:69
 msgid "Multicast"
 msgstr "Multicast"
 
-#: src/calculator.py
+#: src/calculator.py:70
 msgid "Reserved"
 msgstr "Privato"
 
-#: src/calculator.py
+#: src/calculator.py:73
 msgid "Public"
 msgstr "Pubblico"
 
-#: src/window.py
+#: src/window.py:159
 msgid "Recalculation needed"
 msgstr "È necessario un nuovo calcolo"
 
-#: src/window.py
+#: src/window.py:172 src/window.py:373
 msgid "Copied to clipboard"
 msgstr "Copiato negli appunti"
 
-#: src/window.ui
+#: src/window.ui:46
 msgid "Details"
 msgstr "Dettagli"
 
-#: src/window.ui
+#: src/window.ui:49
 msgid "IP Address"
 msgstr "Indirizzo IP"
 
-#: src/window.ui
+#: src/window.ui:65
 msgid "Subnet Mask"
 msgstr "Maschera di sottorete"
 
-#: src/window.ui
+#: src/window.ui:70
 msgid "Show Binary"
 msgstr "Mostra binario"
 
-#: src/window.ui
+#: src/window.ui:71
 msgid "Display binary representation of IP addresses"
 msgstr "Visualizza la rappresentazione binaria degli indirizzi IP"
 
-#: src/window.ui
+#: src/window.ui:83
 msgid "Calculate"
 msgstr "Calcola"
 
-#: src/window.ui
+#: src/window.ui:106
 msgid "Results"
 msgstr "Risutati"
