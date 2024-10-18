@@ -56,25 +56,21 @@ class IPCalculator:
         return str(ip)
 
     def ip_to_binary(self, ip):
-        return '.'.join([bin(int(x)+256)[3:] for x in str(ip).split('.')])
+        return '.'.join(f"{int(octet):08b}" for octet in str(ip).split('.'))
 
     def get_ip_class(self, ip):
         ip_int = int(ipaddress.IPv4Address(ip))
-        ip_ranges = [
+        ip_ranges = (
             (167772160, 184549375, _('Private (Class A)')),
             (2886729728, 2887778303, _('Private (Class B)')),
             (3232235520, 3232301055, _('Private (Class C)')),
             (2130706432, 2147483647, _('Loopback')),
             (2851995648, 2852061183, _('Link-Local (APIPA)')),
             (3758096384, 4026531839, _('Multicast')),
-            (4026531840, 4294967295, _('Reserved')),
-        ]
+            (4026531840, 4294967295, _('Reserved'))
+        )
 
-        for start, end, category in ip_ranges:
-            if start <= ip_int <= end:
-                return category
-
-        return _('Public')
+        return next((category for start, end, category in ip_ranges if start <= ip_int <= end), _('Public'))
 
     def int_to_dotted_netmask(self, mask_int):
         mask = (0xffffffff << (32 - mask_int)) & 0xffffffff
@@ -88,5 +84,4 @@ class IPCalculator:
         return f" (2{superscript} - 2)"
 
     def get_ptr_record(self, ip):
-        reversed_ip = '.'.join(reversed(str(ip).split('.')))
-        return f"{reversed_ip}.in-addr.arpa"
+        return f"{'.'.join(str(ip).split('.')[::-1])}.in-addr.arpa"
