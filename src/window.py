@@ -63,6 +63,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.calculate_button.connect("clicked", self.on_calculate_clicked)
         self.show_binary_switch.connect("notify::active", self.on_show_binary_changed)
         self.ip_entry.connect("changed", self.on_ip_entry_changed)
+        self.ip_entry.get_delegate().connect("activate", self.on_ip_entry_activate)
         self.ip_entry_timeout_id = None
 
     def setup_fact_of_the_day(self):
@@ -79,7 +80,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.fact_row.set_subtitle(fact)
 
     @Gtk.Template.Callback()
-    def on_calculate_clicked(self, button):
+    def on_calculate_clicked(self, button=None):
         ip = self.ip_entry.get_text()
         mask = int(self.mask_dropdown.get_selected_item().get_string().split()[0])
 
@@ -214,6 +215,10 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             if not octet or not octet.isdigit() or int(octet) > 255:
                 return False
         return True
+
+    def on_ip_entry_activate(self, entry):
+        if self.is_valid_ip(self.ip_entry.get_text()) and self.calculate_button.get_sensitive():
+            self.on_calculate_clicked(None)
 
     @Gtk.Template.Callback()
     def on_history_button_clicked(self, button):
@@ -407,8 +412,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             if '<tt>' in value:
                 parts = value.split('<tt>')
                 return {
-                    "decimal": parts[0].strip(),
-                    "binary": parts[1].replace('</tt>', '').strip()
+                    _('decimal'): parts[0].strip(),
+                    _('binary'): parts[1].replace('</tt>', '').strip()
                 }
         return self._remove_math_formula(value)
 

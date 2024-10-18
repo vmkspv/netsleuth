@@ -38,15 +38,16 @@ translators = {
 class NetsleuthApplication(Adw.Application):
     def __init__(self):
         super().__init__(application_id='io.github.vmkspv.netsleuth',
-                         flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
-        self.create_action("quit", self.quit, ['<primary>q'])
+                        flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
+        self.create_action("quit", lambda *_: self.quit(), ['<primary>q'])
         self.create_action("about", self.on_about_action)
-        self._window = None
+        self.create_action("close-window", self.on_close_window_action, ['<primary>w'])
+        self.window = None
 
     def do_activate(self):
-        if not self._window:
-            self._window = NetsleuthWindow(application=self)
-        self._window.present()
+        if not self.window:
+            self.window = NetsleuthWindow(application=self)
+        self.window.present()
 
     def get_translator_credits(self):
         locale_code = locale.getlocale()[0] or ''
@@ -64,7 +65,12 @@ class NetsleuthApplication(Adw.Application):
         about.set_copyright('© 2024 Vladimir Kosolapov')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_issue_url('https://github.com/vmkspv/netsleuth/issues')
-        about.present(self._window)
+        about.present(self.window)
+
+    def on_close_window_action(self, *args):
+        win = self.props.active_window
+        if win:
+            win.close()
 
     def create_action(self, name, callback, shortcuts=None):
         action = Gio.SimpleAction.new(name, None)
