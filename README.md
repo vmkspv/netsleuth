@@ -4,13 +4,29 @@
 
 _Netsleuth_ is a simple utility for calculating and analyzing IP subnet values.
 
-<img src="data/screenshots/preview.png" width="756" title="Main window"/>
+<p align="center">
+  <a href="https://github.com/vmkspv/netsleuth/actions/workflows/flatpak.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/vmkspv/netsleuth/flatpak.yml?logo=flatpak&logoColor=fff&labelColor=1a4138&color=229770"/>
+  </a>
+  <a href="https://github.com/vmkspv/netsleuth/releases/latest">
+    <img src="https://img.shields.io/github/v/release/vmkspv/netsleuth?logo=github&logoColor=fff&labelColor=1a4138&color=229770"/>
+  </a>
+  <a href="https://flathub.org/apps/details/io.github.vmkspv.netsleuth">
+    <img src="https://img.shields.io/flathub/downloads/io.github.vmkspv.netsleuth?logo=flathub&logoColor=fff&labelColor=1a4138&color=229770"/>
+  </a>
+</p>
+
+<p align="center">
+  <img src="data/screenshots/preview.png" width="756" title="Main window"/>
+</p>
 
 ## Installation
 
 The recommended installation method is via Flatpak.
 
-<a href="https://flathub.org/apps/details/io.github.vmkspv.netsleuth"><img src="https://flathub.org/api/badge?svg&locale=en" width="196"/></a>
+<a href="https://flathub.org/apps/details/io.github.vmkspv.netsleuth">
+  <img src="https://flathub.org/api/badge?svg&locale=en" width="196"/>
+</a>
 
 ## Building from source
 
