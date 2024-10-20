@@ -10,26 +10,21 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/light-1.png</image>
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/main-1.png</image>
       <caption>Calculation options</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/light-2.png</image>
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/main-2.png</image>
       <caption>List of results</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/dark-1.png</image>
-      <caption>Calculation options (dark style)</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/dark-2.png</image>
-      <caption>List of results (dark style)</caption>
     </screenshot>
   </screenshots>
   <branding>
-    <color type="primary" scheme_preference="light">#00574C</color>
-    <color type="primary" scheme_preference="dark">#002A25</color>
+    <color type="primary" scheme_preference="light">#6AA698</color>
+    <color type="primary" scheme_preference="dark">#1E4C42</color>
   </branding>
+  <custom>
+    <value key="GnomeSoftware::key-colors">[(106, 166, 152), (30, 76, 66)]</value>
+  </custom>
   <url type="homepage">https://github.com/vmkspv/netsleuth</url>
   <url type="bugtracker">https://github.com/vmkspv/netsleuth/issues</url>
   <url type="vcs-browser">https://github.com/vmkspv/netsleuth</url>
@@ -52,6 +47,15 @@
   <launchable type="desktop-id">io.github.vmkspv.netsleuth.desktop</launchable>
   <translation type="gettext">netsleuth</translation>
   <releases>
+    <release version="1.0.4" date="2024-10-20">
+      <description translate="no">
+        <ul>
+          <li>Added export options</li>
+          <li>Improved keyboard navigation</li>
+          <li>Minor code optimization/fixes</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.3" date="2024-10-11">
       <description translate="no">
         <ul>
