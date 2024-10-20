@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-10-18 13:00+0300\n"
+"POT-Creation-Date: 2024-10-20 12:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,14 +48,6 @@ msgstr ""
 
 #: data/io.github.vmkspv.netsleuth.metainfo.xml.in:18
 msgid "List of results"
-msgstr ""
-
-#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:22
-msgid "Calculation options (dark style)"
-msgstr ""
-
-#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:26
-msgid "List of results (dark style)"
 msgstr ""
 
 #: src/calculator.py:36
