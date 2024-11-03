@@ -56,8 +56,12 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
-        self.mask_dropdown.set_model(Gtk.StringList.new(masks))
+        model = Gtk.StringList.new(masks)
+        self.mask_dropdown.set_model(model)
         self.mask_dropdown.set_selected(24)
+
+        expression = Gtk.PropertyExpression.new(Gtk.StringObject, None, "string")
+        self.mask_dropdown.set_expression(expression)
 
     def connect_signals(self):
         self.calculate_button.connect("clicked", self.on_calculate_clicked)

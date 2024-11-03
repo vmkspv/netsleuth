@@ -63,6 +63,8 @@
                             <child>
                               <object class="AdwComboRow" id="mask_dropdown">
                                 <property name="title" translatable="yes">Subnet Mask</property>
+                                <property name="enable-search">true</property>
+                                <property name="search-match-mode">substring</property>
                               </object>
                             </child>
                             <child>
