@@ -56,8 +56,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
-        model = Gtk.StringList.new(masks)
-        self.mask_dropdown.set_model(model)
+        self.mask_dropdown.set_model(Gtk.StringList.new(masks))
         self.mask_dropdown.set_selected(24)
 
         expression = Gtk.PropertyExpression.new(Gtk.StringObject, None, "string")
@@ -196,16 +195,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         return GLib.SOURCE_REMOVE
 
     def validate_ip_input(self, text):
-        parts = text.split('.')[:4]
-        valid_parts = []
-
-        for part in parts:
-            if not part and len(valid_parts) < 3:
-                continue
-            num = ''.join(filter(str.isdigit, part))[:3]
-            if num:
-                valid_parts.append(str(min(int(num), 255)))
-
+        parts = [''.join(filter(str.isdigit, part))[:3] for part in text.split('.')[:4]]
+        valid_parts = [str(min(int(p), 255)) for p in parts if p]
         result = '.'.join(valid_parts)
         if text.endswith('.') and len(valid_parts) < 4:
             result += '.'
