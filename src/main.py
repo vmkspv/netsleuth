@@ -36,12 +36,13 @@ translators = {
 }
 
 class NetsleuthApplication(Adw.Application):
-    def __init__(self):
+    def __init__(self, version):
         super().__init__(application_id='io.github.vmkspv.netsleuth',
                         flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
         self.create_action("quit", lambda *_: self.quit(), ['<primary>q'])
-        self.create_action("about", self.on_about_action)
         self.create_action("close-window", self.on_close_window_action, ['<primary>w'])
+        self.create_action("about", self.on_about_action)
+        self.version = version
         self.window = None
 
     def do_activate(self):
@@ -58,7 +59,7 @@ class NetsleuthApplication(Adw.Application):
         about.set_application_name('Netsleuth')
         about.set_application_icon('io.github.vmkspv.netsleuth')
         about.set_developer_name('Vladimir Kosolapov')
-        about.set_version('1.0.4')
+        about.set_version(self.version)
         about.set_developers(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_designers(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_translator_credits(self.get_translator_credits())
@@ -80,5 +81,5 @@ class NetsleuthApplication(Adw.Application):
             self.set_accels_for_action(f"app.{name}", shortcuts)
 
 def main(version):
-    app = NetsleuthApplication()
+    app = NetsleuthApplication(version)
     return app.run(sys.argv)
