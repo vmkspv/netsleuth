@@ -137,13 +137,14 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             row = Adw.ActionRow(title=key, subtitle=subtitle)
             row.add_css_class("property-row")
 
-            copy_button = Gtk.Button(icon_name="edit-copy-symbolic")
+            copy_button = Gtk.Button(
+                icon_name="edit-copy-symbolic",
+                valign=Gtk.Align.CENTER,
+                tooltip_text=_('Copy')
+            )
             copy_button.add_css_class("flat")
-            copy_button.set_valign(Gtk.Align.CENTER)
-
             copy_value = value.replace('<tt>', '').replace('</tt>', '') if isinstance(value, str) else str(value)
             copy_button.connect("clicked", self.on_copy_clicked, copy_value)
-            copy_button.set_tooltip_text(_('Copy'))
             row.add_suffix(copy_button)
             return row
 
@@ -241,11 +242,14 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         header_bar = Adw.HeaderBar()
         header_bar.add_css_class("flat")
 
-        self.clear_button = Gtk.Button(icon_name="user-trash-symbolic")
+        self.clear_button = Gtk.Button(
+            icon_name="user-trash-symbolic",
+            valign=Gtk.Align.CENTER,
+            tooltip_text=_('Clear')
+        )
         self.clear_button.add_css_class("flat")
         self.clear_button.add_css_class("error")
         self.clear_button.connect("clicked", self.on_clear_history)
-        self.clear_button.set_tooltip_text(_('Clear'))
         header_bar.pack_start(self.clear_button)
 
         toolbar_view.add_top_bar(header_bar)
