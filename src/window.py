@@ -43,6 +43,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     copy_all_button = Gtk.Template.Child()
     export_button = Gtk.Template.Child()
     results_box = Gtk.Template.Child()
+    results_stack = Gtk.Template.Child()
+    empty_results = Gtk.Template.Child()
     main_content = Gtk.Template.Child()
     split_view = Gtk.Template.Child()
     toast_overlay = Gtk.Template.Child()
@@ -59,8 +61,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.setup_fact_of_the_day()
         self.results = {}
 
-        if self.split_view:
-            self.split_view.connect('notify::collapsed', self.on_split_view_state_changed)
+        self.results_stack.set_visible_child(self.empty_results)
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
@@ -76,6 +77,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.ip_entry.connect("changed", self.on_ip_entry_changed)
         self.ip_entry.get_delegate().connect("activate", self.on_ip_entry_activate)
         self.ip_entry_timeout_id = None
+
+        if self.split_view:
+            self.split_view.connect('notify::collapsed', self.on_split_view_state_changed)
 
     def setup_fact_of_the_day(self):
         facts = [
@@ -116,6 +120,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.update_clear_button_state()
 
     def display_results(self, results):
+        self.results_stack.set_visible_child(self.results_stack.get_last_child())
+
         while self.results_box.get_first_child():
             self.results_box.remove(self.results_box.get_first_child())
         while self.results_box_main.get_first_child():
@@ -250,7 +256,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
         self.empty_history_page = Adw.StatusPage(
             icon_name="document-open-recent-symbolic",
-            title=_('Empty'),
+            title=_('No History'),
             description=_('Your calculation history will appear here')
         )
 

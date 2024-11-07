@@ -182,56 +182,68 @@
                       </object>
                     </child>
                     <property name="content">
-                      <object class="GtkScrolledWindow">
-                        <property name="hscrollbar-policy">never</property>
+                      <object class="GtkStack" id="results_stack">
+                        <property name="transition-type">crossfade</property>
                         <child>
-                          <object class="AdwClamp">
-                            <property name="maximum-size">420</property>
+                          <object class="AdwStatusPage" id="empty_results">
+                            <property name="icon-name">io.github.vmkspv.netsleuth-symbolic</property>
+                            <property name="title" translatable="yes">No Results</property>
+                            <property name="description" translatable="yes">Your calculation results will appear here</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkScrolledWindow">
+                            <property name="hscrollbar-policy">never</property>
                             <child>
-                              <object class="GtkBox">
-                                <property name="orientation">vertical</property>
-                                <property name="spacing">16</property>
-                                <property name="margin-top">24</property>
-                                <property name="margin-bottom">24</property>
-                                <property name="margin-start">16</property>
-                                <property name="margin-end">16</property>
+                              <object class="AdwClamp">
+                                <property name="maximum-size">420</property>
                                 <child>
-                                  <object class="AdwPreferencesGroup" id="results_group">
-                                    <property name="title" translatable="yes">Results</property>
-                                    <property name="visible">false</property>
-                                    <child type="header-suffix">
-                                      <object class="GtkBox">
-                                        <property name="spacing">6</property>
-                                        <property name="halign">end</property>
-                                        <child>
-                                          <object class="GtkButton" id="copy_all_button">
-                                            <property name="icon-name">edit-copy-symbolic</property>
-                                            <property name="tooltip-text" translatable="yes">Copy All</property>
-                                            <property name="valign">center</property>
-                                            <signal name="clicked" handler="on_copy_all_clicked" swapped="no"/>
-                                            <style>
-                                              <class name="flat"/>
-                                            </style>
-                                          </object>
-                                        </child>
-                                        <child>
-                                          <object class="GtkButton" id="export_button">
-                                            <property name="icon-name">document-save-symbolic</property>
-                                            <property name="tooltip-text" translatable="yes">Export</property>
-                                            <property name="valign">center</property>
-                                            <signal name="clicked" handler="on_export_clicked" swapped="no"/>
-                                            <style>
-                                              <class name="flat"/>
-                                            </style>
-                                          </object>
-                                        </child>
-                                      </object>
-                                    </child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">16</property>
+                                    <property name="margin-top">24</property>
+                                    <property name="margin-bottom">24</property>
+                                    <property name="margin-start">16</property>
+                                    <property name="margin-end">16</property>
                                     <child>
-                                      <object class="GtkListBox" id="results_box">
-                                        <style>
-                                          <class name="boxed-list"/>
-                                        </style>
+                                      <object class="AdwPreferencesGroup" id="results_group">
+                                        <property name="title" translatable="yes">Results</property>
+                                        <property name="visible">false</property>
+                                        <child type="header-suffix">
+                                          <object class="GtkBox">
+                                            <property name="spacing">6</property>
+                                            <property name="halign">end</property>
+                                            <child>
+                                              <object class="GtkButton" id="copy_all_button">
+                                                <property name="icon-name">edit-copy-symbolic</property>
+                                                <property name="tooltip-text" translatable="yes">Copy All</property>
+                                                <property name="valign">center</property>
+                                                <signal name="clicked" handler="on_copy_all_clicked" swapped="no"/>
+                                                <style>
+                                                  <class name="flat"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkButton" id="export_button">
+                                                <property name="icon-name">document-save-symbolic</property>
+                                                <property name="tooltip-text" translatable="yes">Export</property>
+                                                <property name="valign">center</property>
+                                                <signal name="clicked" handler="on_export_clicked" swapped="no"/>
+                                                <style>
+                                                  <class name="flat"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkListBox" id="results_box">
+                                            <style>
+                                              <class name="boxed-list"/>
+                                            </style>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
