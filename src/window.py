@@ -35,11 +35,16 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     calculate_button = Gtk.Template.Child()
     fact_of_the_day_box = Gtk.Template.Child()
     fact_row = Gtk.Template.Child()
+    results_group_main = Gtk.Template.Child()
+    copy_all_button_main = Gtk.Template.Child()
+    export_button_main = Gtk.Template.Child()
+    results_box_main = Gtk.Template.Child()
     results_group = Gtk.Template.Child()
     copy_all_button = Gtk.Template.Child()
     export_button = Gtk.Template.Child()
     results_box = Gtk.Template.Child()
     main_content = Gtk.Template.Child()
+    split_view = Gtk.Template.Child()
     toast_overlay = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
@@ -53,6 +58,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.calculate_button.set_sensitive(False)
         self.setup_fact_of_the_day()
         self.results = {}
+
+        if self.split_view:
+            self.split_view.connect('notify::collapsed', self.on_split_view_state_changed)
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
@@ -99,7 +107,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.results = results
         self.display_results(results)
         self.fact_of_the_day_box.set_visible(False)
-        self.results_box.set_visible(True)
+
+        if self.split_view:
+            self.update_results_visibility(self.split_view.get_collapsed())
 
         if self.history_dialog:
             self.update_history_list()
@@ -108,10 +118,12 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def display_results(self, results):
         while self.results_box.get_first_child():
             self.results_box.remove(self.results_box.get_first_child())
+        while self.results_box_main.get_first_child():
+            self.results_box_main.remove(self.results_box_main.get_first_child())
 
-        for key, value in results.items():
+        def create_result_row(key, value):
             if value is None:
-                continue
+                return None
             subtitle = str(value)
             if key == _('Total Hosts'):
                 count, *math = subtitle.split(' ', 1)
@@ -125,36 +137,27 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
             copy_value = value.replace('<tt>', '').replace('</tt>', '') if isinstance(value, str) else str(value)
             copy_button.connect("clicked", self.on_copy_clicked, copy_value)
-
             copy_button.set_tooltip_text(_('Copy'))
             row.add_suffix(copy_button)
+            return row
 
-            self.results_box.append(row)
+        for key, value in results.items():
+            row = create_result_row(key, value)
+            if row:
+                row_clone = create_result_row(key, value)
+                self.results_box.append(row)
+                self.results_box_main.append(row_clone)
 
         self.results_group.set_opacity(0)
-        self.results_group.set_visible(True)
+        self.results_group_main.set_opacity(0)
         self.fade_in_results()
-        self.scroll_to_results()
 
     def fade_in_results(self):
-        target = Adw.PropertyAnimationTarget.new(self.results_group, "opacity")
-        animation = Adw.TimedAnimation.new(self.results_group, 0, 1, 350, target)
-        animation.set_easing(Adw.Easing.EASE_OUT_CUBIC)
-        animation.play()
-
-    def scroll_to_results(self):
-        def on_map(widget):
-            adjustment = self.main_content.get_vadjustment()
-            start_value = adjustment.get_value()
-            end_value = adjustment.get_upper() - adjustment.get_page_size()
-
-            target = Adw.PropertyAnimationTarget.new(adjustment, "value")
-            animation = Adw.TimedAnimation.new(adjustment, start_value, end_value, 500, target)
+        for group in [self.results_group, self.results_group_main]:
+            target = Adw.PropertyAnimationTarget.new(group, "opacity")
+            animation = Adw.TimedAnimation.new(group, 0, 1, 350, target)
             animation.set_easing(Adw.Easing.EASE_OUT_CUBIC)
             animation.play()
-            widget.disconnect(self.scroll_handler_id)
-
-        self.scroll_handler_id = self.results_group.connect("map", on_map)
 
     def on_show_binary_changed(self, switch, pspec):
         self.calculator.set_show_binary(switch.get_active())
@@ -367,7 +370,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         clipboard.set(text)
         self.show_toast(_('Copied to clipboard'))
 
-    def _remove_math_formula(self, value):
+    def remove_math_formula(self, value):
         if isinstance(value, str):
             parts = value.split(' ', 1)
             if len(parts) > 1 and parts[1].startswith('(2'):
@@ -380,7 +383,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
                 parts = value.split('<tt>')
                 return f"{parts[0].strip()} {parts[1].replace('</tt>', '').strip()}"
         if exclude_math:
-            return self._remove_math_formula(value)
+            return self.remove_math_formula(value)
         return str(value)
 
     @Gtk.Template.Callback()
@@ -410,7 +413,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
                     _('decimal'): parts[0].strip(),
                     _('binary'): parts[1].replace('</tt>', '').strip()
                 }
-        return self._remove_math_formula(value)
+        return self.remove_math_formula(value)
 
     def on_export_response(self, dialog, response):
         if response == Gtk.ResponseType.ACCEPT:
@@ -430,3 +433,19 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             self.show_toast(_('Saved to {file}').format(file=file_name))
 
         dialog.destroy()
+
+    def update_results_visibility(self, is_collapsed):
+        if is_collapsed:
+            self.results_group_main.set_visible(True)
+            self.results_group.set_visible(False)
+            self.split_view.set_show_content(False)
+        else:
+            self.results_group_main.set_visible(False)
+            self.results_group.set_visible(True)
+            self.split_view.set_show_content(True)
+
+    def on_split_view_state_changed(self, split_view, pspec):
+        if not hasattr(self, 'results') or not self.results:
+            return
+
+        self.update_results_visibility(split_view.get_collapsed())
