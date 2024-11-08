@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-10-20 12:00+0300\n"
+"POT-Creation-Date: 2024-11-07 23:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Netsleuth"
 msgstr ""
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:18
+#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:33
 msgid "IP Subnet Calculator"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "Broadcast"
 msgstr ""
 
-#: src/calculator.py:43 src/window.py:113
+#: src/calculator.py:43 src/window.py:134
 msgid "Total Hosts"
 msgstr ""
 
@@ -130,140 +130,148 @@ msgstr ""
 msgid "Public"
 msgstr ""
 
-#: src/window.py:71
+#: src/window.py:86
 msgid ""
 "The 0.0.0.0 address is used to represent the default route or an unknown "
 "target network."
 msgstr ""
 
-#: src/window.py:72
+#: src/window.py:87
 msgid ""
 "A PTR record enables reverse DNS lookup, translating an IP address back to a "
 "domain name."
 msgstr ""
 
-#: src/window.py:73
+#: src/window.py:88
 msgid ""
 "The 240.0.0.0/4 block was originally reserved for future experiments, but is "
 "now considered legacy."
 msgstr ""
 
-#: src/window.py:74
+#: src/window.py:89
 msgid ""
 "In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
 "to-point links."
 msgstr ""
 
-#: src/window.py:75
+#: src/window.py:90
 msgid ""
 "Wildcard mask inverts subnet masks, providing flexible IP filtering in "
 "access lists."
 msgstr ""
 
-#: src/window.py:76
+#: src/window.py:91
 msgid ""
 "An IP's binary representation always has 32 bits, regardless of the decimal "
 "notation used."
 msgstr ""
 
-#: src/window.py:126
+#: src/window.py:143
 msgid "Copy"
 msgstr ""
 
-#: src/window.py:159
+#: src/window.py:172
 msgid "Recalculation needed"
 msgstr ""
 
-#: src/window.py:163
+#: src/window.py:176
 msgid "About Netsleuth"
 msgstr ""
 
-#: src/window.py:172 src/window.py:373
+#: src/window.py:185 src/window.py:381
 msgid "Copied to clipboard"
 msgstr ""
 
-#: src/window.py:232 src/window.ui:54
+#: src/window.py:237 src/window.ui:68
 msgid "History"
 msgstr ""
 
-#: src/window.py:244
+#: src/window.py:248
 msgid "Clear"
 msgstr ""
 
-#: src/window.py:255
-msgid "Empty"
+#: src/window.py:263
+msgid "No History"
 msgstr ""
 
-#: src/window.py:256
+#: src/window.py:264
 msgid "Your calculation history will appear here"
 msgstr ""
 
-#: src/window.py:315
+#: src/window.py:323
 msgid "Select"
 msgstr ""
 
-#: src/window.py:330
+#: src/window.py:338
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr ""
 
-#: src/window.py:336
+#: src/window.py:344
 msgid "History cleared"
 msgstr ""
 
-#: src/window.py:397
+#: src/window.py:405
 msgid "Export results"
 msgstr ""
 
-#: src/window.py:415
+#: src/window.py:423
 msgid "decimal"
 msgstr ""
 
-#: src/window.py:416
+#: src/window.py:424
 msgid "binary"
 msgstr ""
 
-#: src/window.py:435
+#: src/window.py:443
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr ""
 
-#: src/window.ui:46
+#: src/window.ui:61
 msgid "Details"
 msgstr ""
 
-#: src/window.ui:49
+#: src/window.ui:64
 msgid "IP Address"
 msgstr ""
 
-#: src/window.ui:65
+#: src/window.ui:80
 msgid "Subnet Mask"
 msgstr ""
 
-#: src/window.ui:70
+#: src/window.ui:87
 msgid "Show Binary"
 msgstr ""
 
-#: src/window.ui:71
+#: src/window.ui:88
 msgid "Display binary representation of IP addresses"
 msgstr ""
 
-#: src/window.ui:83
+#: src/window.ui:100
 msgid "Calculate"
 msgstr ""
 
-#: src/window.ui:99
+#: src/window.ui:117
 msgid "Did you know?"
 msgstr ""
 
-#: src/window.ui:106
+#: src/window.ui:124 src/window.ui:175 src/window.ui:182 src/window.ui:213
 msgid "Results"
 msgstr ""
 
-#: src/window.ui:115
+#: src/window.ui:133 src/window.ui:222
 msgid "Copy All"
 msgstr ""
 
-#: src/window.ui:126
+#: src/window.ui:144 src/window.ui:233
 msgid "Export"
+msgstr ""
+
+#: src/window.ui:193
+msgid "No Results"
+msgstr ""
+
+#: src/window.ui:194
+msgid "Your calculation results will appear here"
 msgstr ""

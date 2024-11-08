@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-10-20 12:00+0300\n"
-"PO-Revision-Date: 2024-10-20 12:15+0300\n"
+"POT-Creation-Date: 2024-11-07 23:00+0300\n"
+"PO-Revision-Date: 2024-11-08 10:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Netsleuth"
 msgstr "Netsleuth"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:18
+#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:33
 msgid "IP Subnet Calculator"
 msgstr "Калькулятор IP-подсетей"
 
@@ -81,7 +81,7 @@ msgstr "Последний хост"
 msgid "Broadcast"
 msgstr "Широковещательный адрес"
 
-#: src/calculator.py:43 src/window.py:113
+#: src/calculator.py:43 src/window.py:134
 msgid "Total Hosts"
 msgstr "Всего хостов"
 
@@ -133,7 +133,7 @@ msgstr "Зарезервированный"
 msgid "Public"
 msgstr "Публичный"
 
-#: src/window.py:71
+#: src/window.py:86
 msgid ""
 "The 0.0.0.0 address is used to represent the default route or an unknown "
 "target network."
@@ -141,7 +141,7 @@ msgstr ""
 "Адрес 0.0.0.0 используется для обозначения неизвестной целевой сети или "
 "маршрута по умолчанию."
 
-#: src/window.py:72
+#: src/window.py:87
 msgid ""
 "A PTR record enables reverse DNS lookup, translating an IP address back to a "
 "domain name."
@@ -149,7 +149,7 @@ msgstr ""
 "PTR-запись позволяет выполнять обратный поиск DNS, преобразуя IP-адрес в "
 "доменное имя."
 
-#: src/window.py:73
+#: src/window.py:88
 msgid ""
 "The 240.0.0.0/4 block was originally reserved for future experiments, but is "
 "now considered legacy."
@@ -157,7 +157,7 @@ msgstr ""
 "Изначально блок 240.0.0.0/4 был зарезервирован для будущих экспериментов, но "
 "теперь считается устаревшим."
 
-#: src/window.py:74
+#: src/window.py:89
 msgid ""
 "In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
 "to-point links."
@@ -165,7 +165,7 @@ msgstr ""
 "В подсети /30 есть только 2 используемых IP-адреса, часто применяемых для "
 "соединений точка-точка."
 
-#: src/window.py:75
+#: src/window.py:90
 msgid ""
 "Wildcard mask inverts subnet masks, providing flexible IP filtering in "
 "access lists."
@@ -173,7 +173,7 @@ msgstr ""
 "Обратная маска инвертирует маски подсетей, обеспечивая гибкую фильтрацию IP в "
 "списках доступа."
 
-#: src/window.py:76
+#: src/window.py:91
 msgid ""
 "An IP's binary representation always has 32 bits, regardless of the decimal "
 "notation used."
@@ -181,104 +181,112 @@ msgstr ""
 "Двоичное представление IP-адреса всегда содержит 32 бита, независимо от "
 "используемой десятичной нотации."
 
-#: src/window.py:126
+#: src/window.py:143
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/window.py:159
+#: src/window.py:172
 msgid "Recalculation needed"
 msgstr "Требуется пересчёт"
 
-#: src/window.py:163
+#: src/window.py:176
 msgid "About Netsleuth"
 msgstr "О приложении"
 
-#: src/window.py:172 src/window.py:373
+#: src/window.py:185 src/window.py:381
 msgid "Copied to clipboard"
 msgstr "Скопировано в буфер обмена"
 
-#: src/window.py:232 src/window.ui:54
+#: src/window.py:237 src/window.ui:68
 msgid "History"
 msgstr "История"
 
-#: src/window.py:244
+#: src/window.py:248
 msgid "Clear"
 msgstr "Очистить"
 
-#: src/window.py:255
-msgid "Empty"
+#: src/window.py:263
+msgid "No History"
 msgstr "Ничего нет"
 
-#: src/window.py:256
+#: src/window.py:264
 msgid "Your calculation history will appear here"
 msgstr "История ваших расчётов появится здесь"
 
-#: src/window.py:315
+#: src/window.py:323
 msgid "Select"
 msgstr "Выбрать"
 
-#: src/window.py:330
+#: src/window.py:338
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Рассчитано: {ip}/{mask}"
 
-#: src/window.py:336
+#: src/window.py:344
 msgid "History cleared"
 msgstr "История очищена"
 
-#: src/window.py:397
+#: src/window.py:405
 msgid "Export results"
 msgstr "Экспорт результатов"
 
-#: src/window.py:415
+#: src/window.py:423
 msgid "decimal"
 msgstr "десятичный"
 
-#: src/window.py:416
+#: src/window.py:424
 msgid "binary"
 msgstr "двоичный"
 
-#: src/window.py:435
+#: src/window.py:443
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr "Сохранено в {file}"
 
-#: src/window.ui:46
+#: src/window.ui:61
 msgid "Details"
 msgstr "Детали"
 
-#: src/window.ui:49
+#: src/window.ui:64
 msgid "IP Address"
 msgstr "IP-адрес"
 
-#: src/window.ui:65
+#: src/window.ui:80
 msgid "Subnet Mask"
 msgstr "Маска подсети"
 
-#: src/window.ui:70
+#: src/window.ui:87
 msgid "Show Binary"
 msgstr "Двоичные значения"
 
-#: src/window.ui:71
+#: src/window.ui:88
 msgid "Display binary representation of IP addresses"
 msgstr "Отображать двоичное представление IP-адресов"
 
-#: src/window.ui:83
+#: src/window.ui:100
 msgid "Calculate"
 msgstr "Рассчитать"
 
-#: src/window.ui:99
+#: src/window.ui:117
 msgid "Did you know?"
 msgstr "Знаете ли вы?"
 
-#: src/window.ui:106
+#: src/window.ui:124 src/window.ui:175 src/window.ui:182 src/window.ui:213
 msgid "Results"
 msgstr "Результаты"
 
-#: src/window.ui:115
+#: src/window.ui:133 src/window.ui:222
 msgid "Copy All"
 msgstr "Копировать всё"
 
-#: src/window.ui:126
+#: src/window.ui:144 src/window.ui:233
 msgid "Export"
 msgstr "Экспортировать"
+
+#: src/window.ui:193
+msgid "No Results"
+msgstr "Ничего нет"
+
+#: src/window.ui:194
+msgid "Your calculation results will appear here"
+msgstr "Результаты ваших расчётов появятся здесь"
