@@ -22,10 +22,15 @@ import ipaddress
 class IPCalculator:
     def __init__(self):
         self.show_binary = False
+        self.show_hex = False
         self.binary_cache = {}
+        self.hex_cache = {}
 
     def set_show_binary(self, show_binary):
         self.show_binary = show_binary
+
+    def set_show_hex(self, show_hex):
+        self.show_hex = show_hex
 
     def calculate(self, ip, mask):
         try:
@@ -49,14 +54,22 @@ class IPCalculator:
             return {_('Error'): _('Invalid IP address or mask')}
 
     def format_ip(self, ip):
+        result = str(ip)
         if self.show_binary:
             if ip not in self.binary_cache:
                 self.binary_cache[ip] = self.ip_to_binary(ip)
-            return f"{ip}\n<tt>{self.binary_cache[ip]}</tt>"
-        return str(ip)
+            result += f"\n<tt>{self.binary_cache[ip]}</tt>"
+        if self.show_hex:
+            if ip not in self.hex_cache:
+                self.hex_cache[ip] = self.ip_to_hex(ip)
+            result += f"\n<tt>{self.hex_cache[ip]}</tt>"
+        return result
 
     def ip_to_binary(self, ip):
         return '.'.join(f"{int(octet):08b}" for octet in str(ip).split('.'))
+
+    def ip_to_hex(self, ip):
+        return '.'.join(f"{int(octet):02X}" for octet in str(ip).split('.'))
 
     def get_ip_class(self, ip):
         ip_int = int(ipaddress.IPv4Address(ip))

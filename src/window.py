@@ -32,6 +32,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     history_button = Gtk.Template.Child()
     mask_dropdown = Gtk.Template.Child()
     show_binary_switch = Gtk.Template.Child()
+    show_hex_switch = Gtk.Template.Child()
     calculate_button = Gtk.Template.Child()
     fact_of_the_day_box = Gtk.Template.Child()
     fact_row = Gtk.Template.Child()
@@ -74,6 +75,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def connect_signals(self):
         self.calculate_button.connect("clicked", self.on_calculate_clicked)
         self.show_binary_switch.connect("notify::active", self.on_show_binary_changed)
+        self.show_hex_switch.connect("notify::active", self.on_show_hex_changed)
         self.ip_entry.connect("changed", self.on_ip_entry_changed)
         self.ip_entry.get_delegate().connect("activate", self.on_ip_entry_activate)
         self.ip_entry_timeout_id = None
@@ -168,6 +170,11 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     def on_show_binary_changed(self, switch, pspec):
         self.calculator.set_show_binary(switch.get_active())
+        if self.results_group.get_visible():
+            self.show_toast(_('Recalculation needed'))
+
+    def on_show_hex_changed(self, switch, pspec):
+        self.calculator.set_show_hex(switch.get_active())
         if self.results_group.get_visible():
             self.show_toast(_('Recalculation needed'))
 
@@ -391,7 +398,12 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         if isinstance(value, str):
             if '<tt>' in value:
                 parts = value.split('<tt>')
-                return f"{parts[0].strip()} {parts[1].replace('</tt>', '').strip()}"
+                formatted_parts = [parts[0].strip()]
+                if len(parts) > 1:
+                    formatted_parts.append(f"({parts[1].replace('</tt>', '').strip()})")
+                if len(parts) > 2:
+                    formatted_parts.append(f"({parts[2].replace('</tt>', '').strip()})")
+                return ' '.join(formatted_parts)
         if exclude_math:
             return self.remove_math_formula(value)
         return str(value)
@@ -419,10 +431,21 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         if isinstance(value, str):
             if '<tt>' in value:
                 parts = value.split('<tt>')
-                return {
-                    _('decimal'): parts[0].strip(),
-                    _('binary'): parts[1].replace('</tt>', '').strip()
-                }
+                remaining_parts = parts[1:]
+                current_part = 0
+                result = {_('decimal'): parts[0].strip()}
+
+                if self.calculator.show_binary:
+                    if current_part < len(remaining_parts):
+                        result[_('binary')] = remaining_parts[current_part].replace('</tt>', '').strip()
+                        current_part += 1
+
+                if self.calculator.show_hex:
+                    if current_part < len(remaining_parts):
+                        result[_('hexadecimal')] = remaining_parts[current_part].replace('</tt>', '').strip()
+
+                return result
+
         return self.remove_math_formula(value)
 
     def on_export_response(self, dialog, response):

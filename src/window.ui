@@ -88,6 +88,12 @@
                                         <property name="subtitle" translatable="yes">Display binary representation of IP addresses</property>
                                       </object>
                                     </child>
+                                    <child>
+                                      <object class="AdwSwitchRow" id="show_hex_switch">
+                                        <property name="title" translatable="yes">Show Hexadecimal</property>
+                                        <property name="subtitle" translatable="yes">Display hexadecimal representation of IP addresses</property>
+                                      </object>
+                                    </child>
                                   </object>
                                 </child>
                                 <child>
