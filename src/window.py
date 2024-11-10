@@ -170,12 +170,12 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     def on_show_binary_changed(self, switch, pspec):
         self.calculator.set_show_binary(switch.get_active())
-        if self.results_group.get_visible():
+        if self.results_group_main.get_visible() or self.results_group.get_visible():
             self.show_toast(_('Recalculation needed'))
 
     def on_show_hex_changed(self, switch, pspec):
         self.calculator.set_show_hex(switch.get_active())
-        if self.results_group.get_visible():
+        if self.results_group_main.get_visible() or self.results_group.get_visible():
             self.show_toast(_('Recalculation needed'))
 
     @Gtk.Template.Callback()
