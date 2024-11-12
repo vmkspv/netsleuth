@@ -47,6 +47,15 @@
   <launchable type="desktop-id">io.github.vmkspv.netsleuth.desktop</launchable>
   <translation type="gettext">netsleuth</translation>
   <releases>
+    <release version="1.0.5" date="2024-11-12">
+      <description translate="no">
+        <ul>
+          <li>Added netmask search</li>
+          <li>Implemented split view</li>
+          <li>Added hexadecimal output</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.4" date="2024-10-20">
       <description translate="no">
         <ul>
