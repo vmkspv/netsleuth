@@ -55,17 +55,11 @@ class NetsleuthApplication(Adw.Application):
         return translators.get(locale_code) or translators.get(locale_code[:2], '')
 
     def on_about_action(self, widget, _):
-        about = Adw.AboutDialog.new()
-        about.set_application_name('Netsleuth')
-        about.set_application_icon('io.github.vmkspv.netsleuth')
-        about.set_developer_name('Vladimir Kosolapov')
-        about.set_version(self.version)
+        about = Adw.AboutDialog.new_from_appdata('io/github/vmkspv/netsleuth/metainfo.xml', self.version)
         about.set_developers(['Vladimir Kosolapov https://github.com/vmkspv'])
-        about.set_designers(['Vladimir Kosolapov https://github.com/vmkspv'])
+        about.set_artists(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_translator_credits(self.get_translator_credits())
         about.set_copyright('© 2024 Vladimir Kosolapov')
-        about.set_license_type(Gtk.License.GPL_3_0)
-        about.set_issue_url('https://github.com/vmkspv/netsleuth/issues')
         about.present(self.window)
 
     def on_close_window_action(self, *args):

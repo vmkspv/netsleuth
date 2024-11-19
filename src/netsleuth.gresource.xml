@@ -2,5 +2,6 @@
 <gresources>
   <gresource prefix="/io/github/vmkspv/netsleuth">
     <file preprocess="xml-stripblanks">window.ui</file>
+    <file preprocess="xml-stripblanks" alias="metainfo.xml">../data/io.github.vmkspv.netsleuth.metainfo.xml.in</file>
   </gresource>
 </gresources>
