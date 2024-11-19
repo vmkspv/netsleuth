@@ -28,6 +28,8 @@ The recommended installation method is via Flatpak.
   <img src="https://flathub.org/api/badge?svg&locale=en" width="196"/>
 </a>
 
+Netsleuth is also available in [`ALT Sisyphus`](https://packages.altlinux.org/en/sisyphus/binary/netsleuth/noarch) repository.
+
 ## Building from source
 
 ### GNOME Builder
