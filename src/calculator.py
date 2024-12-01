@@ -17,7 +17,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-import ipaddress
+from ipaddress import IPv4Interface, IPv4Address
 
 class IPCalculator:
     def __init__(self):
@@ -34,7 +34,7 @@ class IPCalculator:
 
     def calculate(self, ip, mask):
         try:
-            interface = ipaddress.IPv4Interface(f"{ip}/{mask}")
+            interface = IPv4Interface(f"{ip}/{mask}")
             network = interface.network
             host_count = network.num_addresses - (2 if mask < 31 else 0)
             results = {
@@ -72,7 +72,7 @@ class IPCalculator:
         return '.'.join(f"{int(octet):02X}" for octet in str(ip).split('.'))
 
     def get_ip_class(self, ip):
-        ip_int = int(ipaddress.IPv4Address(ip))
+        ip_int = int(IPv4Address(ip))
         ip_ranges = (
             (167772160, 184549375, _('Private (Class A)')),
             (2886729728, 2887778303, _('Private (Class B)')),

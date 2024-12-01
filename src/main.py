@@ -26,6 +26,7 @@ gi.require_version('Adw', '1')
 
 from gi.repository import Adw, Gtk, Gio
 from .window import NetsleuthWindow
+from .cmdline import main as cli_main
 
 translators = {
     'bg': 'twlvnn kraftwerk https://github.com/twlvnn',
@@ -78,5 +79,7 @@ class NetsleuthApplication(Adw.Application):
             self.set_accels_for_action(f"app.{name}", shortcuts)
 
 def main(version):
-    app = NetsleuthApplication(version)
-    return app.run(sys.argv)
+    if len(sys.argv) == 1:
+        app = NetsleuthApplication(version)
+        return app.run(sys.argv)
+    return cli_main(version)

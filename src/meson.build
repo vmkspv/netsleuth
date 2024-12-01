@@ -31,6 +31,7 @@ netsleuth_sources = [
   'main.py',
   'window.py',
   'calculator.py',
+  'cmdline.py',
 ]
 
 install_data(netsleuth_sources, install_dir: moduledir)
