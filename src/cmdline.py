@@ -35,6 +35,7 @@ class CommandLineInterface:
         parser.add_argument(
             'ip_address',
             type=self.validate_ip,
+            nargs='?',
             help=_('ip for calculation')
         )
         parser.options_group.add_argument(
@@ -61,8 +62,7 @@ class CommandLineInterface:
         )
         parser.general_group.add_argument(
             '-v', '--version',
-            action='version',
-            version=f'%(prog)s {self.version}',
+            action='store_true',
             help=_('show version information and exit')
         )
         return parser
@@ -115,8 +115,22 @@ class CommandLineInterface:
 
         return '\n'.join(output)
 
+    def print_version(self):
+        print(_('''netsleuth {version}
+Copyright (C) 2024 Vladimir Kosolapov
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>.''').format(version=self.version))
+        sys.exit(0)
+
     def run(self):
         args = self.parser.parse_args()
+
+        if args.version:
+            self.print_version()
+
         self.calculator.set_show_binary(args.binary)
         self.calculator.set_show_hex(args.hex)
         results = self.calculator.calculate(args.ip_address, args.mask)
