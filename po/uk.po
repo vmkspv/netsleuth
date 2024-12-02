@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-11-08 18:00+0300\n"
-"PO-Revision-Date: 2024-11-08 20:00+0300\n"
+"POT-Creation-Date: 2024-12-01 16:30+0300\n"
+"PO-Revision-Date: 2024-12-01 17:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -37,7 +37,7 @@ msgstr "Мережа;IP;Підмережа;Маска;Хост;Калькуля�
 msgid "Calculate IP subnets"
 msgstr "Розрахуйте IP підмереж"
 
-#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:9
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:9 src/cmdline.py:33
 msgid ""
 "A simple utility for the calculation and analysis of IP subnet values, "
 "designed to simplify network configuration tasks."
@@ -132,6 +132,68 @@ msgstr "Зарезервований"
 #: src/calculator.py:86
 msgid "Public"
 msgstr "Публічний"
+
+#: src/cmdline.py:39
+msgid "ip for calculation"
+msgstr "ip для виконання розрахунку"
+
+#: src/cmdline.py:45
+msgid "subnet mask (default: 24)"
+msgstr "маска підмережі (за замовчуванням: 24)"
+
+#: src/cmdline.py:50
+msgid "show binary values"
+msgstr "вивести двійкові значення"
+
+#: src/cmdline.py:55
+msgid "show hexadecimal values"
+msgstr "вивести шістнадцяткові значення"
+
+#: src/cmdline.py:61
+msgid "show this help message and exit"
+msgstr "вивести цю довідку та вийти"
+
+#: src/cmdline.py:66
+msgid "show version information and exit"
+msgstr "вивести інформацію про версію та вийти"
+
+#: src/cmdline.py:119
+#, python-brace-format
+msgid ""
+"netsleuth {version}\n"
+"Copyright (C) 2024 Vladimir Kosolapov\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
+"html>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+"\n"
+"Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
+msgstr ""
+"netsleuth {version}\n"
+"Copyright (C) 2024 Vladimir Kosolapov\n"
+"Ліцензія GPLv3+: GNU GPL версії 3 або новішій <https://gnu.org/licenses/gpl."
+"html>.\n"
+"Це вільне ПЗ: ви можете вільно змінювати і поширювати його.\n"
+"Немає ЖОДНИХ ГАРАНТІЙ у межах чинного законодавства.\n"
+"\n"
+"Будь ласка, повідомляйте про вади на: <https://github.com/vmkspv/netsleuth/"
+"issues>."
+
+#: src/cmdline.py:144
+msgid "options"
+msgstr "параметри"
+
+#: src/cmdline.py:145
+msgid "general"
+msgstr "загальні"
+
+#: src/cmdline.py:148
+msgid "positional arguments"
+msgstr "позиційні аргументи"
+
+#: src/cmdline.py:149
+msgid "usage:"
+msgstr "використання:"
 
 #: src/window.py:88
 msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-11-08 18:00+0300\n"
+"POT-Creation-Date: 2024-12-01 16:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr ""
 msgid "Calculate IP subnets"
 msgstr ""
 
-#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:9
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:9 src/cmdline.py:33
 msgid ""
 "A simple utility for the calculation and analysis of IP subnet values, "
 "designed to simplify network configuration tasks."
@@ -128,6 +128,59 @@ msgstr ""
 
 #: src/calculator.py:86
 msgid "Public"
+msgstr ""
+
+#: src/cmdline.py:39
+msgid "ip for calculation"
+msgstr ""
+
+#: src/cmdline.py:45
+msgid "subnet mask (default: 24)"
+msgstr ""
+
+#: src/cmdline.py:50
+msgid "show binary values"
+msgstr ""
+
+#: src/cmdline.py:55
+msgid "show hexadecimal values"
+msgstr ""
+
+#: src/cmdline.py:61
+msgid "show this help message and exit"
+msgstr ""
+
+#: src/cmdline.py:66
+msgid "show version information and exit"
+msgstr ""
+
+#: src/cmdline.py:119
+#, python-brace-format
+msgid ""
+"netsleuth {version}\n"
+"Copyright (C) 2024 Vladimir Kosolapov\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
+"html>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+"\n"
+"Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
+msgstr ""
+
+#: src/cmdline.py:144
+msgid "options"
+msgstr ""
+
+#: src/cmdline.py:145
+msgid "general"
+msgstr ""
+
+#: src/cmdline.py:148
+msgid "positional arguments"
+msgstr ""
+
+#: src/cmdline.py:149
+msgid "usage:"
 msgstr ""
 
 #: src/window.py:88
