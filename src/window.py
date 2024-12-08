@@ -54,15 +54,18 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         super().__init__(**kwargs)
         self.set_title('Netsleuth')
         self.calculator = IPCalculator()
+        self.results = {}
+        self.history_dialog = None
         self.setup_mask_dropdown()
         self.connect_signals()
-        self.history = self.load_history()
-        self.history_dialog = None
         self.calculate_button.set_sensitive(False)
-        self.setup_fact_of_the_day()
-        self.results = {}
+        self.history = self.load_history()
 
-        self.results_stack.set_visible_child(self.empty_results)
+        if any(item.get('selected', False) for item in self.history):
+            GLib.idle_add(self.check_selected_item)
+        else:
+            self.results_stack.set_visible_child(self.empty_results)
+            self.setup_fact_of_the_day()
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
@@ -101,11 +104,10 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         ip = self.ip_entry.get_text()
         mask = int(self.mask_dropdown.get_selected_item().get_string().split()[0])
 
-        new_item = {'ip': ip, 'mask': mask}
-        if new_item in self.history:
-            self.history.remove(new_item)
+        new_item = {'ip': ip, 'mask': mask, 'selected': False}
+        self.history = [item for item in self.history if not (item['ip'] == ip and item['mask'] == mask)]
         self.history.insert(0, new_item)
-        self.history = self.history[:10]
+        self.history = self.history[:20]
 
         self.save_history()
 
@@ -370,6 +372,24 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             with open(history_file, 'r') as f:
                 return load(f)
         return []
+
+    def check_selected_item(self):
+        selected_item = None
+
+        for item in self.history:
+            if item.get('selected', False):
+                selected_item = item
+                break
+
+        if selected_item:
+            self.history.remove(selected_item)
+            self.history.insert(0, selected_item)
+            self.ip_entry.set_text(selected_item['ip'])
+            self.mask_dropdown.set_selected(selected_item['mask'])
+            self.on_calculate_clicked()
+            self.show_toast(_('Calculated: {ip}/{mask}').format(ip=selected_item['ip'], mask=selected_item['mask']))
+            selected_item['selected'] = False
+            self.save_history()
 
     def do_close_request(self):
         self.save_history()

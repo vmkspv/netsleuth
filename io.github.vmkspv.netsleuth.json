@@ -8,7 +8,9 @@
         "--share=ipc",
         "--socket=wayland",
         "--socket=fallback-x11",
-        "--device=dri"
+        "--device=dri",
+        "--talk-name=io.github.vmkspv.netsleuth",
+        "--own-name=io.github.vmkspv.netsleuth"
     ],
     "modules" : [
         {

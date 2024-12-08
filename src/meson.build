@@ -6,7 +6,7 @@ gnome.compile_resources('netsleuth',
   'netsleuth.gresource.xml',
   gresource_bundle: true,
   install: true,
-  install_dir: pkgdatadir,
+  install_dir: pkgdatadir
 )
 
 python = import('python')
@@ -26,12 +26,21 @@ configure_file(
   install_mode: 'r-xr-xr-x'
 )
 
+configure_file(
+  input: 'netsleuth_search_provider.in',
+  output: 'netsleuth_search_provider',
+  configuration: conf,
+  install: true,
+  install_dir: get_option('bindir'),
+  install_mode: 'r-xr-xr-x'
+)
+
 netsleuth_sources = [
   '__init__.py',
   'main.py',
   'window.py',
   'calculator.py',
-  'cmdline.py',
+  'cmdline.py'
 ]
 
 install_data(netsleuth_sources, install_dir: moduledir)

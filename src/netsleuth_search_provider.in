@@ -1,0 +1,193 @@
+#!@PYTHON@
+
+# netsleuth_search_provider.in
+#
+# Copyright 2024 Vladimir Kosolapov
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+import os
+import sys
+import gi
+from json import load, dump
+from gi.repository import GObject
+
+gi.require_version('Gtk', '4.0')
+from gi.repository import Gio, GLib
+
+SEARCH_BUS_NAME = 'io.github.vmkspv.netsleuth.SearchProvider'
+SEARCH_PATH = '/io/github/vmkspv/netsleuth/SearchProvider'
+SEARCH_INTERFACE = '''
+<node>
+  <interface name='org.gnome.Shell.SearchProvider2'>
+    <method name='GetInitialResultSet'>
+      <arg type='as' name='terms' direction='in'/>
+      <arg type='as' name='results' direction='out'/>
+    </method>
+    <method name='GetSubsearchResultSet'>
+      <arg type='as' name='previous_results' direction='in'/>
+      <arg type='as' name='terms' direction='in'/>
+      <arg type='as' name='results' direction='out'/>
+    </method>
+    <method name='GetResultMetas'>
+      <arg type='as' name='identifiers' direction='in'/>
+      <arg type='aa{sv}' name='metas' direction='out'/>
+    </method>
+    <method name='ActivateResult'>
+      <arg type='s' name='identifier' direction='in'/>
+      <arg type='as' name='terms' direction='in'/>
+      <arg type='u' name='timestamp' direction='in'/>
+    </method>
+    <method name='LaunchSearch'>
+      <arg type='as' name='terms' direction='in'/>
+      <arg type='u' name='timestamp' direction='in'/>
+    </method>
+  </interface>
+</node>
+'''
+
+class SearchProvider(GObject.Object):
+    def __init__(self):
+        super().__init__()
+        self.history_file = os.path.join(GLib.get_user_config_dir(), 'netsleuth', 'history.json')
+        self.timeout_id = None
+
+        Gio.bus_own_name(
+            Gio.BusType.SESSION,
+            SEARCH_BUS_NAME,
+            Gio.BusNameOwnerFlags.NONE,
+            self.on_bus_acquired,
+            None,
+            self.on_name_lost
+        )
+
+    def reset_timeout(self):
+        if self.timeout_id:
+            GLib.source_remove(self.timeout_id)
+        self.timeout_id = GLib.timeout_add_seconds(10, self.on_timeout)
+
+    def on_timeout(self):
+        self.timeout_id = None
+        loop.quit()
+        return GLib.SOURCE_REMOVE
+
+    def on_bus_acquired(self, connection, name):
+        info = Gio.DBusNodeInfo.new_for_xml(SEARCH_INTERFACE)
+
+        connection.register_object(
+            SEARCH_PATH,
+            info.interfaces[0],
+            self.handle_method_call,
+            None,
+            None
+        )
+
+    def handle_method_call(self, connection, sender, object_path, interface_name, method_name, parameters, invocation):
+        self.reset_timeout()
+
+        try:
+            args = parameters.unpack()
+            method = getattr(self, method_name)
+            result = method(*args)
+            invocation.return_value(GLib.Variant('(as)', (result,)) if method_name in ['GetInitialResultSet', 'GetSubsearchResultSet']
+                                  else invocation.return_value(GLib.Variant('(aa{sv})', (result,))) if method_name == 'GetResultMetas'
+                                  else invocation.return_value(None))
+        except Exception as e:
+            invocation.return_error_literal(Gio.dbus_error_quark(),
+                                          Gio.DBusError.FAILED,
+                                          str(e))
+
+    def load_history(self):
+        try:
+            if os.path.exists(self.history_file):
+                with open(self.history_file, 'r') as f:
+                    return load(f)
+        except Exception:
+            pass
+        return []
+
+    def GetInitialResultSet(self, terms):
+        history = self.load_history()
+        search_text = ' '.join(terms).lower()
+
+        return [f"{item['ip']}/{item['mask']}"
+                for item in history
+                if search_text in f"{item['ip']}/{item['mask']}".lower()]
+
+    def GetSubsearchResultSet(self, previous_results, terms):
+        return self.GetInitialResultSet(terms)
+
+    def int_to_dotted_netmask(self, mask):
+        bits = '1' * mask + '0' * (32 - mask)
+        octets = [bits[i:i+8] for i in range(0, 32, 8)]
+        return '.'.join(str(int(octet, 2)) for octet in octets)
+
+    def GetResultMetas(self, identifiers):
+        metas = []
+        for identifier in identifiers:
+            ip, mask = identifier.split('/')
+            mask = int(mask)
+            meta = {
+                'id': GLib.Variant('s', identifier),
+                'name': GLib.Variant('s', identifier),
+                'description': GLib.Variant('s', self.int_to_dotted_netmask(mask)),
+                'gicon': GLib.Variant('s', 'io.github.vmkspv.netsleuth')
+            }
+            metas.append(meta)
+        return metas
+
+    def ActivateResult(self, identifier, terms, timestamp):
+        try:
+            history = self.load_history()
+            ip, mask = identifier.split('/')
+            mask = int(mask)
+
+            for item in history:
+                if item['ip'] == ip and item['mask'] == mask:
+                    item['selected'] = True
+                    break
+
+            os.makedirs(os.path.dirname(self.history_file), exist_ok=True)
+            with open(self.history_file, 'w') as f:
+                dump(history, f, indent=4)
+
+            context = GLib.MainContext.default()
+            app_info = Gio.DesktopAppInfo.new('io.github.vmkspv.netsleuth.desktop')
+            if app_info:
+                context.iteration(False)
+                app_info.launch([], None)
+                GLib.timeout_add(100, lambda: loop.quit())
+
+        except Exception as e:
+            print(f"Error in ActivateResult: {str(e)}")
+
+    def LaunchSearch(self, terms, timestamp):
+        launcher = Gio.DesktopAppInfo.new('io.github.vmkspv.netsleuth.desktop')
+        launcher.launch([], None)
+
+    def on_name_lost(self, connection, name):
+        if loop.is_running():
+            loop.quit()
+
+if __name__ == '__main__':
+    provider = SearchProvider()
+    loop = GLib.MainLoop()
+
+    try:
+        provider.reset_timeout()
+        loop.run()
+    except KeyboardInterrupt:
+        loop.quit()
