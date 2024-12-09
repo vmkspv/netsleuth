@@ -65,6 +65,8 @@ class SearchProvider(GObject.Object):
         self.history_file = os.path.join(GLib.get_user_config_dir(), 'netsleuth', 'history.json')
         self.timeout_id = None
         self.is_registered = False
+        self.connection = None
+        self._file_handles = set()
 
         Gio.bus_own_name(
             Gio.BusType.SESSION,
@@ -74,6 +76,30 @@ class SearchProvider(GObject.Object):
             None,
             self.on_name_lost
         )
+
+    def cleanup(self):
+        if self.timeout_id:
+            try:
+                GLib.source_remove(self.timeout_id)
+            except GLib.Error as e:
+                print(f"Error removing timeout: {e}")
+            self.timeout_id = None
+
+        if self.connection:
+            try:
+                self.connection.unregister_object(SEARCH_PATH)
+            except GLib.Error as e:
+                print(f"Error unregistering object: {e}")
+            self.connection = None
+
+        for handle in self._file_handles.copy():
+            try:
+                handle.close()
+            except:
+                pass
+        self._file_handles.clear()
+
+        self.is_registered = False
 
     def reset_timeout(self):
         if self.timeout_id:
@@ -87,9 +113,10 @@ class SearchProvider(GObject.Object):
         return GLib.SOURCE_REMOVE
 
     def on_bus_acquired(self, connection, name):
+        self.connection = connection
         info = Gio.DBusNodeInfo.new_for_xml(SEARCH_INTERFACE)
 
-        connection.register_object(
+        self.connection.register_object(
             SEARCH_PATH,
             info.interfaces[0],
             self.handle_method_call,
@@ -127,10 +154,25 @@ class SearchProvider(GObject.Object):
         try:
             if os.path.exists(self.history_file):
                 with open(self.history_file, 'r') as f:
-                    return load(f)
-        except Exception:
-            pass
+                    self._file_handles.add(f)
+                    data = load(f)
+                    self._file_handles.remove(f)
+                    return data
+        except (IOError, ValueError) as e:
+            print(f"Error loading history: {e}")
+            return []
+        finally:
+            if f in self._file_handles:
+                self._file_handles.remove(f)
         return []
+
+    def save_history(self, history):
+        try:
+            os.makedirs(os.path.dirname(self.history_file), exist_ok=True)
+            with open(self.history_file, 'w') as f:
+                dump(history, f, indent=4)
+        except (IOError, ValueError) as e:
+            print(f"Error saving history: {e}")
 
     def GetInitialResultSet(self, terms):
         history = self.load_history()
@@ -192,7 +234,7 @@ class SearchProvider(GObject.Object):
         launcher.launch([], None)
 
     def on_name_lost(self, connection, name):
-        self.is_registered = False
+        self.cleanup()
         if loop.is_running():
             loop.quit()
 
