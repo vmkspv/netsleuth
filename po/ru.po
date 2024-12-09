@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-01 16:30+0300\n"
-"PO-Revision-Date: 2024-12-01 17:00+0300\n"
+"POT-Creation-Date: 2024-12-09 15:00+0300\n"
+"PO-Revision-Date: 2024-12-09 16:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -81,7 +81,7 @@ msgstr "Последний хост"
 msgid "Broadcast"
 msgstr "Широковещательный адрес"
 
-#: src/calculator.py:48 src/window.py:136
+#: src/calculator.py:48 src/window.py:138
 msgid "Total Hosts"
 msgstr "Всего хостов"
 
@@ -195,7 +195,7 @@ msgstr "позиционные аргументы"
 msgid "usage:"
 msgstr "использование:"
 
-#: src/window.py:88
+#: src/window.py:91
 msgid ""
 "The 0.0.0.0 address is used to represent the default route or an unknown "
 "target network."
@@ -203,7 +203,7 @@ msgstr ""
 "Адрес 0.0.0.0 используется для обозначения неизвестной целевой сети или "
 "маршрута по умолчанию."
 
-#: src/window.py:89
+#: src/window.py:92
 msgid ""
 "A PTR record enables reverse DNS lookup, translating an IP address back to a "
 "domain name."
@@ -211,7 +211,7 @@ msgstr ""
 "PTR-запись позволяет выполнять обратный поиск DNS, преобразуя IP-адрес в "
 "доменное имя."
 
-#: src/window.py:90
+#: src/window.py:93
 msgid ""
 "The 240.0.0.0/4 block was originally reserved for future experiments, but is "
 "now considered legacy."
@@ -219,7 +219,7 @@ msgstr ""
 "Изначально блок 240.0.0.0/4 был зарезервирован для будущих экспериментов, но "
 "теперь считается устаревшим."
 
-#: src/window.py:91
+#: src/window.py:94
 msgid ""
 "In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
 "to-point links."
@@ -227,7 +227,7 @@ msgstr ""
 "В подсети /30 есть только 2 используемых IP-адреса, часто применяемых для "
 "соединений точка-точка."
 
-#: src/window.py:92
+#: src/window.py:95
 msgid ""
 "Wildcard mask inverts subnet masks, providing flexible IP filtering in "
 "access lists."
@@ -235,7 +235,7 @@ msgstr ""
 "Обратная маска инвертирует маски подсетей, обеспечивая гибкую фильтрацию IP в "
 "списках доступа."
 
-#: src/window.py:93
+#: src/window.py:96
 msgid ""
 "An IP's binary representation always has 32 bits, regardless of the decimal "
 "notation used."
@@ -243,68 +243,68 @@ msgstr ""
 "Двоичное представление IP-адреса всегда содержит 32 бита, независимо от "
 "используемой десятичной нотации."
 
-#: src/window.py:145
+#: src/window.py:147
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/window.py:174 src/window.py:179
+#: src/window.py:176 src/window.py:181
 msgid "Recalculation needed"
 msgstr "Требуется пересчёт"
 
-#: src/window.py:183
+#: src/window.py:185
 msgid "About Netsleuth"
 msgstr "О приложении"
 
-#: src/window.py:192 src/window.py:388
+#: src/window.py:194 src/window.py:408
 msgid "Copied to clipboard"
 msgstr "Скопировано в буфер обмена"
 
-#: src/window.py:244 src/window.ui:68
+#: src/window.py:246 src/window.ui:68
 msgid "History"
 msgstr "История"
 
-#: src/window.py:255
+#: src/window.py:257
 msgid "Clear"
 msgstr "Очистить"
 
-#: src/window.py:270
+#: src/window.py:272
 msgid "No History"
 msgstr "Ничего нет"
 
-#: src/window.py:271
+#: src/window.py:273
 msgid "Your calculation history will appear here"
 msgstr "История ваших расчётов появится здесь"
 
-#: src/window.py:330
+#: src/window.py:332
 msgid "Select"
 msgstr "Выбрать"
 
-#: src/window.py:345
+#: src/window.py:347 src/window.py:390
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Рассчитано: {ip}/{mask}"
 
-#: src/window.py:351
+#: src/window.py:353
 msgid "History cleared"
 msgstr "История очищена"
 
-#: src/window.py:417
+#: src/window.py:437
 msgid "Export results"
 msgstr "Экспорт результатов"
 
-#: src/window.py:436
+#: src/window.py:456
 msgid "decimal"
 msgstr "десятичный"
 
-#: src/window.py:440
+#: src/window.py:460
 msgid "binary"
 msgstr "двоичный"
 
-#: src/window.py:445
+#: src/window.py:465
 msgid "hexadecimal"
 msgstr "шестнадцатеричный"
 
-#: src/window.py:466
+#: src/window.py:486
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr "Сохранено в {file}"
