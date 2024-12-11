@@ -42,12 +42,14 @@ class IPCalculator:
                 _('Netmask'): self.format_ip(network.netmask),
                 _('Wildcard'): self.format_ip(network.hostmask),
                 _('Network'): self.format_ip(network.network_address),
+                _('Broadcast'): self.format_ip(network.broadcast_address) if mask < 31 else None,
                 _('First Host'): self.format_ip(network.network_address + (0 if mask >= 31 else 1)),
                 _('Last Host'): self.format_ip(network.broadcast_address - (0 if mask >= 31 else 1)),
-                _('Broadcast'): self.format_ip(network.broadcast_address) if mask < 31 else None,
                 _('Total Hosts'): f"{host_count}{self.get_host_count_math(mask)}",
+                _('Category'): self.get_ip_class(interface.ip),
                 _('PTR Record'): self.get_ptr_record(interface.ip),
-                _('Category'): self.get_ip_class(interface.ip)
+                _('IPv4 Mapped Address'): self.get_ipv4_mapped(interface.ip),
+                _('6to4 Prefix'): self.get_6to4_prefix(interface.ip)
             }
             return results
         except ValueError:
@@ -98,3 +100,11 @@ class IPCalculator:
 
     def get_ptr_record(self, ip):
         return f"{'.'.join(str(ip).split('.')[::-1])}.in-addr.arpa"
+
+    def get_ipv4_mapped(self, ip):
+        hex_parts = [f"{int(octet):02x}" for octet in str(ip).split('.')]
+        return f"::ffff:{hex_parts[0]}{hex_parts[1]}.{hex_parts[2]}{hex_parts[3]}"
+
+    def get_6to4_prefix(self, ip):
+        hex_parts = [f"{int(octet):02x}" for octet in str(ip).split('.')]
+        return f"2002:{hex_parts[0]}{hex_parts[1]}.{hex_parts[2]}{hex_parts[3]}::/48"
