@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-09 15:00+0300\n"
-"PO-Revision-Date: 2024-12-09 16:00+0300\n"
+"POT-Creation-Date: 2024-12-13 14:00+0300\n"
+"PO-Revision-Date: 2024-12-13 15:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -70,66 +70,74 @@ msgid "Network"
 msgstr "Адреса мережі"
 
 #: src/calculator.py:45
+msgid "Broadcast"
+msgstr "Широкомовна адреса"
+
+#: src/calculator.py:46
 msgid "First Host"
 msgstr "Перший хост"
 
-#: src/calculator.py:46
+#: src/calculator.py:47
 msgid "Last Host"
 msgstr "Останній хост"
-
-#: src/calculator.py:47
-msgid "Broadcast"
-msgstr "Широкомовна адреса"
 
 #: src/calculator.py:48 src/window.py:138
 msgid "Total Hosts"
 msgstr "Усього хостів"
 
 #: src/calculator.py:49
-msgid "PTR Record"
-msgstr "Зворотня адреса"
-
-#: src/calculator.py:50
 msgid "Category"
 msgstr "Категорія"
 
-#: src/calculator.py:54
+#: src/calculator.py:50
+msgid "PTR Record"
+msgstr "Зворотня адреса"
+
+#: src/calculator.py:51
+msgid "IPv4 Mapped Address"
+msgstr "Відображувана IPv4-адреса"
+
+#: src/calculator.py:52
+msgid "6to4 Prefix"
+msgstr "6to4-префікс"
+
+#: src/calculator.py:56
 msgid "Error"
 msgstr "Помилка"
 
-#: src/calculator.py:54
+#: src/calculator.py:56
 msgid "Invalid IP address or mask"
 msgstr "Недійсний IP-адреса або маска"
 
-#: src/calculator.py:77
+#: src/calculator.py:79
 msgid "Private (Class A)"
 msgstr "Приватний (Клас A)"
 
-#: src/calculator.py:78
+#: src/calculator.py:80
 msgid "Private (Class B)"
 msgstr "Приватний (Клас B)"
 
-#: src/calculator.py:79
+#: src/calculator.py:81
 msgid "Private (Class C)"
 msgstr "Приватний (Клас C)"
 
-#: src/calculator.py:80
+#: src/calculator.py:82
 msgid "Loopback"
 msgstr "Зворотний зв'язок (Loopback)"
 
-#: src/calculator.py:81
+#: src/calculator.py:83
 msgid "Link-Local (APIPA)"
 msgstr "Локальний зв'язок (APIPA)"
 
-#: src/calculator.py:82
+#: src/calculator.py:84
 msgid "Multicast"
 msgstr "Мультикаст"
 
-#: src/calculator.py:83
+#: src/calculator.py:85
 msgid "Reserved"
 msgstr "Зарезервований"
 
-#: src/calculator.py:86
+#: src/calculator.py:88
 msgid "Public"
 msgstr "Публічний"
 

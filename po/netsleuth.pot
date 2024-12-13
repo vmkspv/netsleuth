@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-09 15:00+0300\n"
+"POT-Creation-Date: 2024-12-13 14:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,15 +67,15 @@ msgid "Network"
 msgstr ""
 
 #: src/calculator.py:45
-msgid "First Host"
+msgid "Broadcast"
 msgstr ""
 
 #: src/calculator.py:46
-msgid "Last Host"
+msgid "First Host"
 msgstr ""
 
 #: src/calculator.py:47
-msgid "Broadcast"
+msgid "Last Host"
 msgstr ""
 
 #: src/calculator.py:48 src/window.py:138
@@ -83,50 +83,58 @@ msgid "Total Hosts"
 msgstr ""
 
 #: src/calculator.py:49
-msgid "PTR Record"
-msgstr ""
-
-#: src/calculator.py:50
 msgid "Category"
 msgstr ""
 
-#: src/calculator.py:54
+#: src/calculator.py:50
+msgid "PTR Record"
+msgstr ""
+
+#: src/calculator.py:51
+msgid "IPv4 Mapped Address"
+msgstr ""
+
+#: src/calculator.py:52
+msgid "6to4 Prefix"
+msgstr ""
+
+#: src/calculator.py:56
 msgid "Error"
 msgstr ""
 
-#: src/calculator.py:54
+#: src/calculator.py:56
 msgid "Invalid IP address or mask"
 msgstr ""
 
-#: src/calculator.py:77
+#: src/calculator.py:79
 msgid "Private (Class A)"
 msgstr ""
 
-#: src/calculator.py:78
+#: src/calculator.py:80
 msgid "Private (Class B)"
 msgstr ""
 
-#: src/calculator.py:79
+#: src/calculator.py:81
 msgid "Private (Class C)"
 msgstr ""
 
-#: src/calculator.py:80
+#: src/calculator.py:82
 msgid "Loopback"
 msgstr ""
 
-#: src/calculator.py:81
+#: src/calculator.py:83
 msgid "Link-Local (APIPA)"
 msgstr ""
 
-#: src/calculator.py:82
+#: src/calculator.py:84
 msgid "Multicast"
 msgstr ""
 
-#: src/calculator.py:83
+#: src/calculator.py:85
 msgid "Reserved"
 msgstr ""
 
-#: src/calculator.py:86
+#: src/calculator.py:88
 msgid "Public"
 msgstr ""
 

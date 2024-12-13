@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-09 15:00+0300\n"
-"PO-Revision-Date: 2024-12-09 16:00+0300\n"
+"POT-Creation-Date: 2024-12-13 14:00+0300\n"
+"PO-Revision-Date: 2024-12-13 15:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -70,66 +70,74 @@ msgid "Network"
 msgstr "Адрес сети"
 
 #: src/calculator.py:45
+msgid "Broadcast"
+msgstr "Широковещательный адрес"
+
+#: src/calculator.py:46
 msgid "First Host"
 msgstr "Первый хост"
 
-#: src/calculator.py:46
+#: src/calculator.py:47
 msgid "Last Host"
 msgstr "Последний хост"
-
-#: src/calculator.py:47
-msgid "Broadcast"
-msgstr "Широковещательный адрес"
 
 #: src/calculator.py:48 src/window.py:138
 msgid "Total Hosts"
 msgstr "Всего хостов"
 
 #: src/calculator.py:49
-msgid "PTR Record"
-msgstr "Обратный адрес"
-
-#: src/calculator.py:50
 msgid "Category"
 msgstr "Категория"
 
-#: src/calculator.py:54
+#: src/calculator.py:50
+msgid "PTR Record"
+msgstr "Обратный адрес"
+
+#: src/calculator.py:51
+msgid "IPv4 Mapped Address"
+msgstr "Отображаемый IPv4-адрес"
+
+#: src/calculator.py:52
+msgid "6to4 Prefix"
+msgstr "6to4-префикс"
+
+#: src/calculator.py:56
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/calculator.py:54
+#: src/calculator.py:56
 msgid "Invalid IP address or mask"
 msgstr "Недопустимый IP-адрес или маска"
 
-#: src/calculator.py:77
+#: src/calculator.py:79
 msgid "Private (Class A)"
 msgstr "Частный (Класс A)"
 
-#: src/calculator.py:78
+#: src/calculator.py:80
 msgid "Private (Class B)"
 msgstr "Частный (Класс B)"
 
-#: src/calculator.py:79
+#: src/calculator.py:81
 msgid "Private (Class C)"
 msgstr "Частный (Класс C)"
 
-#: src/calculator.py:80
+#: src/calculator.py:82
 msgid "Loopback"
 msgstr "Обратная связь (Loopback)"
 
-#: src/calculator.py:81
+#: src/calculator.py:83
 msgid "Link-Local (APIPA)"
 msgstr "Локальная связь (APIPA)"
 
-#: src/calculator.py:82
+#: src/calculator.py:84
 msgid "Multicast"
 msgstr "Мультикаст"
 
-#: src/calculator.py:83
+#: src/calculator.py:85
 msgid "Reserved"
 msgstr "Зарезервированный"
 
-#: src/calculator.py:86
+#: src/calculator.py:88
 msgid "Public"
 msgstr "Публичный"
 
