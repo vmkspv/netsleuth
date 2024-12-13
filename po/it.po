@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-26 12:00+0000\n"
-"PO-Revision-Date: 2024-10-18 14:00+0300\n"
+"PO-Revision-Date: 2024-12-13 17:30+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -16,122 +16,356 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:18
-msgid "IP Subnet Calculator"
-msgstr "Calcolatore della sottorete IP"
+#. Translators: Netsleuth is the application name. Do NOT translate or transliterate this string!
+#: data/io.github.vmkspv.netsleuth.desktop.in:4
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:6
+msgid "Netsleuth"
+msgstr "Netsleuth"
 
+#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:33
+msgid "IP Subnet Calculator"
+msgstr ""Calcolatrice della subnet IP"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.vmkspv.netsleuth.desktop.in:12
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "Rete;IP;Subnet;Maschera;Host;Calcolatrice;"
 
-#: src/calculator.py:36
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:7
+msgid "Calculate IP subnets"
+msgstr "Calcola le subnet IP"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:9 src/cmdline.py:33
+msgid ""
+"A simple utility for the calculation and analysis of IP subnet values, "
+"designed to simplify network configuration tasks."
+msgstr ""
+"Una semplice utility per il calcolo e l'analisi dei valori di subnet IP, "
+"progettata per semplificare le attività di configurazione di rete."
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:14
+msgid "Calculation options"
+msgstr "Opzioni di calcolo"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:18
+msgid "List of results"
+msgstr "Elenco dei risultati"
+
+#: src/calculator.py:41
 msgid "Address"
 msgstr "Indirizzo"
 
-#: src/calculator.py:37
+#: src/calculator.py:42
 msgid "Netmask"
 msgstr "Maschera di rete"
 
-#: src/calculator.py:38
+#: src/calculator.py:43
 msgid "Wildcard"
 msgstr "Carattere jolly"
 
-#: src/calculator.py:39
+#: src/calculator.py:44
 msgid "Network"
 msgstr "Rete"
 
-#: src/calculator.py:40
-msgid "First Host"
-msgstr "Primo host"
-
-#: src/calculator.py:41
-msgid "Last Host"
-msgstr "Ultimo host"
-
-#: src/calculator.py:42
+#: src/calculator.py:45
 msgid "Broadcast"
 msgstr "Broadcast"
 
-#: src/calculator.py:43 src/window.py:113
-msgid "Total Hosts"
-msgstr "Host totali"
+#: src/calculator.py:46
+msgid "First Host"
+msgstr "Primo host"
 
-#: src/calculator.py:45
+#: src/calculator.py:47
+msgid "Last Host"
+msgstr "Ultimo host"
+
+#: src/calculator.py:48 src/window.py:138
+msgid "Total Hosts"
+msgstr "Totale host"
+
+#: src/calculator.py:49
 msgid "Category"
 msgstr "Categoria"
 
-#: src/calculator.py:49
+#: src/calculator.py:50
+msgid "PTR Record"
+msgstr "PTR Record"
+
+#: src/calculator.py:51
+msgid "IPv4 Mapped Address"
+msgstr "Indirizzo IPv4 mappato"
+
+#: src/calculator.py:52
+msgid "6to4 Prefix"
+msgstr "Prefisso 6to4"
+
+#: src/calculator.py:56
 msgid "Error"
 msgstr "Errore"
 
-#: src/calculator.py:49
+#: src/calculator.py:56
 msgid "Invalid IP address or mask"
 msgstr "Indirizzo IP o maschera non validi"
 
-#: src/calculator.py:64
+#: src/calculator.py:79
 msgid "Private (Class A)"
 msgstr "Privato (Classe A)"
 
-#: src/calculator.py:65
+#: src/calculator.py:80
 msgid "Private (Class B)"
 msgstr "Privato (Classe B)"
 
-#: src/calculator.py:66
+#: src/calculator.py:81
 msgid "Private (Class C)"
 msgstr "Privato (Classe C)"
 
-#: src/calculator.py:67
+#: src/calculator.py:82
 msgid "Loopback"
 msgstr "Loopback"
 
-#: src/calculator.py:68
+#: src/calculator.py:83
 msgid "Link-Local (APIPA)"
 msgstr "Link-Locale (APIPA)"
 
-#: src/calculator.py:69
+#: src/calculator.py:84
 msgid "Multicast"
 msgstr "Multicast"
 
-#: src/calculator.py:70
+#: src/calculator.py:85
 msgid "Reserved"
-msgstr "Privato"
+msgstr "Riservato"
 
-#: src/calculator.py:73
+#: src/calculator.py:88
 msgid "Public"
 msgstr "Pubblico"
 
-#: src/window.py:159
-msgid "Recalculation needed"
-msgstr "È necessario un nuovo calcolo"
+#: src/cmdline.py:39
+msgid "ip for calculation"
+msgstr "ip per calcolo"
 
-#: src/window.py:172 src/window.py:373
+#: src/cmdline.py:45
+msgid "subnet mask (default: 24)"
+msgstr "maschera di sottorete (predefinita: 24)"
+
+#: src/cmdline.py:50
+msgid "show binary values"
+msgstr "mostra valori binari"
+
+#: src/cmdline.py:55
+msgid "show hexadecimal values"
+msgstr "mostra valori esadecimali"
+
+#: src/cmdline.py:61
+msgid "show this help message and exit"
+msgstr "mostra questo messaggio di aiuto ed esci"
+
+#: src/cmdline.py:66
+msgid "show version information and exit"
+msgstr "mostra informazioni sulla versione ed esci"
+
+#: src/cmdline.py:119
+#, python-brace-format
+msgid ""
+"netsleuth {version}\n"
+"Copyright (C) 2024 Vladimir Kosolapov\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
+"html>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+"\n"
+"Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
+msgstr ""
+"netsleuth {version}\n"
+"Copyright (C) 2024 Vladimir Kosolapov\n"
+"Licenza GPLv3+: GNU GPL versione 3 o successiva <https://gnu.org/licenses/gpl."
+"html>.\n"
+"Questo è software libero: sei libero di modificarlo e ridistribuirlo.\n"
+"NON C'È ALCUNA GARANZIA, nella misura consentita dalla legge.\n"
+"\n"
+"Segnala i bug a: <https://github.com/vmkspv/netsleuth/issues>."
+
+#: src/cmdline.py:144
+msgid "options"
+msgstr "opzioni"
+
+#: src/cmdline.py:145
+msgid "general"
+msgstr "generale"
+
+#: src/cmdline.py:148
+msgid "positional arguments"
+msgstr "argomenti posizionali"
+
+#: src/cmdline.py:149
+msgid "usage:"
+msgstr "uso:"
+
+#: src/window.py:91
+msgid ""
+"The 0.0.0.0 address is used to represent the default route or an unknown "
+"target network."
+msgstr ""
+"L'indirizzo 0.0.0.0 viene utilizzato per rappresentare il percorso predefinito o una "
+"rete di destinazione sconosciuta."
+
+#: src/window.py:92
+msgid ""
+"A PTR record enables reverse DNS lookup, translating an IP address back to a "
+"domain name."
+msgstr ""
+"Un record PTR consente la ricerca DNS inversa, traducendo un indirizzo IP in un "
+"nome di dominio."
+
+#: src/window.py:93
+msgid ""
+"The 240.0.0.0/4 block was originally reserved for future experiments, but is "
+"now considered legacy."
+msgstr ""
+"Il blocco 240.0.0.0/4 era originariamente riservato per esperimenti futuri, ma è "
+"ora considerato obsoleto."
+
+#: src/window.py:94
+msgid ""
+"In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
+"to-point links."
+msgstr ""
+"In una subnet /30, ci sono solo 2 indirizzi IP utilizzabili, spesso usati per "
+"collegamenti punto-punto."
+
+#: src/window.py:95
+msgid ""
+"Wildcard mask inverts subnet masks, providing flexible IP filtering in "
+"access lists."
+msgstr ""
+"La maschera jolly inverte le maschere di sottorete, fornendo un filtraggio "
+"IP flessibile negli elenchi di accesso."
+
+#: src/window.py:96
+msgid ""
+"An IP's binary representation always has 32 bits, regardless of the decimal "
+"notation used."
+msgstr ""
+"La rappresentazione binaria di un IP ha sempre 32 bit, indipendentemente dalla "
+"notazione decimale utilizzata."
+
+#: src/window.py:147
+msgid "Copy"
+msgstr "Copia"
+
+#: src/window.py:176 src/window.py:181
+msgid "Recalculation needed"
+msgstr "Necessario un ricalcolo"
+
+#: src/window.py:185
+msgid "About Netsleuth"
+msgstr "Informazioni su Netsleuth"
+
+#: src/window.py:194 src/window.py:408
 msgid "Copied to clipboard"
 msgstr "Copiato negli appunti"
 
-#: src/window.ui:46
+#: src/window.py:246 src/window.ui:68
+msgid "History"
+msgstr "Cronologia"
+
+#: src/window.py:257
+msgid "Clear"
+msgstr "Pulisci"
+
+#: src/window.py:272
+msgid "No History"
+msgstr "Nessuna cronologia"
+
+#: src/window.py:273
+msgid "Your calculation history will appear here"
+msgstr "La cronologia dei tuoi calcoli apparirà qui"
+
+#: src/window.py:332
+msgid "Select"
+msgstr "Seleziona"
+
+#: src/window.py:347 src/window.py:390
+#, python-brace-format
+msgid "Calculated: {ip}/{mask}"
+msgstr "Calcolato: {ip}/{mask}"
+
+#: src/window.py:353
+msgid "History cleared"
+msgstr "Cronologia cancellata"
+
+#: src/window.py:437
+msgid "Export results"
+msgstr "Esporta risultati"
+
+#: src/window.py:456
+msgid "decimal"
+msgstr "decimale"
+
+#: src/window.py:460
+msgid "binary"
+msgstr "binario"
+
+#: src/window.py:465
+msgid "hexadecimal"
+msgstr "esadecimale"
+
+#: src/window.py:486
+#, python-brace-format
+msgid "Saved to {file}"
+msgstr "Salvato in {file}"
+
+#: src/window.ui:61
 msgid "Details"
 msgstr "Dettagli"
 
-#: src/window.ui:49
+#: src/window.ui:64
 msgid "IP Address"
 msgstr "Indirizzo IP"
 
-#: src/window.ui:65
+#: src/window.ui:80
 msgid "Subnet Mask"
 msgstr "Maschera di sottorete"
 
-#: src/window.ui:70
+#: src/window.ui:87
 msgid "Show Binary"
 msgstr "Mostra binario"
 
-#: src/window.ui:71
+#: src/window.ui:88
 msgid "Display binary representation of IP addresses"
 msgstr "Visualizza la rappresentazione binaria degli indirizzi IP"
 
-#: src/window.ui:83
+#: src/window.ui:93
+msgid "Show Hexadecimal"
+msgstr "Mostra esadecimale"
+
+#: src/window.ui:94
+msgid "Display hexadecimal representation of IP addresses"
+msgstr "Visualizza la rappresentazione esadecimale degli indirizzi IP"
+
+#: src/window.ui:106
 msgid "Calculate"
 msgstr "Calcola"
 
-#: src/window.ui:106
+#: src/window.ui:123
+msgid "Did you know?"
+msgstr "Lo sapevi?"
+
+#: src/window.ui:130 src/window.ui:181 src/window.ui:188 src/window.ui:219
 msgid "Results"
-msgstr "Risutati"
+msgstr "Risultati"
+
+#: src/window.ui:139 src/window.ui:228
+msgid "Copy All"
+msgstr "Copia tutto"
+
+#: src/window.ui:150 src/window.ui:239
+msgid "Export"
+msgstr "Esporta"
+
+#: src/window.ui:199
+msgid "No Results"
+msgstr "Nessun risultato"
+
+#: src/window.ui:200
+msgid "Your calculation results will appear here"
+msgstr "I risultati del tuo calcolo appariranno qui"
