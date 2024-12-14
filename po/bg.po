@@ -1,7 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Vladimir Kosolapov
-# This file is distributed under the same license as the netsleuth package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Bulgarian translations for Netsleuth package.
+# Copyright (C) 2024 Vladimir Kosolapov
+# This file is distributed under the same license as the Netsleuth package.
 # twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024.
 #
 msgid ""
@@ -261,7 +260,7 @@ msgstr "Необходимо е преизчисляване"
 
 #: src/window.py:185
 msgid "About Netsleuth"
-msgstr "Относно „Netsleuth“"
+msgstr "Относно Netsleuth"
 
 #: src/window.py:194 src/window.py:408
 msgid "Copied to clipboard"

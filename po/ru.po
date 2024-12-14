@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-13 14:00+0300\n"
-"PO-Revision-Date: 2024-12-13 15:00+0300\n"
+"POT-Creation-Date: 2024-12-14 11:00+0300\n"
+"PO-Revision-Date: 2024-12-14 12:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -111,15 +111,15 @@ msgstr "Недопустимый IP-адрес или маска"
 
 #: src/calculator.py:79
 msgid "Private (Class A)"
-msgstr "Частный (Класс A)"
+msgstr "Частный (класс A)"
 
 #: src/calculator.py:80
 msgid "Private (Class B)"
-msgstr "Частный (Класс B)"
+msgstr "Частный (класс B)"
 
 #: src/calculator.py:81
 msgid "Private (Class C)"
-msgstr "Частный (Класс C)"
+msgstr "Частный (класс C)"
 
 #: src/calculator.py:82
 msgid "Loopback"

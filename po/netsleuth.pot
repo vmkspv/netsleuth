@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Vladimir Kosolapov
-# This file is distributed under the same license as the netsleuth package.
+# LANGUAGE translations for Netsleuth package.
+# Copyright (C) 2024 Vladimir Kosolapov
+# This file is distributed under the same license as the Netsleuth package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-13 17:07+0200\n"
+"POT-Creation-Date: 2024-12-14 11:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
