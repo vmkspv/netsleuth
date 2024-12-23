@@ -28,7 +28,35 @@ The recommended installation method is via Flatpak.
   <img src="https://flathub.org/api/badge?svg&locale=en" width="196"/>
 </a>
 
-Netsleuth is also available in [`ALT Sisyphus`](https://packages.altlinux.org/en/sisyphus/binary/netsleuth/noarch) repository.
+To use the command-line interface, add a shell alias by running the following command:
+
+```
+echo "alias netsleuth='flatpak run io.github.vmkspv.netsleuth'" >> ~/.bashrc
+```
+
+<details>
+  <summary>Command-line interface</summary>
+
+  ```
+  > netsleuth --help
+  usage: netsleuth [ip_address] [-m MASK] [--binary] [--hex] [-h] [-v]
+
+  positional arguments:
+    ip_address            ip for calculation
+
+  options:
+    -m MASK, --mask MASK  subnet mask (default: 24)
+    --binary              show binary values
+    --hex                 show hexadecimal values
+
+  general:
+    -h, --help            show this help message and exit
+    -v, --version         show version information and exit
+  ```
+
+</details>
+
+Netsleuth is also available in [`ALT Sisyphus`](https://packages.altlinux.org/en/sisyphus/srpms/netsleuth) repository.
 
 ## Building from source
 
