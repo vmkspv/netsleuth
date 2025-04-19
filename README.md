@@ -24,13 +24,17 @@ _Netsleuth_ is a simple utility for calculating and analyzing IP subnet values.
 
 The recommended installation method is via Flatpak.
 
-<a href="https://flathub.org/apps/details/io.github.vmkspv.netsleuth">
-  <img src="https://flathub.org/api/badge?svg&locale=en" width="196"/>
-</a>
+<p>
+  <a href="https://flathub.org/apps/details/io.github.vmkspv.netsleuth">
+    <img src="https://flathub.org/api/badge?svg&locale=en" width="182"/>
+  </a>
+</p>
+
+Netsleuth is also available in [`ALT Sisyphus`](https://packages.altlinux.org/en/sisyphus/srpms/netsleuth) repository.
 
 To use the command-line interface, add a shell alias by running the following command:
 
-```
+```bash
 echo "alias netsleuth='flatpak run io.github.vmkspv.netsleuth'" >> ~/.bashrc
 ```
 
@@ -55,8 +59,6 @@ echo "alias netsleuth='flatpak run io.github.vmkspv.netsleuth'" >> ~/.bashrc
   ```
 
 </details>
-
-Netsleuth is also available in [`ALT Sisyphus`](https://packages.altlinux.org/en/sisyphus/srpms/netsleuth) repository.
 
 ## Building from source
 
