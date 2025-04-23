@@ -22,7 +22,7 @@ jobs:
       - name: Validate AppStream file
         run: |
           appstreamcli validate --no-net data/io.github.vmkspv.netsleuth.metainfo.xml.in
-      - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: netsleuth.flatpak
           manifest-path: io.github.vmkspv.netsleuth.json
