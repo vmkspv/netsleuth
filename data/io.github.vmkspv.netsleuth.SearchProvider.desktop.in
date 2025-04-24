@@ -3,5 +3,6 @@ Name=Netsleuth Search Provider
 Icon=io.github.vmkspv.netsleuth
 Type=Service
 DBusActivatable=true
+NoDisplay=true
 X-GNOME-SearchProvider-Prefix=io.github.vmkspv.netsleuth
 X-GNOME-SearchProvider-Path=/io/github/vmkspv/netsleuth/SearchProvider
