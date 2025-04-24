@@ -117,7 +117,7 @@ class CommandLineInterface:
 
     def print_version(self):
         print(_('''netsleuth {version}
-Copyright (C) 2024 Vladimir Kosolapov
+Copyright (C) 2024-2025 Vladimir Kosolapov
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.

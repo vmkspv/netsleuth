@@ -65,7 +65,7 @@ class NetsleuthApplication(Adw.Application):
         about.set_developers(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_artists(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_translator_credits(self.get_translator_credits())
-        about.set_copyright('© 2024 Vladimir Kosolapov')
+        about.set_copyright('© 2024-2025 Vladimir Kosolapov')
         about.present(self.props.active_window)
 
     def on_close_window_action(self, *args):
