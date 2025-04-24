@@ -138,7 +138,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             if key == _('Total Hosts'):
                 count, *math = subtitle.split(' ', 1)
                 subtitle = f"{count}{' ' + math[0] if math else ''}"
-            row = Adw.ActionRow(title=key, subtitle=subtitle)
+            row = Adw.ActionRow(title=key, subtitle=subtitle, subtitle_selectable=True)
             row.add_css_class("property-row")
 
             copy_button = Gtk.Button(
@@ -173,12 +173,12 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def on_show_binary_changed(self, switch, pspec):
         self.calculator.set_show_binary(switch.get_active())
         if self.results_group_main.get_visible() or self.results_group.get_visible():
-            self.show_toast(_('Recalculation needed'))
+            self.on_calculate_clicked(None)
 
     def on_show_hex_changed(self, switch, pspec):
         self.calculator.set_show_hex(switch.get_active())
         if self.results_group_main.get_visible() or self.results_group.get_visible():
-            self.show_toast(_('Recalculation needed'))
+            self.on_calculate_clicked(None)
 
     @Gtk.Template.Callback()
     def on_about_button_clicked(self, button):
@@ -386,7 +386,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             self.history.insert(0, selected_item)
             self.ip_entry.set_text(selected_item['ip'])
             self.mask_dropdown.set_selected(selected_item['mask'])
-            self.on_calculate_clicked()
+            self.on_calculate_clicked(None)
             self.show_toast(_('Calculated: {ip}/{mask}').format(ip=selected_item['ip'], mask=selected_item['mask']))
             selected_item['selected'] = False
             self.save_history()
