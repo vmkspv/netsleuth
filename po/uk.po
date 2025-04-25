@@ -1,5 +1,5 @@
 # Ukrainian translations for Netsleuth package.
-# Copyright (C) 2024 Vladimir Kosolapov
+# Copyright (C) 2024-2025 Vladimir Kosolapov
 # This file is distributed under the same license as the Netsleuth package.
 # Vladimir Kosolapov, 2024.
 #
@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-14 11:00+0300\n"
-"PO-Revision-Date: 2024-12-14 12:00+0300\n"
+"POT-Creation-Date: 2025-04-25 12:00+0300\n"
+"PO-Revision-Date: 2025-04-25 13:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -169,7 +169,7 @@ msgstr "вивести інформацію про версію та вийти"
 #, python-brace-format
 msgid ""
 "netsleuth {version}\n"
-"Copyright (C) 2024 Vladimir Kosolapov\n"
+"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
 "License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
 "html>.\n"
 "This is free software: you are free to change and redistribute it.\n"
@@ -178,7 +178,7 @@ msgid ""
 "Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
 msgstr ""
 "netsleuth {version}\n"
-"Copyright (C) 2024 Vladimir Kosolapov\n"
+"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
 "Ліцензія GPLv3+: GNU GPL версії 3 або новішій <https://gnu.org/licenses/gpl."
 "html>.\n"
 "Це вільне ПЗ: ви можете вільно змінювати і поширювати його.\n"
@@ -254,10 +254,6 @@ msgstr ""
 #: src/window.py:147
 msgid "Copy"
 msgstr "Копіювати"
-
-#: src/window.py:176 src/window.py:181
-msgid "Recalculation needed"
-msgstr "Потрібен перерахунок"
 
 #: src/window.py:185
 msgid "About Netsleuth"

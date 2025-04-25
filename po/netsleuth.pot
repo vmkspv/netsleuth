@@ -1,5 +1,5 @@
 # LANGUAGE translations for Netsleuth package.
-# Copyright (C) 2024 Vladimir Kosolapov
+# Copyright (C) 2024-2025 Vladimir Kosolapov
 # This file is distributed under the same license as the Netsleuth package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-14 11:00+0300\n"
+"POT-Creation-Date: 2025-04-25 12:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -166,7 +166,7 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "netsleuth {version}\n"
-"Copyright (C) 2024 Vladimir Kosolapov\n"
+"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
 "License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
 "html>.\n"
 "This is free software: you are free to change and redistribute it.\n"
@@ -229,10 +229,6 @@ msgstr ""
 
 #: src/window.py:147
 msgid "Copy"
-msgstr ""
-
-#: src/window.py:176 src/window.py:181
-msgid "Recalculation needed"
 msgstr ""
 
 #: src/window.py:185
