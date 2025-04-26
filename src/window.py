@@ -453,16 +453,16 @@ class NetsleuthWindow(Adw.ApplicationWindow):
                 parts = value.split('<tt>')
                 remaining_parts = parts[1:]
                 current_part = 0
-                result = {_('decimal'): parts[0].strip()}
+                result = {'decimal': parts[0].strip()}
 
                 if self.calculator.show_binary:
                     if current_part < len(remaining_parts):
-                        result[_('binary')] = remaining_parts[current_part].replace('</tt>', '').strip()
+                        result['binary'] = remaining_parts[current_part].replace('</tt>', '').strip()
                         current_part += 1
 
                 if self.calculator.show_hex:
                     if current_part < len(remaining_parts):
-                        result[_('hexadecimal')] = remaining_parts[current_part].replace('</tt>', '').strip()
+                        result['hexadecimal'] = remaining_parts[current_part].replace('</tt>', '').strip()
 
                 return result
 
@@ -474,8 +474,34 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             file_path = file.get_path()
             file_name = file.get_basename()
 
+            mappings = {
+                _('Address'): 'Address',
+                _('Netmask'): 'Netmask',
+                _('Wildcard'): 'Wildcard',
+                _('Network'): 'Network',
+                _('Broadcast'): 'Broadcast',
+                _('First Host'): 'First Host',
+                _('Last Host'): 'Last Host',
+                _('Total Hosts'): 'Total Hosts',
+                _('Category'): 'Category',
+                _('PTR Record'): 'PTR Record',
+                _('IPv4 Mapped Address'): 'IPv4 Mapped Address',
+                _('6to4 Prefix'): '6to4 Prefix',
+                _('Private (Class A)'): 'Private (Class A)',
+                _('Private (Class B)'): 'Private (Class B)',
+                _('Private (Class C)'): 'Private (Class C)',
+                _('Loopback'): 'Loopback',
+                _('Link-Local (APIPA)'): 'Link-Local (APIPA)',
+                _('Multicast'): 'Multicast',
+                _('Reserved'): 'Reserved',
+                _('Public'): 'Public'
+            }
+
             export_results = {
-                key: self.format_value_for_export(value)
+                mappings.get(key, key): (
+                    mappings.get(value, value) if mappings.get(key, key) == 'Category' and isinstance(value, str)
+                    else self.format_value_for_export(value)
+                )
                 for key, value in self.results.items()
                 if value is not None
             }
