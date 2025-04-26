@@ -1,0 +1,369 @@
+# LANGUAGE translations for Netsleuth package.
+# Copyright (C) 2024-2025 Vladimir Kosolapov
+# This file is distributed under the same license as the Netsleuth package.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: netsleuth\n"
+"Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
+"POT-Creation-Date: 2025-04-25 12:00+0300\n"
+"PO-Revision-Date: 2025-04-26 17:42+0900\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Translators: Netsleuth is the application name. Do NOT translate or transliterate this string!
+#: data/io.github.vmkspv.netsleuth.desktop.in:4
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:6
+msgid "Netsleuth"
+msgstr "Netsleuth"
+
+#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:33
+msgid "IP Subnet Calculator"
+msgstr "IP サブネット計算ツール"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/io.github.vmkspv.netsleuth.desktop.in:12
+msgid "Network;IP;Subnet;Mask;Host;Calculator;"
+msgstr ""
+"Network;IP;Subnet;Mask;Host;Calculator;ネットワーク;サブネット;マスク;ホスト;"
+"計算;"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:7
+msgid "Calculate IP subnets"
+msgstr "IP サブネットを計算します"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:9 src/cmdline.py:33
+msgid ""
+"A simple utility for the calculation and analysis of IP subnet values, "
+"designed to simplify network configuration tasks."
+msgstr ""
+"IP サブネット値を計算・分析するための、シンプルなツールです。ネットワーク設定"
+"作業を簡単にすることを目的としています。"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:14
+msgid "Calculation options"
+msgstr "計算オプション"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:18
+msgid "List of results"
+msgstr "結果の一覧"
+
+#: src/calculator.py:41
+msgid "Address"
+msgstr "アドレス"
+
+#: src/calculator.py:42
+msgid "Netmask"
+msgstr "ネットマスク"
+
+#: src/calculator.py:43
+msgid "Wildcard"
+msgstr "ワイルドカード"
+
+#: src/calculator.py:44
+msgid "Network"
+msgstr "ネットワーク"
+
+#: src/calculator.py:45
+msgid "Broadcast"
+msgstr "ブロードキャスト"
+
+#: src/calculator.py:46
+msgid "First Host"
+msgstr "先頭ホストアドレス"
+
+#: src/calculator.py:47
+msgid "Last Host"
+msgstr "末尾ホストアドレス"
+
+#: src/calculator.py:48 src/window.py:138
+msgid "Total Hosts"
+msgstr "ホストアドレス数"
+
+#: src/calculator.py:49
+msgid "Category"
+msgstr "カテゴリー"
+
+#: src/calculator.py:50
+msgid "PTR Record"
+msgstr "PTR レコード"
+
+#: src/calculator.py:51
+msgid "IPv4 Mapped Address"
+msgstr "IPv4 射影アドレス"
+
+#: src/calculator.py:52
+msgid "6to4 Prefix"
+msgstr "6to4 プレフィックス"
+
+#: src/calculator.py:56
+msgid "Error"
+msgstr "エラー"
+
+#: src/calculator.py:56
+msgid "Invalid IP address or mask"
+msgstr "IP アドレスまたはネットマスクが不正です"
+
+#: src/calculator.py:79
+msgid "Private (Class A)"
+msgstr "プライベート (クラス A)"
+
+#: src/calculator.py:80
+msgid "Private (Class B)"
+msgstr "プライベート (クラス B)"
+
+#: src/calculator.py:81
+msgid "Private (Class C)"
+msgstr "プライベート (クラス C)"
+
+#: src/calculator.py:82
+msgid "Loopback"
+msgstr "ループバック"
+
+#: src/calculator.py:83
+msgid "Link-Local (APIPA)"
+msgstr "リンクローカル (APIPA)"
+
+#: src/calculator.py:84
+msgid "Multicast"
+msgstr "マルチキャスト"
+
+#: src/calculator.py:85
+msgid "Reserved"
+msgstr "予約"
+
+#: src/calculator.py:88
+msgid "Public"
+msgstr "パブリック"
+
+#: src/cmdline.py:39
+msgid "ip for calculation"
+msgstr "計算対象の IP アドレス"
+
+#: src/cmdline.py:45
+msgid "subnet mask (default: 24)"
+msgstr "サブネットマスク (デフォルト: 24)"
+
+#: src/cmdline.py:50
+msgid "show binary values"
+msgstr "二進数の値を表示する"
+
+#: src/cmdline.py:55
+msgid "show hexadecimal values"
+msgstr "十六進数の値を表示する"
+
+#: src/cmdline.py:61
+msgid "show this help message and exit"
+msgstr "使い方を表示して終了する"
+
+#: src/cmdline.py:66
+msgid "show version information and exit"
+msgstr "バージョン情報を表示して終了する"
+
+#: src/cmdline.py:119
+#, python-brace-format
+msgid ""
+"netsleuth {version}\n"
+"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
+"html>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+"\n"
+"Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
+msgstr ""
+"netsleuth {version}\n"
+"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
+"html>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+"\n"
+"バグ報告はこちら: <https://github.com/vmkspv/netsleuth/issues>"
+
+#: src/cmdline.py:144
+msgid "options"
+msgstr "オプション"
+
+#: src/cmdline.py:145
+msgid "general"
+msgstr "一般"
+
+#: src/cmdline.py:148
+msgid "positional arguments"
+msgstr "引数"
+
+#: src/cmdline.py:149
+msgid "usage:"
+msgstr "使用法:"
+
+#: src/window.py:91
+msgid ""
+"The 0.0.0.0 address is used to represent the default route or an unknown "
+"target network."
+msgstr ""
+"0.0.0.0 というアドレスは、デフォルトルートや宛先不明なネットワークを表わすの"
+"に使われます。"
+
+#: src/window.py:92
+msgid ""
+"A PTR record enables reverse DNS lookup, translating an IP address back to a "
+"domain name."
+msgstr ""
+"PTR レコードは DNS の逆引きを可能にするもので、IP アドレスをドメイン名に変換"
+"します。"
+
+#: src/window.py:93
+msgid ""
+"The 240.0.0.0/4 block was originally reserved for future experiments, but is "
+"now considered legacy."
+msgstr ""
+"240.0.0.0/4 のブロックは、元々将来のための予約でしたが、今では過去の遺物とみ"
+"なされています。"
+
+#: src/window.py:94
+msgid ""
+"In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
+"to-point links."
+msgstr ""
+"/30 のサブネットで利用可能な IP アドレスは 2 台のみなので、多くの場合ポイント"
+"ツーポイント接続に用いられます。"
+
+#: src/window.py:95
+msgid ""
+"Wildcard mask inverts subnet masks, providing flexible IP filtering in "
+"access lists."
+msgstr ""
+"ワイルドカードマスクはサブネットマスクを逆転させたもので、アクセス制御リスト"
+"において柔軟な IP フィルタリングを可能にします。"
+
+#: src/window.py:96
+msgid ""
+"An IP's binary representation always has 32 bits, regardless of the decimal "
+"notation used."
+msgstr ""
+"IP アドレスは常に 32 ビットの二進数で表現され、それは十進法で表記されていても"
+"変わりません。"
+
+#: src/window.py:147
+msgid "Copy"
+msgstr "コピー"
+
+#: src/window.py:185
+msgid "About Netsleuth"
+msgstr "Netsleuth について"
+
+#: src/window.py:194 src/window.py:408
+msgid "Copied to clipboard"
+msgstr "クリップボードにコピーしました"
+
+#: src/window.py:246 src/window.ui:68
+msgid "History"
+msgstr "履歴"
+
+#: src/window.py:257
+msgid "Clear"
+msgstr "消去"
+
+#: src/window.py:272
+msgid "No History"
+msgstr "履歴なし"
+
+#: src/window.py:273
+msgid "Your calculation history will appear here"
+msgstr "計算履歴がここに表示されます"
+
+#: src/window.py:332
+msgid "Select"
+msgstr "選択"
+
+#: src/window.py:347 src/window.py:390
+#, python-brace-format
+msgid "Calculated: {ip}/{mask}"
+msgstr "次の IP アドレスで計算しました: {ip}/{mask}"
+
+#: src/window.py:353
+msgid "History cleared"
+msgstr "履歴を消去しました"
+
+#: src/window.py:437
+msgid "Export results"
+msgstr "結果をエクスポート"
+
+#: src/window.py:456
+msgid "decimal"
+msgstr "十進数"
+
+#: src/window.py:460
+msgid "binary"
+msgstr "二進数"
+
+#: src/window.py:465
+msgid "hexadecimal"
+msgstr "十六進数"
+
+#: src/window.py:486
+#, python-brace-format
+msgid "Saved to {file}"
+msgstr "{file} に保存しました"
+
+#: src/window.ui:61
+msgid "Details"
+msgstr "詳細"
+
+#: src/window.ui:64
+msgid "IP Address"
+msgstr "IP アドレス"
+
+#: src/window.ui:80
+msgid "Subnet Mask"
+msgstr "サブネットマスク"
+
+#: src/window.ui:87
+msgid "Show Binary"
+msgstr "二進数の値を表示"
+
+#: src/window.ui:88
+msgid "Display binary representation of IP addresses"
+msgstr "二進数表現した IP アドレスを表示します"
+
+#: src/window.ui:93
+msgid "Show Hexadecimal"
+msgstr "十六進数の値を表示"
+
+#: src/window.ui:94
+msgid "Display hexadecimal representation of IP addresses"
+msgstr "十六進数表現した IP アドレスを表示します"
+
+#: src/window.ui:106
+msgid "Calculate"
+msgstr "計算する"
+
+#: src/window.ui:123
+msgid "Did you know?"
+msgstr "ご存じですか?"
+
+#: src/window.ui:130 src/window.ui:181 src/window.ui:188 src/window.ui:219
+msgid "Results"
+msgstr "結果"
+
+#: src/window.ui:139 src/window.ui:228
+msgid "Copy All"
+msgstr "すべてコピー"
+
+#: src/window.ui:150 src/window.ui:239
+msgid "Export"
+msgstr "エクスポート"
+
+#: src/window.ui:199
+msgid "No Results"
+msgstr "結果なし"
+
+#: src/window.ui:200
+msgid "Your calculation results will appear here"
+msgstr "計算結果がここに表示されます"
