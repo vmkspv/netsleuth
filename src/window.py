@@ -182,7 +182,6 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     @Gtk.Template.Callback()
     def on_about_button_clicked(self, button):
-        button.set_tooltip_text(_('About Netsleuth'))
         self.get_application().on_about_action(None, None)
 
     def on_copy_clicked(self, button, text):
