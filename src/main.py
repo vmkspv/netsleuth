@@ -31,6 +31,7 @@ from .cmdline import main as cli_main
 translators = {
     'bg': 'twlvnn kraftwerk https://github.com/twlvnn',
     'it': 'Albano Battistella https://github.com/albanobattistella',
+    'ja': 'Ryo Nakano https://github.com/ryonakano',
     'pt_BR': 'Kelvin Ribeiro Novais https://github.com/KelvinNovais',
     'ru': 'Vladimir Kosolapov https://github.com/vmkspv',
     'uk': 'Vladimir Kosolapov https://github.com/vmkspv'
