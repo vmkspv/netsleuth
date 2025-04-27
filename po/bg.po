@@ -1,5 +1,5 @@
 # Bulgarian translations for Netsleuth package.
-# Copyright (C) 2024 Vladimir Kosolapov
+# Copyright (C) 2024-2025 Vladimir Kosolapov
 # This file is distributed under the same license as the Netsleuth package.
 # twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024.
 #
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
 "POT-Creation-Date: 2024-12-13 16:26+0200\n"
-"PO-Revision-Date: 2024-12-13 17:05+0200\n"
+"PO-Revision-Date: 2025-04-27 13:00+0300\n"
 "Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
 "Language: bg\n"
@@ -19,17 +19,17 @@ msgstr ""
 "X-Generator: Gtranslator 47.0\n"
 
 #. Translators: Netsleuth is the application name. Do NOT translate or transliterate this string!
-#: data/io.github.vmkspv.netsleuth.desktop.in:4
+#: data/io.github.vmkspv.netsleuth.desktop.in:3
 #: data/io.github.vmkspv.netsleuth.metainfo.xml.in:6
 msgid "Netsleuth"
 msgstr "Netsleuth"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:33
+#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.ui:33
 msgid "IP Subnet Calculator"
 msgstr "Калкулатор на IP адреси за подмрежи"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/io.github.vmkspv.netsleuth.desktop.in:12
+#: data/io.github.vmkspv.netsleuth.desktop.in:11
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "мрежа;подмрежа;маска;хост;калкулатор;"
 
@@ -53,91 +53,91 @@ msgstr "Опции за изчисляване"
 msgid "List of results"
 msgstr "Списък на резултатите"
 
-#: src/calculator.py:41
+#: src/calculator.py:41 src/window.py:477
 msgid "Address"
 msgstr "Адрес"
 
-#: src/calculator.py:42
+#: src/calculator.py:42 src/window.py:478
 msgid "Netmask"
 msgstr "Мрежова маска"
 
-#: src/calculator.py:43
+#: src/calculator.py:43 src/window.py:479
 msgid "Wildcard"
 msgstr "Заместваща маска"
 
-#: src/calculator.py:44
+#: src/calculator.py:44 src/window.py:480
 msgid "Network"
 msgstr "Мрежа"
 
-#: src/calculator.py:45
+#: src/calculator.py:45 src/window.py:481
 msgid "Broadcast"
 msgstr "Разпръскване"
 
-#: src/calculator.py:46
+#: src/calculator.py:46 src/window.py:482
 msgid "First Host"
 msgstr "Първи хост"
 
-#: src/calculator.py:47
+#: src/calculator.py:47 src/window.py:483
 msgid "Last Host"
 msgstr "Последен хост"
 
-#: src/calculator.py:48 src/window.py:138
+#: src/calculator.py:48 src/window.py:138 src/window.py:484
 msgid "Total Hosts"
 msgstr "Общо хостове"
 
-#: src/calculator.py:49
+#: src/calculator.py:49 src/window.py:485
 msgid "Category"
 msgstr "Категория"
 
-#: src/calculator.py:50
+#: src/calculator.py:50 src/window.py:486
 msgid "PTR Record"
 msgstr "PTR запис"
 
-#: src/calculator.py:51
+#: src/calculator.py:51 src/window.py:487
 msgid "IPv4 Mapped Address"
 msgstr "Зададен IPv4 адрес"
 
-#: src/calculator.py:52
+#: src/calculator.py:52 src/window.py:488
 msgid "6to4 Prefix"
 msgstr "6to4 представка"
 
-#: src/calculator.py:56
+#: src/calculator.py:56 src/cmdline.py:152
 msgid "Error"
 msgstr "Грешка"
 
-#: src/calculator.py:56
+#: src/calculator.py:56 src/cmdline.py:152
 msgid "Invalid IP address or mask"
 msgstr "Неправилен IP адрес или маска"
 
-#: src/calculator.py:79
+#: src/calculator.py:79 src/window.py:489
 msgid "Private (Class A)"
 msgstr "Частен (Клас A)"
 
-#: src/calculator.py:80
+#: src/calculator.py:80 src/window.py:490
 msgid "Private (Class B)"
 msgstr "Частен (Клас B)"
 
-#: src/calculator.py:81
+#: src/calculator.py:81 src/window.py:491
 msgid "Private (Class C)"
 msgstr "Частен (Клас C)"
 
-#: src/calculator.py:82
+#: src/calculator.py:82 src/window.py:492
 msgid "Loopback"
 msgstr "Локален интерфейс"
 
-#: src/calculator.py:83
+#: src/calculator.py:83 src/window.py:493
 msgid "Link-Local (APIPA)"
 msgstr "Локална връзка (APIPA)"
 
-#: src/calculator.py:84
+#: src/calculator.py:84 src/window.py:494
 msgid "Multicast"
 msgstr "Мултикаст"
 
-#: src/calculator.py:85
+#: src/calculator.py:85 src/window.py:495
 msgid "Reserved"
 msgstr "Запазен"
 
-#: src/calculator.py:88
+#: src/calculator.py:88 src/window.py:496
 msgid "Public"
 msgstr "Публичен"
 
@@ -169,7 +169,7 @@ msgstr "извеждане на версията и изход"
 #, python-brace-format
 msgid ""
 "netsleuth {version}\n"
-"Copyright (C) 2024 Vladimir Kosolapov\n"
+"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
 "License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
 "html>.\n"
 "This is free software: you are free to change and redistribute it.\n"
@@ -178,7 +178,7 @@ msgid ""
 "Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
 msgstr ""
 "netsleuth {version}\n"
-"Авторски права (C) 2024 Vladimir Kosolapov\n"
+"Авторски права (C) 2024-2025 Vladimir Kosolapov\n"
 "Лицензия GPLv3+: GNU GPL версия 3 или по-нова <https://gnu.org/licenses/gpl."
 "html>.\n"
 "Това е свободен софтуер: може свободно да го променяте и разпространявате.\n"
@@ -254,120 +254,104 @@ msgstr ""
 msgid "Copy"
 msgstr "Копиране"
 
-#: src/window.py:176 src/window.py:181
-msgid "Recalculation needed"
-msgstr "Необходимо е преизчисляване"
-
-#: src/window.py:185
-msgid "About Netsleuth"
-msgstr "Относно Netsleuth"
-
-#: src/window.py:194 src/window.py:408
+#: src/window.py:193 src/window.py:407
 msgid "Copied to clipboard"
 msgstr "Копирано в буфера за обмен"
 
-#: src/window.py:246 src/window.ui:68
+#: src/window.py:245 src/window.ui:69
 msgid "History"
 msgstr "История"
 
-#: src/window.py:257
+#: src/window.py:256
 msgid "Clear"
 msgstr "Изчистване"
 
-#: src/window.py:272
+#: src/window.py:271
 msgid "No History"
 msgstr "Няма история"
 
-#: src/window.py:273
+#: src/window.py:272
 msgid "Your calculation history will appear here"
 msgstr "Историята на изчисленията ви ще се появи тук"
 
-#: src/window.py:332
+#: src/window.py:331
 msgid "Select"
 msgstr "Избор"
 
-#: src/window.py:347 src/window.py:390
+#: src/window.py:346 src/window.py:389
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Изчислено: {ip}/{mask}"
 
-#: src/window.py:353
+#: src/window.py:352
 msgid "History cleared"
 msgstr "Историята е изчистена"
 
-#: src/window.py:437
+#: src/window.py:436
 msgid "Export results"
 msgstr "Резултати от изнасянето"
 
-#: src/window.py:456
-msgid "decimal"
-msgstr "десетична"
-
-#: src/window.py:460
-msgid "binary"
-msgstr "двоична"
-
-#: src/window.py:465
-msgid "hexadecimal"
-msgstr "шестнайсетична"
-
-#: src/window.py:486
+#: src/window.py:511
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr "Запазено в {file}"
 
-#: src/window.ui:61
+#: src/window.ui:40
+msgid "About Netsleuth"
+msgstr "Относно Netsleuth"
+
+#: src/window.ui:62
 msgid "Details"
 msgstr "Подробности"
 
-#: src/window.ui:64
+#: src/window.ui:65
 msgid "IP Address"
 msgstr "IP адрес"
 
-#: src/window.ui:80
+#: src/window.ui:81
 msgid "Subnet Mask"
 msgstr "Маска на подмрежата"
 
-#: src/window.ui:87
+#: src/window.ui:88
 msgid "Show Binary"
 msgstr "Показване в двоичен код"
 
-#: src/window.ui:88
+#: src/window.ui:89
 msgid "Display binary representation of IP addresses"
 msgstr "Показване на двоично представяне на IP адреси"
 
-#: src/window.ui:93
+#: src/window.ui:94
 msgid "Show Hexadecimal"
 msgstr "Показване на шестнадесетична"
 
-#: src/window.ui:94
+#: src/window.ui:95
 msgid "Display hexadecimal representation of IP addresses"
 msgstr "Показване на шестнайсетично представяне на IP адреси"
 
-#: src/window.ui:106
+#: src/window.ui:107
 msgid "Calculate"
 msgstr "Изчисляване"
 
-#: src/window.ui:123
+#: src/window.ui:124
 msgid "Did you know?"
 msgstr "Знаете ли, че?"
 
-#: src/window.ui:130 src/window.ui:181 src/window.ui:188 src/window.ui:219
+#: src/window.ui:131 src/window.ui:182 src/window.ui:189 src/window.ui:220
 msgid "Results"
 msgstr "Резултати"
 
-#: src/window.ui:139 src/window.ui:228
+#: src/window.ui:140 src/window.ui:229
 msgid "Copy All"
 msgstr "Копиране на всичко"
 
-#: src/window.ui:150 src/window.ui:239
+#: src/window.ui:151 src/window.ui:240
 msgid "Export"
 msgstr "Изнасяне"
 
-#: src/window.ui:199
+#: src/window.ui:200
 msgid "No Results"
 msgstr "Няма резултати"
 
-#: src/window.ui:200
+#: src/window.ui:201
 msgid "Your calculation results will appear here"
 msgstr "Резултатите от изчисленията ви ще се появят тук"

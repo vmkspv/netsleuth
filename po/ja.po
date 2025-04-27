@@ -1,4 +1,4 @@
-# LANGUAGE translations for Netsleuth package.
+# Japanese translations for Netsleuth package.
 # Copyright (C) 2024-2025 Vladimir Kosolapov
 # This file is distributed under the same license as the Netsleuth package.
 # Ryo Nakano <ryonakaknock3@gmail.com>, 2025.

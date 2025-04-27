@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2025-04-25 12:00+0300\n"
-"PO-Revision-Date: 2025-04-25 13:00+0300\n"
+"POT-Creation-Date: 2025-04-27 10:00+0300\n"
+"PO-Revision-Date: 2025-04-27 11:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
-"Language-Team: Ukrainian\n"
+"Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,17 +19,17 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. Translators: Netsleuth is the application name. Do NOT translate or transliterate this string!
-#: data/io.github.vmkspv.netsleuth.desktop.in:4
+#: data/io.github.vmkspv.netsleuth.desktop.in:3
 #: data/io.github.vmkspv.netsleuth.metainfo.xml.in:6
 msgid "Netsleuth"
 msgstr "Netsleuth"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:5 src/window.ui:33
+#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.ui:33
 msgid "IP Subnet Calculator"
 msgstr "Калькулятор IP-підмереж"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/io.github.vmkspv.netsleuth.desktop.in:12
+#: data/io.github.vmkspv.netsleuth.desktop.in:11
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "Мережа;IP;Підмережа;Маска;Хост;Калькулятор;"
 
@@ -53,91 +53,91 @@ msgstr "Параметри розрахунку"
 msgid "List of results"
 msgstr "Список результатів"
 
-#: src/calculator.py:41
+#: src/calculator.py:41 src/window.py:477
 msgid "Address"
 msgstr "Адреса"
 
-#: src/calculator.py:42
+#: src/calculator.py:42 src/window.py:478
 msgid "Netmask"
 msgstr "Маска"
 
-#: src/calculator.py:43
+#: src/calculator.py:43 src/window.py:479
 msgid "Wildcard"
 msgstr "Зворотня маска"
 
-#: src/calculator.py:44
+#: src/calculator.py:44 src/window.py:480
 msgid "Network"
 msgstr "Адреса мережі"
 
-#: src/calculator.py:45
+#: src/calculator.py:45 src/window.py:481
 msgid "Broadcast"
 msgstr "Широкомовна адреса"
 
-#: src/calculator.py:46
+#: src/calculator.py:46 src/window.py:482
 msgid "First Host"
 msgstr "Перший хост"
 
-#: src/calculator.py:47
+#: src/calculator.py:47 src/window.py:483
 msgid "Last Host"
 msgstr "Останній хост"
 
-#: src/calculator.py:48 src/window.py:138
+#: src/calculator.py:48 src/window.py:138 src/window.py:484
 msgid "Total Hosts"
 msgstr "Усього хостів"
 
-#: src/calculator.py:49
+#: src/calculator.py:49 src/window.py:485
 msgid "Category"
 msgstr "Категорія"
 
-#: src/calculator.py:50
+#: src/calculator.py:50 src/window.py:486
 msgid "PTR Record"
 msgstr "Зворотня адреса"
 
-#: src/calculator.py:51
+#: src/calculator.py:51 src/window.py:487
 msgid "IPv4 Mapped Address"
 msgstr "Відображувана IPv4-адреса"
 
-#: src/calculator.py:52
+#: src/calculator.py:52 src/window.py:488
 msgid "6to4 Prefix"
 msgstr "6to4-префікс"
 
-#: src/calculator.py:56
+#: src/calculator.py:56 src/cmdline.py:152
 msgid "Error"
 msgstr "Помилка"
 
-#: src/calculator.py:56
+#: src/calculator.py:56 src/cmdline.py:152
 msgid "Invalid IP address or mask"
 msgstr "Недійсний IP-адреса або маска"
 
-#: src/calculator.py:79
+#: src/calculator.py:79 src/window.py:489
 msgid "Private (Class A)"
 msgstr "Приватний (клас A)"
 
-#: src/calculator.py:80
+#: src/calculator.py:80 src/window.py:490
 msgid "Private (Class B)"
 msgstr "Приватний (клас B)"
 
-#: src/calculator.py:81
+#: src/calculator.py:81 src/window.py:491
 msgid "Private (Class C)"
 msgstr "Приватний (клас C)"
 
-#: src/calculator.py:82
+#: src/calculator.py:82 src/window.py:492
 msgid "Loopback"
 msgstr "Зворотний зв'язок (Loopback)"
 
-#: src/calculator.py:83
+#: src/calculator.py:83 src/window.py:493
 msgid "Link-Local (APIPA)"
 msgstr "Локальний зв'язок (APIPA)"
 
-#: src/calculator.py:84
+#: src/calculator.py:84 src/window.py:494
 msgid "Multicast"
 msgstr "Мультикаст"
 
-#: src/calculator.py:85
+#: src/calculator.py:85 src/window.py:495
 msgid "Reserved"
 msgstr "Зарезервований"
 
-#: src/calculator.py:88
+#: src/calculator.py:88 src/window.py:496
 msgid "Public"
 msgstr "Публічний"
 
@@ -255,116 +255,104 @@ msgstr ""
 msgid "Copy"
 msgstr "Копіювати"
 
-#: src/window.py:185
-msgid "About Netsleuth"
-msgstr "Про Netsleuth"
-
-#: src/window.py:194 src/window.py:408
+#: src/window.py:193 src/window.py:407
 msgid "Copied to clipboard"
 msgstr "Скопійовано до буфера обміну"
 
-#: src/window.py:246 src/window.ui:68
+#: src/window.py:245 src/window.ui:69
 msgid "History"
 msgstr "Історія"
 
-#: src/window.py:257
+#: src/window.py:256
 msgid "Clear"
 msgstr "Очистити"
 
-#: src/window.py:272
+#: src/window.py:271
 msgid "No History"
 msgstr "Нічого немає"
 
-#: src/window.py:273
+#: src/window.py:272
 msgid "Your calculation history will appear here"
 msgstr "Історія ваших розрахунків з'явиться тут"
 
-#: src/window.py:332
+#: src/window.py:331
 msgid "Select"
 msgstr "Вибрати"
 
-#: src/window.py:347 src/window.py:390
+#: src/window.py:346 src/window.py:389
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Розраховано: {ip}/{mask}"
 
-#: src/window.py:353
+#: src/window.py:352
 msgid "History cleared"
 msgstr "Історія очищена"
 
-#: src/window.py:437
+#: src/window.py:436
 msgid "Export results"
 msgstr "Експорт результатів"
 
-#: src/window.py:456
-msgid "decimal"
-msgstr "десятковий"
-
-#: src/window.py:460
-msgid "binary"
-msgstr "двійковий"
-
-#: src/window.py:465
-msgid "hexadecimal"
-msgstr "шістнадцятковий"
-
-#: src/window.py:486
+#: src/window.py:511
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr "Збережено у {file}"
 
-#: src/window.ui:61
+#: src/window.ui:40
+msgid "About Netsleuth"
+msgstr "Про Netsleuth"
+
+#: src/window.ui:62
 msgid "Details"
 msgstr "Деталі"
 
-#: src/window.ui:64
+#: src/window.ui:65
 msgid "IP Address"
 msgstr "IP-адреса"
 
-#: src/window.ui:80
+#: src/window.ui:81
 msgid "Subnet Mask"
 msgstr "Маска підмережі"
 
-#: src/window.ui:87
+#: src/window.ui:88
 msgid "Show Binary"
 msgstr "Двійкові значення"
 
-#: src/window.ui:88
+#: src/window.ui:89
 msgid "Display binary representation of IP addresses"
 msgstr "Відображати двійкове представлення IP-адресiв"
 
-#: src/window.ui:93
+#: src/window.ui:94
 msgid "Show Hexadecimal"
 msgstr "Шістнадцяткові значення"
 
-#: src/window.ui:94
+#: src/window.ui:95
 msgid "Display hexadecimal representation of IP addresses"
 msgstr "Відображати шістнадцяткове представлення IP-адресiв"
 
-#: src/window.ui:106
+#: src/window.ui:107
 msgid "Calculate"
 msgstr "Розрахувати"
 
-#: src/window.ui:123
+#: src/window.ui:124
 msgid "Did you know?"
 msgstr "Чи знаєте ви?"
 
-#: src/window.ui:130 src/window.ui:181 src/window.ui:188 src/window.ui:219
+#: src/window.ui:131 src/window.ui:182 src/window.ui:189 src/window.ui:220
 msgid "Results"
 msgstr "Результати"
 
-#: src/window.ui:139 src/window.ui:228
+#: src/window.ui:140 src/window.ui:229
 msgid "Copy All"
 msgstr "Копіювати все"
 
-#: src/window.ui:150 src/window.ui:239
+#: src/window.ui:151 src/window.ui:240
 msgid "Export"
 msgstr "Експортувати"
 
-#: src/window.ui:199
+#: src/window.ui:200
 msgid "No Results"
 msgstr "Нічого немає"
 
-#: src/window.ui:200
+#: src/window.ui:201
 msgid "Your calculation results will appear here"
 msgstr "Результати ваших розрахунків з'являться тут"
