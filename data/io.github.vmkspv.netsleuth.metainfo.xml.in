@@ -17,6 +17,10 @@
       <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/main-2.png</image>
       <caption>List of results</caption>
     </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/vmkspv/netsleuth/main/data/screenshots/main-3.png</image>
+      <caption>Split view layout</caption>
+    </screenshot>
   </screenshots>
   <branding>
     <color type="primary" scheme_preference="light">#6AA698</color>
@@ -47,6 +51,18 @@
   <launchable type="desktop-id">io.github.vmkspv.netsleuth.desktop</launchable>
   <translation type="gettext">netsleuth</translation>
   <releases>
+    <release version="1.1.1" date="2025-05-01">
+      <description translate="no">
+        <ul>
+          <li>Updated to GNOME 48 runtime</li>
+          <li>Minor code optimization/fixes</li>
+        </ul>
+        <p>Updated/added translations:</p>
+        <ul>
+          <li>Japanese (Ryo Nakano)</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.1.0" date="2024-12-23">
       <description translate="no">
         <ul>
