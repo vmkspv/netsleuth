@@ -30,8 +30,6 @@ The recommended installation method is via Flatpak.
   </a>
 </p>
 
-Netsleuth is also available in [`ALT Sisyphus`](https://packages.altlinux.org/en/sisyphus/srpms/netsleuth) repository.
-
 To use the command-line interface, add a shell alias by running the following command:
 
 ```bash
