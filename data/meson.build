@@ -1,20 +1,20 @@
 application_id = 'io.github.vmkspv.netsleuth'
 
 desktop_file = i18n.merge_file(
-        input: 'io.github.vmkspv.netsleuth.desktop.in',
-       output: 'io.github.vmkspv.netsleuth.desktop',
-         type: 'desktop',
-       po_dir: '../po',
-      install: true,
+  input: 'io.github.vmkspv.netsleuth.desktop.in',
+  output: 'io.github.vmkspv.netsleuth.desktop',
+  type: 'desktop',
+  po_dir: '../po',
+  install: true,
   install_dir: get_option('datadir') / 'applications'
 )
 
 searchprovider_desktop_file = i18n.merge_file(
-        input: 'io.github.vmkspv.netsleuth.SearchProvider.desktop.in',
-       output: 'io.github.vmkspv.netsleuth.SearchProvider.desktop',
-         type: 'desktop',
-       po_dir: '../po',
-      install: true,
+  input: 'io.github.vmkspv.netsleuth.SearchProvider.desktop.in',
+  output: 'io.github.vmkspv.netsleuth.SearchProvider.desktop',
+  type: 'desktop',
+  po_dir: '../po',
+  install: true,
   install_dir: get_option('datadir') / 'applications'
 )
 
@@ -25,10 +25,10 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-        input: 'io.github.vmkspv.netsleuth.metainfo.xml.in',
-       output: 'io.github.vmkspv.netsleuth.metainfo.xml',
-       po_dir: '../po',
-      install: true,
+  input: 'io.github.vmkspv.netsleuth.metainfo.xml.in',
+  output: 'io.github.vmkspv.netsleuth.metainfo.xml',
+  po_dir: '../po',
+  install: true,
   install_dir: get_option('datadir') / 'metainfo'
 )
 

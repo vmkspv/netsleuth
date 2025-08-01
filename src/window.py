@@ -52,7 +52,6 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.set_title('Netsleuth')
         self.calculator = IPCalculator()
         self.results = {}
         self.history_dialog = None

@@ -1,6 +1,6 @@
 project('netsleuth',
-          version: '1.1.1',
-    meson_version: '>= 0.62.0',
+  version: '1.1.1',
+  meson_version: '>= 1.2.0',
   default_options: ['warning_level=2', 'werror=false']
 )
 
@@ -12,6 +12,6 @@ subdir('src')
 subdir('po')
 
 gnome.post_install(
-    gtk_update_icon_cache: true,
+  gtk_update_icon_cache: true,
   update_desktop_database: true
 )

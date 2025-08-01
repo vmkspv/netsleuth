@@ -2,11 +2,21 @@ pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
 moduledir = pkgdatadir / 'netsleuth'
 gnome = import('gnome')
 
+blueprint = custom_target('blueprint',
+  input: 'window.blp',
+  output: 'window.ui',
+  command: [
+    find_program('blueprint-compiler', required: true),
+    'compile', '--output', '@OUTPUT@', '@INPUT@'
+  ]
+)
+
 gnome.compile_resources('netsleuth',
   'netsleuth.gresource.xml',
   gresource_bundle: true,
   install: true,
-  install_dir: pkgdatadir
+  install_dir: pkgdatadir,
+  dependencies: blueprint
 )
 
 python = import('python')

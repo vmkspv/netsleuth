@@ -1,0 +1,228 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $NetsleuthWindow: Adw.ApplicationWindow {
+  title: "Netsleuth";
+  default-width: 460;
+  default-height: 640;
+  width-request: 360;
+  height-request: 360;
+
+  Adw.Breakpoint {
+    condition ("max-width: 700sp")
+
+    setters {
+      split_view.collapsed: true;
+    }
+  }
+
+  content: Adw.ToastOverlay toast_overlay {
+    child: Adw.NavigationSplitView split_view {
+      min-sidebar-width: 340;
+      max-sidebar-width: 420;
+
+      sidebar: Adw.NavigationPage {
+        title: bind template.title;
+
+        child: Adw.ToolbarView {
+          [top]
+          Adw.HeaderBar {
+            centering-policy: strict;
+
+            title-widget: Adw.WindowTitle {
+              title: bind template.title;
+              subtitle: _("IP Subnet Calculator");
+            };
+
+            [start]
+            Button about_button {
+              icon-name: "help-about-symbolic";
+              valign: center;
+              tooltip-text: _("About Netsleuth");
+              clicked => $on_about_button_clicked();
+              styles ["flat"]
+            }
+          }
+
+          content: ScrolledWindow main_content {
+            hscrollbar-policy: never;
+
+            child: Adw.Clamp {
+              maximum-size: 420;
+
+              child: Box {
+                orientation: vertical;
+                spacing: 16;
+                margin-top: 24;
+                margin-bottom: 24;
+                margin-start: 16;
+                margin-end: 16;
+
+                Adw.PreferencesGroup {
+                  title: _("Details");
+
+                  Adw.EntryRow ip_entry {
+                    title: _("IP Address");
+
+                    [suffix]
+                    Button history_button {
+                      icon-name: "document-open-recent-symbolic";
+                      tooltip-text: _("History");
+                      valign: center;
+                      clicked => $on_history_button_clicked();
+                      styles ["flat"]
+                    }
+                  }
+
+                  Adw.ComboRow mask_dropdown {
+                    title: _("Subnet Mask");
+                    enable-search: true;
+                    search-match-mode: substring;
+                  }
+
+                  Adw.SwitchRow show_binary_switch {
+                    title: _("Show Binary");
+                    subtitle: _("Display binary representation of IP addresses");
+                  }
+
+                  Adw.SwitchRow show_hex_switch {
+                    title: _("Show Hexadecimal");
+                    subtitle: _("Display hexadecimal representation of IP addresses");
+                  }
+                }
+
+                Box {
+                  halign: center;
+                  margin-top: 4;
+                  margin-bottom: 4;
+
+                  Button calculate_button {
+                    label: _("Calculate");
+                    valign: center;
+                    width-request: 150;
+                    clicked => $on_calculate_clicked();
+                    styles ["suggested-action", "pill"]
+                  }
+                }
+
+                Adw.PreferencesGroup fact_of_the_day_box {
+                  Adw.ActionRow fact_row {
+                    icon-name: "dialog-information-symbolic";
+                    title: _("Did you know?");
+                  }
+                }
+
+                Adw.PreferencesGroup results_group_main {
+                  title: _("Results");
+                  visible: false;
+
+                  [header-suffix]
+                  Box {
+                    spacing: 6;
+                    halign: end;
+
+                    Button copy_all_button_main {
+                      icon-name: "edit-copy-symbolic";
+                      tooltip-text: _("Copy All");
+                      valign: center;
+                      clicked => $on_copy_all_clicked();
+                      styles ["flat"]
+                    }
+
+                    Button export_button_main {
+                      icon-name: "document-save-symbolic";
+                      tooltip-text: _("Export");
+                      valign: center;
+                      clicked => $on_export_clicked();
+                      styles ["flat"]
+                    }
+                  }
+
+                  ListBox results_box_main {
+                    styles ["boxed-list"]
+                  }
+                }
+              };
+            };
+          };
+        };
+      };
+
+      content: Adw.NavigationPage {
+        title: _("Results");
+
+        child: Adw.ToolbarView {
+          [top]
+          Adw.HeaderBar {
+            title-widget: Adw.WindowTitle {
+              title: _("Results");
+            };
+          }
+
+          content: Stack results_stack {
+            transition-type: crossfade;
+
+            StackPage {
+              name: "empty";
+              child: Adw.StatusPage empty_results {
+                icon-name: "io.github.vmkspv.netsleuth-symbolic";
+                title: _("No Results");
+                description: _("Your calculation results will appear here");
+              };
+            }
+
+            StackPage {
+              name: "results";
+              child: ScrolledWindow {
+                hscrollbar-policy: never;
+
+                child: Adw.Clamp {
+                  maximum-size: 420;
+
+                  child: Box {
+                    orientation: vertical;
+                    spacing: 16;
+                    margin-top: 24;
+                    margin-bottom: 24;
+                    margin-start: 16;
+                    margin-end: 16;
+
+                    Adw.PreferencesGroup results_group {
+                      visible: false;
+
+                      [header-suffix]
+                      Box {
+                        spacing: 6;
+                        halign: end;
+
+                        Button copy_all_button {
+                          icon-name: "edit-copy-symbolic";
+                          tooltip-text: _("Copy All");
+                          valign: center;
+                          clicked => $on_copy_all_clicked();
+                          styles ["flat"]
+                        }
+
+                        Button export_button {
+                          icon-name: "document-save-symbolic";
+                          tooltip-text: _("Export");
+                          valign: center;
+                          clicked => $on_export_clicked();
+                          styles ["flat"]
+                        }
+                      }
+
+                      ListBox results_box {
+                        styles ["boxed-list"]
+                      }
+                    }
+                  };
+                };
+              };
+            }
+          };
+        };
+      };
+    };
+  };
+}
