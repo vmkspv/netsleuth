@@ -1,0 +1,26 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.property-row {
+  animation: fadeInUp 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+button.suggested-action.pill {
+  transition: transform 200ms ease;
+}
+
+button.suggested-action.pill:hover {
+  transform: translateY(-1px);
+}
+
+button.suggested-action.pill:active {
+  transform: translateY(0px);
+}
