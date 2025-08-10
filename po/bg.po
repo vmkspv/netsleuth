@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2024-12-13 16:26+0200\n"
+"POT-Creation-Date: 2025-08-10 13:00+0300\n"
 "PO-Revision-Date: 2025-04-27 13:00+0300\n"
 "Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Netsleuth"
 msgstr "Netsleuth"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.ui:33
+#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.blp:34
 msgid "IP Subnet Calculator"
 msgstr "Калкулатор на IP адреси за подмрежи"
 
@@ -53,51 +53,55 @@ msgstr "Опции за изчисляване"
 msgid "List of results"
 msgstr "Списък на резултатите"
 
-#: src/calculator.py:41 src/window.py:477
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:22
+msgid "Split view layout"
+msgstr ""
+
+#: src/calculator.py:41 src/window.py:476
 msgid "Address"
 msgstr "Адрес"
 
-#: src/calculator.py:42 src/window.py:478
+#: src/calculator.py:42 src/window.py:477
 msgid "Netmask"
 msgstr "Мрежова маска"
 
-#: src/calculator.py:43 src/window.py:479
+#: src/calculator.py:43 src/window.py:478
 msgid "Wildcard"
 msgstr "Заместваща маска"
 
-#: src/calculator.py:44 src/window.py:480
+#: src/calculator.py:44 src/window.py:479
 msgid "Network"
 msgstr "Мрежа"
 
-#: src/calculator.py:45 src/window.py:481
+#: src/calculator.py:45 src/window.py:480
 msgid "Broadcast"
 msgstr "Разпръскване"
 
-#: src/calculator.py:46 src/window.py:482
+#: src/calculator.py:46 src/window.py:481
 msgid "First Host"
 msgstr "Първи хост"
 
-#: src/calculator.py:47 src/window.py:483
+#: src/calculator.py:47 src/window.py:482
 msgid "Last Host"
 msgstr "Последен хост"
 
-#: src/calculator.py:48 src/window.py:138 src/window.py:484
+#: src/calculator.py:48 src/window.py:137 src/window.py:483
 msgid "Total Hosts"
 msgstr "Общо хостове"
 
-#: src/calculator.py:49 src/window.py:485
+#: src/calculator.py:49 src/window.py:484
 msgid "Category"
 msgstr "Категория"
 
-#: src/calculator.py:50 src/window.py:486
+#: src/calculator.py:50 src/window.py:485
 msgid "PTR Record"
 msgstr "PTR запис"
 
-#: src/calculator.py:51 src/window.py:487
+#: src/calculator.py:51 src/window.py:486
 msgid "IPv4 Mapped Address"
 msgstr "Зададен IPv4 адрес"
 
-#: src/calculator.py:52 src/window.py:488
+#: src/calculator.py:52 src/window.py:487
 msgid "6to4 Prefix"
 msgstr "6to4 представка"
 
@@ -109,35 +113,35 @@ msgstr "Грешка"
 msgid "Invalid IP address or mask"
 msgstr "Неправилен IP адрес или маска"
 
-#: src/calculator.py:79 src/window.py:489
+#: src/calculator.py:79 src/window.py:488
 msgid "Private (Class A)"
 msgstr "Частен (Клас A)"
 
-#: src/calculator.py:80 src/window.py:490
+#: src/calculator.py:80 src/window.py:489
 msgid "Private (Class B)"
 msgstr "Частен (Клас B)"
 
-#: src/calculator.py:81 src/window.py:491
+#: src/calculator.py:81 src/window.py:490
 msgid "Private (Class C)"
 msgstr "Частен (Клас C)"
 
-#: src/calculator.py:82 src/window.py:492
+#: src/calculator.py:82 src/window.py:491
 msgid "Loopback"
 msgstr "Локален интерфейс"
 
-#: src/calculator.py:83 src/window.py:493
+#: src/calculator.py:83 src/window.py:492
 msgid "Link-Local (APIPA)"
 msgstr "Локална връзка (APIPA)"
 
-#: src/calculator.py:84 src/window.py:494
+#: src/calculator.py:84 src/window.py:493
 msgid "Multicast"
 msgstr "Мултикаст"
 
-#: src/calculator.py:85 src/window.py:495
+#: src/calculator.py:85 src/window.py:494
 msgid "Reserved"
 msgstr "Запазен"
 
-#: src/calculator.py:88 src/window.py:496
+#: src/calculator.py:88 src/window.py:495
 msgid "Public"
 msgstr "Публичен"
 
@@ -202,7 +206,71 @@ msgstr "позиционни аргументи"
 msgid "usage:"
 msgstr "употреба:"
 
-#: src/window.py:91
+#: src/window.blp:41
+msgid "About Netsleuth"
+msgstr "Относно Netsleuth"
+
+#: src/window.blp:62
+msgid "Details"
+msgstr "Подробности"
+
+#: src/window.blp:65
+msgid "IP Address"
+msgstr "IP адрес"
+
+#: src/window.blp:70 src/window.py:244
+msgid "History"
+msgstr "История"
+
+#: src/window.blp:78
+msgid "Subnet Mask"
+msgstr "Маска на подмрежата"
+
+#: src/window.blp:84
+msgid "Show Binary"
+msgstr "Показване в двоичен код"
+
+#: src/window.blp:85
+msgid "Display binary representation of IP addresses"
+msgstr "Показване на двоично представяне на IP адреси"
+
+#: src/window.blp:89
+msgid "Show Hexadecimal"
+msgstr "Показване на шестнадесетична"
+
+#: src/window.blp:90
+msgid "Display hexadecimal representation of IP addresses"
+msgstr "Показване на шестнайсетично представяне на IP адреси"
+
+#: src/window.blp:100
+msgid "Calculate"
+msgstr "Изчисляване"
+
+#: src/window.blp:111
+msgid "Did you know?"
+msgstr "Знаете ли, че?"
+
+#: src/window.blp:116 src/window.blp:152 src/window.blp:158
+msgid "Results"
+msgstr "Резултати"
+
+#: src/window.blp:126 src/window.blp:200
+msgid "Copy All"
+msgstr "Копиране на всичко"
+
+#: src/window.blp:134 src/window.blp:208
+msgid "Export"
+msgstr "Изнасяне"
+
+#: src/window.blp:169
+msgid "No Results"
+msgstr "Няма резултати"
+
+#: src/window.blp:170
+msgid "Your calculation results will appear here"
+msgstr "Резултатите от изчисленията ви ще се появят тук"
+
+#: src/window.py:90
 msgid ""
 "The 0.0.0.0 address is used to represent the default route or an unknown "
 "target network."
@@ -210,7 +278,7 @@ msgstr ""
 "Адресът 0.0.0.0 се използва за представяне на стандартния маршрут или на "
 "неизвестна целева мрежа."
 
-#: src/window.py:92
+#: src/window.py:91
 msgid ""
 "A PTR record enables reverse DNS lookup, translating an IP address back to a "
 "domain name."
@@ -218,7 +286,7 @@ msgstr ""
 "PTR записите позволяват обратното DNS търсене, като превежда IP адрес "
 "обратно към име на домейн."
 
-#: src/window.py:93
+#: src/window.py:92
 msgid ""
 "The 240.0.0.0/4 block was originally reserved for future experiments, but is "
 "now considered legacy."
@@ -226,7 +294,7 @@ msgstr ""
 "240.0.0.0/4 първоначално е бил запазен за бъдещи експерименти, но сега се "
 "счита за остарял."
 
-#: src/window.py:94
+#: src/window.py:93
 msgid ""
 "In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
 "to-point links."
@@ -234,7 +302,7 @@ msgstr ""
 "В /30 подмрежа има само 2 използваеми IP адреса, които често се използват за "
 "връзки от точка до точка."
 
-#: src/window.py:95
+#: src/window.py:94
 msgid ""
 "Wildcard mask inverts subnet masks, providing flexible IP filtering in "
 "access lists."
@@ -242,7 +310,7 @@ msgstr ""
 "Заместваща маска обръща маските на подмрежите, като осигурява гъвкаво "
 "филтриране на IP адреси в списъците за достъп."
 
-#: src/window.py:96
+#: src/window.py:95
 msgid ""
 "An IP's binary representation always has 32 bits, regardless of the decimal "
 "notation used."
@@ -250,108 +318,44 @@ msgstr ""
 "Двоичното представяне на IP адрес винаги има 32 бита, независимо от "
 "използваната десетична нотация."
 
-#: src/window.py:147
+#: src/window.py:146
 msgid "Copy"
 msgstr "Копиране"
 
-#: src/window.py:193 src/window.py:407
+#: src/window.py:192 src/window.py:406
 msgid "Copied to clipboard"
 msgstr "Копирано в буфера за обмен"
 
-#: src/window.py:245 src/window.ui:69
-msgid "History"
-msgstr "История"
-
-#: src/window.py:256
+#: src/window.py:255
 msgid "Clear"
 msgstr "Изчистване"
 
-#: src/window.py:271
+#: src/window.py:270
 msgid "No History"
 msgstr "Няма история"
 
-#: src/window.py:272
+#: src/window.py:271
 msgid "Your calculation history will appear here"
 msgstr "Историята на изчисленията ви ще се появи тук"
 
-#: src/window.py:331
+#: src/window.py:330
 msgid "Select"
 msgstr "Избор"
 
-#: src/window.py:346 src/window.py:389
+#: src/window.py:345 src/window.py:388
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Изчислено: {ip}/{mask}"
 
-#: src/window.py:352
+#: src/window.py:351
 msgid "History cleared"
 msgstr "Историята е изчистена"
 
-#: src/window.py:436
+#: src/window.py:435
 msgid "Export results"
 msgstr "Резултати от изнасянето"
 
-#: src/window.py:511
+#: src/window.py:510
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr "Запазено в {file}"
-
-#: src/window.ui:40
-msgid "About Netsleuth"
-msgstr "Относно Netsleuth"
-
-#: src/window.ui:62
-msgid "Details"
-msgstr "Подробности"
-
-#: src/window.ui:65
-msgid "IP Address"
-msgstr "IP адрес"
-
-#: src/window.ui:81
-msgid "Subnet Mask"
-msgstr "Маска на подмрежата"
-
-#: src/window.ui:88
-msgid "Show Binary"
-msgstr "Показване в двоичен код"
-
-#: src/window.ui:89
-msgid "Display binary representation of IP addresses"
-msgstr "Показване на двоично представяне на IP адреси"
-
-#: src/window.ui:94
-msgid "Show Hexadecimal"
-msgstr "Показване на шестнадесетична"
-
-#: src/window.ui:95
-msgid "Display hexadecimal representation of IP addresses"
-msgstr "Показване на шестнайсетично представяне на IP адреси"
-
-#: src/window.ui:107
-msgid "Calculate"
-msgstr "Изчисляване"
-
-#: src/window.ui:124
-msgid "Did you know?"
-msgstr "Знаете ли, че?"
-
-#: src/window.ui:131 src/window.ui:182 src/window.ui:189 src/window.ui:220
-msgid "Results"
-msgstr "Резултати"
-
-#: src/window.ui:140 src/window.ui:229
-msgid "Copy All"
-msgstr "Копиране на всичко"
-
-#: src/window.ui:151 src/window.ui:240
-msgid "Export"
-msgstr "Изнасяне"
-
-#: src/window.ui:200
-msgid "No Results"
-msgstr "Няма резултати"
-
-#: src/window.ui:201
-msgid "Your calculation results will appear here"
-msgstr "Резултатите от изчисленията ви ще се появят тук"

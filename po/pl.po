@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2025-04-27 10:00+0300\n"
-"PO-Revision-Date: 2025-08-09 13:49+300\n"
+"POT-Creation-Date: 2025-08-10 13:00+0300\n"
+"PO-Revision-Date: 2025-08-09 13:49+0300\n"
 "Last-Translator: dawkagaming\n"
 "Language-Team: \n"
 "Language: pl\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Netsleuth"
 msgstr "Netsleuth"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.ui:33
+#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.blp:34
 msgid "IP Subnet Calculator"
 msgstr "Kalkulator podsieci IP"
 
@@ -52,51 +52,55 @@ msgstr "Opcje obliczeń"
 msgid "List of results"
 msgstr "Lista wyników"
 
-#: src/calculator.py:41 src/window.py:477
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:22
+msgid "Split view layout"
+msgstr ""
+
+#: src/calculator.py:41 src/window.py:476
 msgid "Address"
 msgstr "Adres"
 
-#: src/calculator.py:42 src/window.py:478
+#: src/calculator.py:42 src/window.py:477
 msgid "Netmask"
 msgstr "Maska"
 
-#: src/calculator.py:43 src/window.py:479
+#: src/calculator.py:43 src/window.py:478
 msgid "Wildcard"
 msgstr "Wildcard"
 
-#: src/calculator.py:44 src/window.py:480
+#: src/calculator.py:44 src/window.py:479
 msgid "Network"
-msgstr "Maska"
+msgstr "Sieć"
 
-#: src/calculator.py:45 src/window.py:481
+#: src/calculator.py:45 src/window.py:480
 msgid "Broadcast"
 msgstr "Rozgłoszenie"
 
-#: src/calculator.py:46 src/window.py:482
+#: src/calculator.py:46 src/window.py:481
 msgid "First Host"
 msgstr "Pierwszy host"
 
-#: src/calculator.py:47 src/window.py:483
+#: src/calculator.py:47 src/window.py:482
 msgid "Last Host"
 msgstr "Ostatni host"
 
-#: src/calculator.py:48 src/window.py:138 src/window.py:484
+#: src/calculator.py:48 src/window.py:137 src/window.py:483
 msgid "Total Hosts"
 msgstr "Ilość hostów"
 
-#: src/calculator.py:49 src/window.py:485
+#: src/calculator.py:49 src/window.py:484
 msgid "Category"
 msgstr "Kategoria"
 
-#: src/calculator.py:50 src/window.py:486
+#: src/calculator.py:50 src/window.py:485
 msgid "PTR Record"
 msgstr "Rekord PTR"
 
-#: src/calculator.py:51 src/window.py:487
+#: src/calculator.py:51 src/window.py:486
 msgid "IPv4 Mapped Address"
 msgstr "Zmapowany adres IPv4"
 
-#: src/calculator.py:52 src/window.py:488
+#: src/calculator.py:52 src/window.py:487
 msgid "6to4 Prefix"
 msgstr "Prefiks 6to4"
 
@@ -108,35 +112,35 @@ msgstr "Błąd"
 msgid "Invalid IP address or mask"
 msgstr "Zły adres IP lub maska"
 
-#: src/calculator.py:79 src/window.py:489
+#: src/calculator.py:79 src/window.py:488
 msgid "Private (Class A)"
 msgstr "Prywatny (Klasa A)"
 
-#: src/calculator.py:80 src/window.py:490
+#: src/calculator.py:80 src/window.py:489
 msgid "Private (Class B)"
 msgstr "Prywatny (Klasa B)"
 
-#: src/calculator.py:81 src/window.py:491
+#: src/calculator.py:81 src/window.py:490
 msgid "Private (Class C)"
 msgstr "Prywatny (Klasa C)"
 
-#: src/calculator.py:82 src/window.py:492
+#: src/calculator.py:82 src/window.py:491
 msgid "Loopback"
 msgstr "Pętla zwrotna (loopback)"
 
-#: src/calculator.py:83 src/window.py:493
+#: src/calculator.py:83 src/window.py:492
 msgid "Link-Local (APIPA)"
 msgstr "Link-Local (APIPA)"
 
-#: src/calculator.py:84 src/window.py:494
+#: src/calculator.py:84 src/window.py:493
 msgid "Multicast"
 msgstr "Multicast"
 
-#: src/calculator.py:85 src/window.py:495
+#: src/calculator.py:85 src/window.py:494
 msgid "Reserved"
 msgstr "Zarezerwowane"
 
-#: src/calculator.py:88 src/window.py:496
+#: src/calculator.py:88 src/window.py:495
 msgid "Public"
 msgstr "Publiczny"
 
@@ -201,7 +205,71 @@ msgstr "argumenty pozycyjne"
 msgid "usage:"
 msgstr "wykorzystanie:"
 
-#: src/window.py:91
+#: src/window.blp:41
+msgid "About Netsleuth"
+msgstr "Na temat Netsleuth"
+
+#: src/window.blp:62
+msgid "Details"
+msgstr "Szczegóły"
+
+#: src/window.blp:65
+msgid "IP Address"
+msgstr "Adres IP"
+
+#: src/window.blp:70 src/window.py:244
+msgid "History"
+msgstr "Historia"
+
+#: src/window.blp:78
+msgid "Subnet Mask"
+msgstr "Maska podsieci"
+
+#: src/window.blp:84
+msgid "Show Binary"
+msgstr "Pokaż binarnie"
+
+#: src/window.blp:85
+msgid "Display binary representation of IP addresses"
+msgstr "Pokaż binarną reprezentację adresu IP"
+
+#: src/window.blp:89
+msgid "Show Hexadecimal"
+msgstr "Pokaż heksadecymalnie"
+
+#: src/window.blp:90
+msgid "Display hexadecimal representation of IP addresses"
+msgstr "Pokaż heksadecymalną reprezentacje adresu IP"
+
+#: src/window.blp:100
+msgid "Calculate"
+msgstr "Oblicz"
+
+#: src/window.blp:111
+msgid "Did you know?"
+msgstr "Wiedziałeś?"
+
+#: src/window.blp:116 src/window.blp:152 src/window.blp:158
+msgid "Results"
+msgstr "Wyniki"
+
+#: src/window.blp:126 src/window.blp:200
+msgid "Copy All"
+msgstr "Skopiuj całość"
+
+#: src/window.blp:134 src/window.blp:208
+msgid "Export"
+msgstr "Wyeksportuj"
+
+#: src/window.blp:169
+msgid "No Results"
+msgstr "Brak wyników"
+
+#: src/window.blp:170
+msgid "Your calculation results will appear here"
+msgstr "Wyniki twoich obliczeń pojawią się tutaj"
+
+#: src/window.py:90
 msgid ""
 "The 0.0.0.0 address is used to represent the default route or an unknown "
 "target network."
@@ -209,15 +277,15 @@ msgstr ""
 "Adres 0.0.0.0 jest używany do reprezentowania trasy domyślnej lub nieznanego "
 "celu sieciowego."
 
-#: src/window.py:92
+#: src/window.py:91
 msgid ""
 "A PTR record enables reverse DNS lookup, translating an IP address back to a "
 "domain name."
 msgstr ""
-"Rekord PTR pozwala na odwrotne wyszukiwanie DNS (reverse DNS), tłumacząc adres IP z powrotem "
-"na nazwę domeny"
+"Rekord PTR pozwala na odwrotne wyszukiwanie DNS (reverse DNS), tłumacząc "
+"adres IP z powrotem na nazwę domeny."
 
-#: src/window.py:93
+#: src/window.py:92
 msgid ""
 "The 240.0.0.0/4 block was originally reserved for future experiments, but is "
 "now considered legacy."
@@ -225,15 +293,15 @@ msgstr ""
 "Blok 240.0.0.0/4 był oryginalnie zarezerwowany na przyszłe eksperymenty, "
 "ale jest teraz uważany za przestarzały."
 
-#: src/window.py:94
+#: src/window.py:93
 msgid ""
 "In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
 "to-point links."
 msgstr ""
-"W podsieci /30, są tylko 2 używalne adresy IP, często używana jest od do połącznień "
-"typu punkt-punkt"
+"W podsieci /30, są tylko 2 używalne adresy IP, często używana jest od do "
+"połącznień typu punkt-punkt."
 
-#: src/window.py:95
+#: src/window.py:94
 msgid ""
 "Wildcard mask inverts subnet masks, providing flexible IP filtering in "
 "access lists."
@@ -241,7 +309,7 @@ msgstr ""
 "Maska typu wildcard odwraca maski podsieci, zapewniają elastyczne filtrowanie "
 "w listach kontroli dostępu."
 
-#: src/window.py:96
+#: src/window.py:95
 msgid ""
 "An IP's binary representation always has 32 bits, regardless of the decimal "
 "notation used."
@@ -249,108 +317,44 @@ msgstr ""
 "Binarna reprezentacrja IP zawsze ma 32 bity, niezależnie od użytej notacji "
 "dziesiętnej."
 
-#: src/window.py:147
+#: src/window.py:146
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: src/window.py:193 src/window.py:407
+#: src/window.py:192 src/window.py:406
 msgid "Copied to clipboard"
 msgstr "Skopiowano do schowka"
 
-#: src/window.py:245 src/window.ui:69
-msgid "History"
-msgstr "Historia"
-
-#: src/window.py:256
+#: src/window.py:255
 msgid "Clear"
 msgstr "Wyczyść"
 
-#: src/window.py:271
+#: src/window.py:270
 msgid "No History"
 msgstr "Brak historii"
 
-#: src/window.py:272
+#: src/window.py:271
 msgid "Your calculation history will appear here"
 msgstr "Tutaj pojawi się twoja historia obliczeń"
 
-#: src/window.py:331
+#: src/window.py:330
 msgid "Select"
 msgstr "Wybierz"
 
-#: src/window.py:346 src/window.py:389
+#: src/window.py:345 src/window.py:388
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Obliczono: {ip}/{mask}"
 
-#: src/window.py:352
+#: src/window.py:351
 msgid "History cleared"
 msgstr "Historia wyczyszczona"
 
-#: src/window.py:436
+#: src/window.py:435
 msgid "Export results"
 msgstr "Wyeksportuj wyniki"
 
-#: src/window.py:511
+#: src/window.py:510
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr "Zapisano do pliku {file}"
-
-#: src/window.ui:40
-msgid "About Netsleuth"
-msgstr "Na temat Netsleuth"
-
-#: src/window.ui:62
-msgid "Details"
-msgstr "Szczegóły"
-
-#: src/window.ui:65
-msgid "IP Address"
-msgstr "Adres IP"
-
-#: src/window.ui:81
-msgid "Subnet Mask"
-msgstr "Maska podsieci"
-
-#: src/window.ui:88
-msgid "Show Binary"
-msgstr "Pokaż binarnie"
-
-#: src/window.ui:89
-msgid "Display binary representation of IP addresses"
-msgstr "Pokaż binarną reprezentację adresu IP"
-
-#: src/window.ui:94
-msgid "Show Hexadecimal"
-msgstr "Pokaż heksadecymalnie"
-
-#: src/window.ui:95
-msgid "Display hexadecimal representation of IP addresses"
-msgstr "Pokaż heksadecymalną reprezentacje adresu IP"
-
-#: src/window.ui:107
-msgid "Calculate"
-msgstr "Oblicz"
-
-#: src/window.ui:124
-msgid "Did you know?"
-msgstr "Wiedziałeś?"
-
-#: src/window.ui:131 src/window.ui:182 src/window.ui:189 src/window.ui:220
-msgid "Results"
-msgstr "Wyniki"
-
-#: src/window.ui:140 src/window.ui:229
-msgid "Copy All"
-msgstr "Skopiuj całość"
-
-#: src/window.ui:151 src/window.ui:240
-msgid "Export"
-msgstr "Wyeksportuj"
-
-#: src/window.ui:200
-msgid "No Results"
-msgstr "Brak wyników"
-
-#: src/window.ui:201
-msgid "Your calculation results will appear here"
-msgstr "Wyniki twoich obliczeń pojawią się tutaj"
