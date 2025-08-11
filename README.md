@@ -1,8 +1,8 @@
-<img src="data/icons/hicolor/scalable/apps/io.github.vmkspv.netsleuth.svg" width="128" align="left"/>
-
-# Netsleuth
-
-_Netsleuth_ is a simple utility for calculating and analyzing IP subnet values.
+<p align="center">
+  <img src="data/icons/hicolor/scalable/apps/io.github.vmkspv.netsleuth.svg" width="128"/>
+  <h1 align="center">Netsleuth</h1>
+  <p align="center"><i>Netsleuth</i> is a simple utility for calculating and analyzing IP subnet values.</p>
+</p>
 
 <p align="center">
   <a href="https://github.com/vmkspv/netsleuth/actions/workflows/flatpak.yml">
@@ -26,7 +26,7 @@ The recommended installation method is via Flatpak.
 
 <p>
   <a href="https://flathub.org/apps/details/io.github.vmkspv.netsleuth">
-    <img src="https://flathub.org/api/badge?svg&locale=en" width="182"/>
+    <img src="https://flathub.org/api/badge?svg&locale=en" width="180"/>
   </a>
 </p>
 
