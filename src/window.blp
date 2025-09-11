@@ -46,6 +46,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
 
           content: ScrolledWindow main_content {
             hscrollbar-policy: never;
+            vscrollbar-policy: automatic;
 
             child: Adw.Clamp {
               maximum-size: 420;
@@ -100,6 +101,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                     label: _("Calculate");
                     valign: center;
                     width-request: 150;
+                    focus-on-click: false;
                     clicked => $on_calculate_clicked();
                     styles ["suggested-action", "pill"]
                   }
@@ -109,6 +111,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                   Adw.ActionRow fact_row {
                     icon-name: "dialog-information-symbolic";
                     title: _("Did you know?");
+                    can-focus: false;
                   }
                 }
 
@@ -168,6 +171,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                 icon-name: "io.github.vmkspv.netsleuth-symbolic";
                 title: _("No Results");
                 description: _("Your calculation results will appear here");
+                can-focus: false;
               };
             }
 
@@ -175,6 +179,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
               name: "results";
               child: ScrolledWindow {
                 hscrollbar-policy: never;
+                vscrollbar-policy: automatic;
 
                 child: Adw.Clamp {
                   maximum-size: 420;
