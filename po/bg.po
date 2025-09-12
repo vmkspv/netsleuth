@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2025-08-10 13:00+0300\n"
+"POT-Creation-Date: 2025-09-12 12:00+0300\n"
 "PO-Revision-Date: 2025-04-27 13:00+0300\n"
 "Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
@@ -210,63 +210,63 @@ msgstr "употреба:"
 msgid "About Netsleuth"
 msgstr "Относно Netsleuth"
 
-#: src/window.blp:62
+#: src/window.blp:63
 msgid "Details"
 msgstr "Подробности"
 
-#: src/window.blp:65
+#: src/window.blp:66
 msgid "IP Address"
 msgstr "IP адрес"
 
-#: src/window.blp:70 src/window.py:244
+#: src/window.blp:71 src/window.py:244
 msgid "History"
 msgstr "История"
 
-#: src/window.blp:78
+#: src/window.blp:79
 msgid "Subnet Mask"
 msgstr "Маска на подмрежата"
 
-#: src/window.blp:84
+#: src/window.blp:85
 msgid "Show Binary"
 msgstr "Показване в двоичен код"
 
-#: src/window.blp:85
+#: src/window.blp:86
 msgid "Display binary representation of IP addresses"
 msgstr "Показване на двоично представяне на IP адреси"
 
-#: src/window.blp:89
+#: src/window.blp:90
 msgid "Show Hexadecimal"
 msgstr "Показване на шестнадесетична"
 
-#: src/window.blp:90
+#: src/window.blp:91
 msgid "Display hexadecimal representation of IP addresses"
 msgstr "Показване на шестнайсетично представяне на IP адреси"
 
-#: src/window.blp:100
+#: src/window.blp:101
 msgid "Calculate"
 msgstr "Изчисляване"
 
-#: src/window.blp:111
+#: src/window.blp:113
 msgid "Did you know?"
 msgstr "Знаете ли, че?"
 
-#: src/window.blp:116 src/window.blp:152 src/window.blp:158
+#: src/window.blp:119 src/window.blp:155 src/window.blp:161
 msgid "Results"
 msgstr "Резултати"
 
-#: src/window.blp:126 src/window.blp:200
+#: src/window.blp:129 src/window.blp:205
 msgid "Copy All"
 msgstr "Копиране на всичко"
 
-#: src/window.blp:134 src/window.blp:208
+#: src/window.blp:137 src/window.blp:213
 msgid "Export"
 msgstr "Изнасяне"
 
-#: src/window.blp:169
+#: src/window.blp:172
 msgid "No Results"
 msgstr "Няма резултати"
 
-#: src/window.blp:170
+#: src/window.blp:173
 msgid "Your calculation results will appear here"
 msgstr "Резултатите от изчисленията ви ще се появят тук"
 
