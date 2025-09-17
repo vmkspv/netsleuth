@@ -39,7 +39,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
               icon-name: "help-about-symbolic";
               valign: center;
               tooltip-text: _("About Netsleuth");
-              clicked => $on_about_button_clicked();
+              action-name: "app.about";
               styles ["flat"]
             }
           }
@@ -93,9 +93,9 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                 }
 
                 Box {
-                  halign: center;
                   margin-top: 4;
                   margin-bottom: 4;
+                  halign: center;
 
                   Button calculate_button {
                     label: _("Calculate");

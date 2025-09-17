@@ -21,7 +21,7 @@ from os import path, makedirs
 from json import dump, load
 from random import choice
 
-from gi.repository import Adw, Gtk, Gdk, GLib
+from gi.repository import Adw, Gtk, GLib
 from .calculator import IPCalculator
 
 @Gtk.Template(resource_path='/io/github/vmkspv/netsleuth/window.ui')
@@ -148,6 +148,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             copy_button.add_css_class("flat")
             copy_value = value.replace('<tt>', '').replace('</tt>', '') if isinstance(value, str) else str(value)
             copy_button.connect("clicked", self.on_copy_clicked, copy_value)
+
             row.add_suffix(copy_button)
             return row
 
@@ -179,15 +180,11 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         if self.results_group_main.get_visible() or self.results_group.get_visible():
             self.on_calculate_clicked(None)
 
-    @Gtk.Template.Callback()
-    def on_about_button_clicked(self, button):
-        self.get_application().on_about_action(None, None)
-
     def on_copy_clicked(self, button, text):
         if '<tt>' in text:
             parts = text.split('<tt>')
             text = f"{parts[0].strip()} {parts[1].replace('</tt>', '').strip()}"
-        clipboard = Gdk.Display.get_default().get_clipboard()
+        clipboard = self.get_clipboard()
         clipboard.set(text)
         self.show_toast(_('Copied to clipboard'))
 
@@ -401,7 +398,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         text = "\n".join(f"{key}: {self.format_value(value, exclude_math=True)}"
                         for key, value in self.results.items()
                         if value is not None)
-        clipboard = Gdk.Display.get_default().get_clipboard()
+        clipboard = self.get_clipboard()
         clipboard.set(text)
         self.show_toast(_('Copied to clipboard'))
 
