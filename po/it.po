@@ -1,14 +1,14 @@
 # Italian translations for Netsleuth package.
 # Copyright (C) 2024-2025 Vladimir Kosolapov
 # This file is distributed under the same license as the Netsleuth package.
-# Albano Battistella <albanobattistella@gmail.com>, 2024.
+# Albano Battistella <albanobattistella@gmail.com>, 2024,2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
 "POT-Creation-Date: 2025-09-12 12:00+0300\n"
-"PO-Revision-Date: 2025-04-27 13:00+0300\n"
+"PO-Revision-Date: 2025-10-11 12:00+0200\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -53,7 +53,7 @@ msgstr "Elenco dei risultati"
 
 #: data/io.github.vmkspv.netsleuth.metainfo.xml.in:22
 msgid "Split view layout"
-msgstr ""
+msgstr "Dividi vista del Layout"
 
 #: src/calculator.py:41 src/window.py:476
 msgid "Address"
