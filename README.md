@@ -22,7 +22,7 @@
 
 ## Installation
 
-The recommended installation method is via Flatpak.
+The recommended installation method is via <a href="https://flatpak.org">Flatpak</a>.
 
 <p>
   <a href="https://flathub.org/apps/details/io.github.vmkspv.netsleuth">
