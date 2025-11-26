@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/io/github/vmkspv/netsleuth">
-    <file preprocess="xml-stripblanks">window.ui</file>
-    <file preprocess="xml-stripblanks" alias="metainfo.xml">../data/io.github.vmkspv.netsleuth.metainfo.xml.in</file>
-    <file>style.css</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="metainfo.xml">../data/io.github.vmkspv.netsleuth.metainfo.xml.in</file>
+    <file compressed="true" preprocess="xml-stripblanks">window.ui</file>
+    <file compressed="true">style.css</file>
+  </gresource>
+  <gresource prefix="/io/github/vmkspv/netsleuth/icons">
+    <file compressed="true" preprocess="xml-stripblanks" alias="io.github.vmkspv.lenspect.svg">../data/icons/hicolor/scalable/apps/io.github.vmkspv.lenspect.svg</file>
   </gresource>
 </gresources>
