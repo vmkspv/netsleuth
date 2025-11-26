@@ -33,7 +33,8 @@ translators = {
     'it': 'Albano Battistella https://github.com/albanobattistella',
     'ja': 'Ryo Nakano https://github.com/ryonakano',
     'pl': 'dawkagaming https://github.com/dawkagaming',
-    'pt_BR': 'Kelvin Ribeiro Novais https://github.com/KelvinNovais',
+    'pt_BR': ('Cristiano Fraga G. Nunes https://github.com/cfgnunes\n'
+              'Kelvin Ribeiro Novais https://github.com/KelvinNovais'),
     'ru': 'Vladimir Kosolapov https://github.com/vmkspv',
     'uk': 'Vladimir Kosolapov https://github.com/vmkspv'
 }
