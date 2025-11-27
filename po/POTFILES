@@ -2,5 +2,6 @@ data/io.github.vmkspv.netsleuth.desktop.in
 data/io.github.vmkspv.netsleuth.metainfo.xml.in
 src/calculator.py
 src/cmdline.py
+src/main.py
 src/window.blp
 src/window.py

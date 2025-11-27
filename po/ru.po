@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2025-09-12 12:00+0300\n"
-"PO-Revision-Date: 2025-09-12 13:00+0300\n"
+"POT-Creation-Date: 2025-11-27 12:00+0300\n"
+"PO-Revision-Date: 2025-11-27 13:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -28,7 +28,8 @@ msgstr "Netsleuth"
 msgid "IP Subnet Calculator"
 msgstr "Калькулятор IP-подсетей"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
 #: data/io.github.vmkspv.netsleuth.desktop.in:11
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr "Сеть;IP;Подсеть;Маска;Хост;Калькулятор;"
@@ -57,51 +58,51 @@ msgstr "Список результатов"
 msgid "Split view layout"
 msgstr "Адаптивный дизайн"
 
-#: src/calculator.py:41 src/window.py:476
+#: src/calculator.py:41 src/window.py:473
 msgid "Address"
 msgstr "Адрес"
 
-#: src/calculator.py:42 src/window.py:477
+#: src/calculator.py:42 src/window.py:474
 msgid "Netmask"
 msgstr "Маска"
 
-#: src/calculator.py:43 src/window.py:478
+#: src/calculator.py:43 src/window.py:475
 msgid "Wildcard"
 msgstr "Обратная маска"
 
-#: src/calculator.py:44 src/window.py:479
+#: src/calculator.py:44 src/window.py:476
 msgid "Network"
 msgstr "Адрес сети"
 
-#: src/calculator.py:45 src/window.py:480
+#: src/calculator.py:45 src/window.py:477
 msgid "Broadcast"
 msgstr "Широковещательный адрес"
 
-#: src/calculator.py:46 src/window.py:481
+#: src/calculator.py:46 src/window.py:478
 msgid "First Host"
 msgstr "Первый хост"
 
-#: src/calculator.py:47 src/window.py:482
+#: src/calculator.py:47 src/window.py:479
 msgid "Last Host"
 msgstr "Последний хост"
 
-#: src/calculator.py:48 src/window.py:137 src/window.py:483
+#: src/calculator.py:48 src/window.py:137 src/window.py:480
 msgid "Total Hosts"
 msgstr "Всего хостов"
 
-#: src/calculator.py:49 src/window.py:484
+#: src/calculator.py:49 src/window.py:481
 msgid "Category"
 msgstr "Категория"
 
-#: src/calculator.py:50 src/window.py:485
+#: src/calculator.py:50 src/window.py:482
 msgid "PTR Record"
 msgstr "Обратный адрес"
 
-#: src/calculator.py:51 src/window.py:486
+#: src/calculator.py:51 src/window.py:483
 msgid "IPv4 Mapped Address"
 msgstr "Отображаемый IPv4-адрес"
 
-#: src/calculator.py:52 src/window.py:487
+#: src/calculator.py:52 src/window.py:484
 msgid "6to4 Prefix"
 msgstr "6to4-префикс"
 
@@ -113,35 +114,35 @@ msgstr "Ошибка"
 msgid "Invalid IP address or mask"
 msgstr "Недопустимый IP-адрес или маска"
 
-#: src/calculator.py:79 src/window.py:488
+#: src/calculator.py:79 src/window.py:485
 msgid "Private (Class A)"
 msgstr "Частный (класс A)"
 
-#: src/calculator.py:80 src/window.py:489
+#: src/calculator.py:80 src/window.py:486
 msgid "Private (Class B)"
 msgstr "Частный (класс B)"
 
-#: src/calculator.py:81 src/window.py:490
+#: src/calculator.py:81 src/window.py:487
 msgid "Private (Class C)"
 msgstr "Частный (класс C)"
 
-#: src/calculator.py:82 src/window.py:491
+#: src/calculator.py:82 src/window.py:488
 msgid "Loopback"
 msgstr "Обратная связь (Loopback)"
 
-#: src/calculator.py:83 src/window.py:492
+#: src/calculator.py:83 src/window.py:489
 msgid "Link-Local (APIPA)"
 msgstr "Локальная адресация (APIPA)"
 
-#: src/calculator.py:84 src/window.py:493
+#: src/calculator.py:84 src/window.py:490
 msgid "Multicast"
 msgstr "Мультикаст"
 
-#: src/calculator.py:85 src/window.py:494
+#: src/calculator.py:85 src/window.py:491
 msgid "Reserved"
 msgstr "Зарезервированный"
 
-#: src/calculator.py:88 src/window.py:495
+#: src/calculator.py:88 src/window.py:492
 msgid "Public"
 msgstr "Публичный"
 
@@ -207,6 +208,11 @@ msgstr "позиционные аргументы"
 msgid "usage:"
 msgstr "использование:"
 
+#. Translators: Metainfo and translations for the Lenspect <https://github.com/vmkspv/lenspect>
+#: src/main.py:73
+msgid "Scan files for threats"
+msgstr "Проверяйте файлы на угрозы"
+
 #: src/window.blp:41
 msgid "About Netsleuth"
 msgstr "О приложении"
@@ -219,7 +225,7 @@ msgstr "Детали"
 msgid "IP Address"
 msgstr "IP-адрес"
 
-#: src/window.blp:71 src/window.py:244
+#: src/window.blp:71 src/window.py:241
 msgid "History"
 msgstr "История"
 
@@ -323,40 +329,40 @@ msgstr ""
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/window.py:192 src/window.py:406
+#: src/window.py:189 src/window.py:403
 msgid "Copied to clipboard"
 msgstr "Скопировано в буфер обмена"
 
-#: src/window.py:255
+#: src/window.py:252
 msgid "Clear"
 msgstr "Очистить"
 
-#: src/window.py:270
+#: src/window.py:267
 msgid "No History"
 msgstr "Ничего нет"
 
-#: src/window.py:271
+#: src/window.py:268
 msgid "Your calculation history will appear here"
 msgstr "История ваших расчётов появится здесь"
 
-#: src/window.py:330
+#: src/window.py:327
 msgid "Select"
 msgstr "Выбрать"
 
-#: src/window.py:345 src/window.py:388
+#: src/window.py:342 src/window.py:385
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Рассчитано: {ip}/{mask}"
 
-#: src/window.py:351
+#: src/window.py:348
 msgid "History cleared"
 msgstr "История очищена"
 
-#: src/window.py:435
+#: src/window.py:432
 msgid "Export results"
 msgstr "Экспорт результатов"
 
-#: src/window.py:510
+#: src/window.py:507
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr "Сохранено в {file}"
