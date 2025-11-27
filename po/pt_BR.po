@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
 "POT-Creation-Date: 2025-09-12 12:00+0300\n"
-"PO-Revision-Date: 2025-11-26 05:39-0300\n"
+"PO-Revision-Date: 2025-11-26 18:52-0300\n"
 "Last-Translator: Cristiano Fraga G. Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -103,7 +103,7 @@ msgstr "Endereço Mapeado IPv4"
 
 #: src/calculator.py:52 src/window.py:487
 msgid "6to4 Prefix"
-msgstr "Prefixo 6para4"
+msgstr "Prefixo 6to4"
 
 #: src/calculator.py:56 src/cmdline.py:152
 msgid "Error"
