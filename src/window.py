@@ -138,7 +138,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
                 count, *math = subtitle.split(' ', 1)
                 subtitle = f"{count}{' ' + math[0] if math else ''}"
             row = Adw.ActionRow(title=key, subtitle=subtitle, subtitle_selectable=True)
-            row.add_css_class("property-row")
+            row.add_css_class("property")
 
             copy_button = Gtk.Button(
                 icon_name="edit-copy-symbolic",
