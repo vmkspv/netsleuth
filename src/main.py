@@ -69,7 +69,7 @@ class NetsleuthApplication(Adw.Application):
         about.set_developers(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_artists(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_translator_credits(self.get_translator_credits())
-        about.set_copyright('© 2024-2025 Vladimir Kosolapov')
+        about.set_copyright('© 2024-2026 Vladimir Kosolapov')
         # Translators: Metainfo and translations for the Lenspect <https://github.com/vmkspv/lenspect>
         about.add_other_app('io.github.vmkspv.lenspect', 'Lenspect', _('Scan files for threats'))
         about.present(self.props.active_window)
