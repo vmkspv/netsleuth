@@ -1,5 +1,5 @@
 # Polish translations for Netsleuth package.
-# Copyright (C) 2024-2025 Vladimir Kosolapov
+# Copyright (C) 2024-2026 Vladimir Kosolapov
 # This file is distributed under the same license as the Netsleuth package.
 # dawkagaming, 2025.
 #
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2025-11-27 12:00+0300\n"
+"POT-Creation-Date: 2026-01-06 12:00+0300\n"
 "PO-Revision-Date: 2025-08-24 14:51+0300\n"
 "Last-Translator: dawkagaming\n"
 "Language-Team: \n"
@@ -173,7 +173,7 @@ msgstr "pokaż informacje o wersji i wyjdź"
 #, python-brace-format
 msgid ""
 "netsleuth {version}\n"
-"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
+"Copyright (C) 2024-2026 Vladimir Kosolapov\n"
 "License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
 "html>.\n"
 "This is free software: you are free to change and redistribute it.\n"
@@ -182,7 +182,7 @@ msgid ""
 "Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
 msgstr ""
 "netsleuth {version}\n"
-"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
+"Copyright (C) 2024-2026 Vladimir Kosolapov\n"
 "Licencja GPLv3+: GNU GPL version 3 or lub nowsze <https://gnu.org/licenses/gpl."
 "html>.\n"
 "To jest wolne oprogramowanie: możesz je zmieniać i rozpowszechniać.\n"
@@ -207,7 +207,7 @@ msgid "usage:"
 msgstr "wykorzystanie:"
 
 #. Translators: Metainfo and translations for the Lenspect <https://github.com/vmkspv/lenspect>
-#: src/main.py:73
+#: src/main.py:74
 msgid "Scan files for threats"
 msgstr ""
 

@@ -1,14 +1,13 @@
-# Turkish translation for io.github.vmkspv.netsleuth.
-# Copyright (C) 2025 io.github.vmkspv.netsleuth's COPYRIGHT HOLDER
-# This file is distributed under the same license as the io.github.vmkspv.netsleuth package.
-#
+# Turkish translations for Netsleuth package.
+# Copyright (C) 2024-2026 Vladimir Kosolapov
+# This file is distributed under the same license as the Netsleuth package.
 # Sabri Ünal <yakushabb@gmail.com>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2025-12-08 20:18+0300\n"
+"POT-Creation-Date: 2026-01-06 12:00+0300\n"
 "PO-Revision-Date: 2025-12-08 20:43+0300\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
@@ -29,7 +28,8 @@ msgstr "Netsleuth"
 msgid "IP Subnet Calculator"
 msgstr "IP Alt Ağ Hesaplayıcı"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
 #: data/io.github.vmkspv.netsleuth.desktop.in:11
 msgid "Network;IP;Subnet;Mask;Host;Calculator;"
 msgstr ""
@@ -150,69 +150,69 @@ msgstr "Genel"
 
 #: src/cmdline.py:39
 msgid "ip for calculation"
-msgstr "Hesaplanacak IP adresi"
+msgstr "hesaplanacak ip adresi"
 
 #: src/cmdline.py:45
 msgid "subnet mask (default: 24)"
-msgstr "Alt ağ maskesi (öntanımlı: 24)"
+msgstr "alt ağ maskesi (öntanımlı: 24)"
 
 #: src/cmdline.py:50
 msgid "show binary values"
-msgstr "İkili değerleri göster"
+msgstr "ikili değerleri göster"
 
 #: src/cmdline.py:55
 msgid "show hexadecimal values"
-msgstr "Onaltılık değerleri göster"
+msgstr "onaltılık değerleri göster"
 
 #: src/cmdline.py:61
 msgid "show this help message and exit"
-msgstr "Bu yardımı göster ve çık"
+msgstr "bu yardımı göster ve çık"
 
 #: src/cmdline.py:66
 msgid "show version information and exit"
-msgstr "Sürüm bilgisini yazdır ve çık"
+msgstr "sürüm bilgisini yazdır ve çık"
 
 #: src/cmdline.py:119
 #, python-brace-format
 msgid ""
 "netsleuth {version}\n"
-"Copyright (C) 2024-2025 Vladimir Kosolapov\n"
-"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/"
-"gpl.html>.\n"
+"Copyright (C) 2024-2026 Vladimir Kosolapov\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
+"html>.\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 "\n"
 "Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
 msgstr ""
 "netsleuth {version}\n"
-"Telif hakkı (C) 2024-2025 Vladimir Kosolapov\n"
-"Lisans: GPLv3+: GNU GPL sürüm 3 ya da üstü <https://gnu.org/licenses/"
-"gpl.html>. \n"
+"Telif hakkı (C) 2024-2026 Vladimir Kosolapov\n"
+"Lisans: GPLv3+: GNU GPL sürüm 3 ya da üstü <https://gnu.org/licenses/gpl."
+"html>.\n"
 "Bu özgür bir yazılımdır: istediğiniz gibi değiştirebilir ve yeniden "
 "dağıtabilirsiniz.\n"
-"Yasaların izin verdiği ölçüde, HİÇBİR GARANTİ VERİLMEMEKTEDİR. \n"
+"Yasaların izin verdiği ölçüde, HİÇBİR GARANTİ VERİLMEMEKTEDİR.\n"
 "\n"
 "Lütfen hataları şu adrese bildirin: <https://github.com/vmkspv/netsleuth/"
 "issues>."
 
 #: src/cmdline.py:144
 msgid "options"
-msgstr "Seçenekler"
+msgstr "seçenekler"
 
 #: src/cmdline.py:145
 msgid "general"
-msgstr "Genel"
+msgstr "genel"
 
 #: src/cmdline.py:148
 msgid "positional arguments"
-msgstr "Konumsal argümanlar"
+msgstr "konumsal argümanlar"
 
 #: src/cmdline.py:149
 msgid "usage:"
-msgstr "Kullanım:"
+msgstr "kullanım:"
 
 #. Translators: Metainfo and translations for the Lenspect <https://github.com/vmkspv/lenspect>
-#: src/main.py:73
+#: src/main.py:74
 msgid "Scan files for threats"
 msgstr "Dosyaları tehditlere karşı tara"
 
