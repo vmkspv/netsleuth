@@ -103,7 +103,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                     width-request: 150;
                     focus-on-click: false;
                     clicked => $on_calculate_clicked();
-                    styles ["suggested-action", "pill"]
+                    styles ["pill", "suggested-action"]
                   }
                 }
 
@@ -122,6 +122,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                   [header-suffix]
                   Box {
                     halign: end;
+                    spacing: 1;
                     styles ["linked"]
 
                     Button copy_all_button_main {
