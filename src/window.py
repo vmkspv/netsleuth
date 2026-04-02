@@ -21,34 +21,32 @@ from os import path, makedirs
 from json import dump, load
 from random import choice
 
-from gi.repository import Adw, Gtk, GLib
+from gi.repository import Adw, Gtk, Gio, GLib
 from .calculator import IPCalculator
 
 @Gtk.Template(resource_path='/io/github/vmkspv/netsleuth/window.ui')
 class NetsleuthWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'NetsleuthWindow'
 
+    toast_overlay = Gtk.Template.Child()
+    split_view = Gtk.Template.Child()
+
     ip_entry = Gtk.Template.Child()
-    history_button = Gtk.Template.Child()
     mask_dropdown = Gtk.Template.Child()
     show_binary_switch = Gtk.Template.Child()
     show_hex_switch = Gtk.Template.Child()
     calculate_button = Gtk.Template.Child()
+
     fact_of_the_day_box = Gtk.Template.Child()
     fact_row = Gtk.Template.Child()
+
     results_group_main = Gtk.Template.Child()
-    copy_all_button_main = Gtk.Template.Child()
-    export_button_main = Gtk.Template.Child()
     results_box_main = Gtk.Template.Child()
-    results_group = Gtk.Template.Child()
-    copy_all_button = Gtk.Template.Child()
-    export_button = Gtk.Template.Child()
-    results_box = Gtk.Template.Child()
+
     results_stack = Gtk.Template.Child()
     empty_results = Gtk.Template.Child()
-    main_content = Gtk.Template.Child()
-    split_view = Gtk.Template.Child()
-    toast_overlay = Gtk.Template.Child()
+    results_group = Gtk.Template.Child()
+    results_box = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -79,7 +77,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.ip_entry_timeout_id = None
 
         if self.split_view:
-            self.split_view.connect('notify::collapsed', self.on_split_view_state_changed)
+            self.split_view.connect("notify::collapsed", self.on_split_view_state_changed)
 
     def setup_fact_of_the_day(self):
         facts = [
@@ -99,8 +97,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         ip = self.ip_entry.get_text()
         mask = int(self.mask_dropdown.get_selected_item().get_string().split()[0])
 
-        new_item = {'ip': ip, 'mask': mask}
-        self.history = [item for item in self.history if not (item['ip'] == ip and item['mask'] == mask)]
+        new_item = {"ip": ip, "mask": mask}
+        self.history = [item for item in self.history if not (item["ip"] == ip and item["mask"] == mask)]
         self.history.insert(0, new_item)
         self.history = self.history[:20]
 
@@ -292,7 +290,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         return dialog
 
     def update_clear_button_state(self):
-        if hasattr(self, 'clear_button'):
+        if hasattr(self, "clear_button"):
             self.clear_button.set_sensitive(bool(self.history))
 
     def update_history_list(self):
@@ -352,7 +350,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         makedirs(app_config_dir, exist_ok=True)
         history_file = path.join(app_config_dir, "history.json")
 
-        with open(history_file, 'w') as f:
+        with open(history_file, "w") as f:
             dump(self.history, f, indent=4, ensure_ascii=False)
 
     def load_history(self):
@@ -360,7 +358,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         history_file = path.join(config_dir, "netsleuth", "history.json")
 
         if path.exists(history_file):
-            with open(history_file, 'r') as f:
+            with open(history_file, "r") as f:
                 return load(f)
         return []
 
@@ -373,7 +371,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         if not hasattr(self, "results") or not self.results:
             return
 
-        text = "\n".join(f"{key}: {self.format_value(value, exclude_math=True)}"
+        text = '\n'.join(f"{key}: {self.format_value(value, exclude_math=True)}"
                         for key, value in self.results.items()
                         if value is not None)
         clipboard = self.get_clipboard()
@@ -406,21 +404,67 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         if not hasattr(self, "results") or not self.results:
             return
 
-        dialog = Gtk.FileChooserNative.new(
-            title=_('Export results'),
-            parent=self,
-            action=Gtk.FileChooserAction.SAVE
-        )
-        dialog.set_current_name("results.json")
-
         filter_json = Gtk.FileFilter()
         filter_json.add_mime_type("application/json")
-        dialog.add_filter(filter_json)
 
-        dialog.connect("response", self.on_export_response)
-        dialog.show()
+        filters = Gio.ListStore.new(Gtk.FileFilter)
+        filters.append(filter_json)
 
-    def format_value_for_export(self, value):
+        dialog = Gtk.FileDialog()
+        dialog.set_title(_('Export results'))
+        dialog.set_initial_name("results.json")
+        dialog.set_default_filter(filter_json)
+        dialog.set_filters(filters)
+
+        dialog.save(self, None, self.on_export_finish)
+
+    def on_export_finish(self, dialog, result):
+        try:
+            file = dialog.save_finish(result)
+        except GLib.Error:
+            return
+
+        file_path = file.get_path()
+        file_name = file.get_basename()
+
+        mappings = {
+            _('Address'): 'Address',
+            _('Netmask'): 'Netmask',
+            _('Wildcard'): 'Wildcard',
+            _('Network'): 'Network',
+            _('Broadcast'): 'Broadcast',
+            _('First Host'): 'First Host',
+            _('Last Host'): 'Last Host',
+            _('Total Hosts'): 'Total Hosts',
+            _('Category'): 'Category',
+            _('PTR Record'): 'PTR Record',
+            _('IPv4 Mapped Address'): 'IPv4 Mapped Address',
+            _('6to4 Prefix'): '6to4 Prefix',
+            _('Private (Class A)'): 'Private (Class A)',
+            _('Private (Class B)'): 'Private (Class B)',
+            _('Private (Class C)'): 'Private (Class C)',
+            _('Loopback'): 'Loopback',
+            _('Link-Local (APIPA)'): 'Link-Local (APIPA)',
+            _('Multicast'): 'Multicast',
+            _('Reserved'): 'Reserved',
+            _('Public'): 'Public'
+        }
+
+        export_results = {
+            mappings.get(key, key): (
+                mappings.get(value, value) if mappings.get(key, key) == 'Category' and isinstance(value, str)
+                else self.format_for_export(value)
+            )
+            for key, value in self.results.items()
+            if value is not None
+        }
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            dump(export_results, f, ensure_ascii=False, indent=2)
+
+        self.show_toast(_('Saved to {file}').format(file=file_name))
+
+    def format_for_export(self, value):
         if isinstance(value, str):
             if '<tt>' in value:
                 parts = value.split('<tt>')
@@ -441,51 +485,6 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
         return self.remove_math_formula(value)
 
-    def on_export_response(self, dialog, response):
-        if response == Gtk.ResponseType.ACCEPT:
-            file = dialog.get_file()
-            file_path = file.get_path()
-            file_name = file.get_basename()
-
-            mappings = {
-                _('Address'): 'Address',
-                _('Netmask'): 'Netmask',
-                _('Wildcard'): 'Wildcard',
-                _('Network'): 'Network',
-                _('Broadcast'): 'Broadcast',
-                _('First Host'): 'First Host',
-                _('Last Host'): 'Last Host',
-                _('Total Hosts'): 'Total Hosts',
-                _('Category'): 'Category',
-                _('PTR Record'): 'PTR Record',
-                _('IPv4 Mapped Address'): 'IPv4 Mapped Address',
-                _('6to4 Prefix'): '6to4 Prefix',
-                _('Private (Class A)'): 'Private (Class A)',
-                _('Private (Class B)'): 'Private (Class B)',
-                _('Private (Class C)'): 'Private (Class C)',
-                _('Loopback'): 'Loopback',
-                _('Link-Local (APIPA)'): 'Link-Local (APIPA)',
-                _('Multicast'): 'Multicast',
-                _('Reserved'): 'Reserved',
-                _('Public'): 'Public'
-            }
-
-            export_results = {
-                mappings.get(key, key): (
-                    mappings.get(value, value) if mappings.get(key, key) == 'Category' and isinstance(value, str)
-                    else self.format_value_for_export(value)
-                )
-                for key, value in self.results.items()
-                if value is not None
-            }
-
-            with open(file_path, 'w', encoding='utf-8') as f:
-                dump(export_results, f, ensure_ascii=False, indent=2)
-
-            self.show_toast(_('Saved to {file}').format(file=file_name))
-
-        dialog.destroy()
-
     def update_results_visibility(self, is_collapsed):
         if is_collapsed:
             self.results_group_main.set_visible(True)
@@ -497,7 +496,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             self.split_view.set_show_content(True)
 
     def on_split_view_state_changed(self, split_view, pspec):
-        if not hasattr(self, 'results') or not self.results:
+        if not hasattr(self, "results") or not self.results:
             return
 
         self.update_results_visibility(split_view.get_collapsed())

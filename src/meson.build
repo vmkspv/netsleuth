@@ -38,10 +38,10 @@ configure_file(
 
 netsleuth_sources = [
   '__init__.py',
-  'main.py',
-  'window.py',
   'calculator.py',
-  'cmdline.py'
+  'cmdline.py',
+  'main.py',
+  'window.py'
 ]
 
 install_data(netsleuth_sources, install_dir: moduledir)

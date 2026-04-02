@@ -44,10 +44,10 @@ class NetsleuthApplication(Adw.Application):
     def __init__(self, version):
         super().__init__(application_id='io.github.vmkspv.netsleuth',
                         flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
-        self.create_action("quit", lambda *_: self.quit(), ['<primary>q'])
-        self.create_action("close-window", self.on_close_window_action, ['<primary>w'])
-        self.create_action("new-window", self.on_new_window_action, ['<primary>n'])
         self.create_action("about", self.on_about_action)
+        self.create_action("close-window", self.on_close_window_action, ['<Primary>w'])
+        self.create_action("new-window", self.on_new_window_action, ['<Primary>n'])
+        self.create_action("quit", lambda *_: self.quit(), ['<Primary>q'])
         self.version = version
 
     def do_activate(self):
@@ -56,6 +56,7 @@ class NetsleuthApplication(Adw.Application):
     def new_window(self):
         win = NetsleuthWindow(application=self)
         win.present()
+        return win
 
     def on_new_window_action(self, *args):
         self.new_window()
@@ -75,7 +76,8 @@ class NetsleuthApplication(Adw.Application):
         about.present(self.props.active_window)
 
     def on_close_window_action(self, *args):
-        self.props.active_window.close()
+        if self.props.active_window:
+            self.props.active_window.close()
 
     def create_action(self, name, callback, shortcuts=None):
         action = Gio.SimpleAction.new(name, None)

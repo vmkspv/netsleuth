@@ -30,7 +30,10 @@ class CommandLineInterface:
 
     def create_argument_parser(self):
         parser = TranslatedArgumentParser(
-            description=_('A simple utility for the calculation and analysis of IP subnet values, designed to simplify network configuration tasks.')
+            description=_(
+                'A simple utility for the calculation and analysis of IP subnet values, '
+                'designed to simplify network configuration tasks.'
+            )
         )
         parser.add_argument(
             'ip_address',
@@ -83,15 +86,15 @@ class CommandLineInterface:
             try:
                 addr = IPv4Address(value)
                 binary_str = bin(int(addr))[2:].zfill(32)
-                if '01' not in binary_str:
-                    return binary_str.count('1')
+                if "01" not in binary_str:
+                    return binary_str.count("1")
             except (AddressValueError, ValueError):
                 pass
-        raise argparse.ArgumentTypeError('')
+        raise argparse.ArgumentTypeError("")
 
     def format_output(self, results):
         if not results:
-            return ''
+            return ""
 
         max_key_length = max(len(key) for key in results.keys()) + 1
         output = []
@@ -117,7 +120,7 @@ class CommandLineInterface:
 
     def print_version(self):
         print(_('''netsleuth {version}
-Copyright (C) 2024-2025 Vladimir Kosolapov
+Copyright (C) 2024-2026 Vladimir Kosolapov
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -138,14 +141,14 @@ Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>.''').format(
 
 class TranslatedArgumentParser(argparse.ArgumentParser):
     def __init__(self, *args, **kwargs):
-        kwargs['add_help'] = False
-        kwargs['formatter_class'] = lambda prog: argparse.HelpFormatter(prog, max_help_position=32)
+        kwargs["add_help"] = False
+        kwargs["formatter_class"] = lambda prog: argparse.HelpFormatter(prog, max_help_position=32)
         super().__init__(*args, **kwargs)
         self.options_group = self.add_argument_group(_('options'))
         self.general_group = self.add_argument_group(_('general'))
 
     def format_help(self):
-        self._positionals.title = _('positional arguments')
+        self.positionals.title = _('positional arguments')
         return super().format_help().replace('usage:', _('usage:'))
 
     def error(self, message):
