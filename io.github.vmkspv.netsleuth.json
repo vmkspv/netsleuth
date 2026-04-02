@@ -8,8 +8,7 @@
         "--share=ipc",
         "--socket=wayland",
         "--socket=fallback-x11",
-        "--device=dri",
-        "--own-name=io.github.vmkspv.netsleuth.SearchProvider"
+        "--device=dri"
     ],
     "modules" : [
         {

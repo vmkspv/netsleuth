@@ -36,15 +36,6 @@ configure_file(
   install_mode: 'r-xr-xr-x'
 )
 
-configure_file(
-  input: 'netsleuth_search_provider.in',
-  output: 'netsleuth_search_provider',
-  configuration: conf,
-  install: true,
-  install_dir: get_option('bindir'),
-  install_mode: 'r-xr-xr-x'
-)
-
 netsleuth_sources = [
   '__init__.py',
   'main.py',
