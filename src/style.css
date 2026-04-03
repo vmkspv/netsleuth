@@ -22,6 +22,18 @@ list.boxed-list > row:selected {
   background: none;
 }
 
+list.history-list > row:not(:last-child) {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 1px solid var(--card-shade-color);
+}
+
+list.history-list > row + row {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 button.suggested-action.pill {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 200ms ease;
