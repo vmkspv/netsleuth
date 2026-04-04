@@ -13,8 +13,8 @@ cd "$(dirname "$0")/.."
 
 print_step "Updating POTFILES..."
 {
-    echo "data/io.github.vmkspv.lenspect.desktop.in"
-    echo "data/io.github.vmkspv.lenspect.metainfo.xml.in"
+    echo "data/io.github.vmkspv.netsleuth.desktop.in"
+    echo "data/io.github.vmkspv.netsleuth.metainfo.xml.in"
     find src -type f -name "*.py" -print0 | xargs -0 grep -l -E "(_\(['\"]|N_\(['\"]|C_\(['\"])"
     find src -type f -name "*.blp"
 } | sort > po/POTFILES
