@@ -20,6 +20,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
     child: Adw.NavigationSplitView split_view {
       min-sidebar-width: 340;
       max-sidebar-width: 420;
+      notify::collapsed => $on_split_view_state_changed();
 
       sidebar: Adw.NavigationPage {
         title: bind template.title;
@@ -64,6 +65,8 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
 
                   Adw.EntryRow ip_entry {
                     title: _("IP Address");
+                    changed => $on_ip_entry_changed();
+                    entry-activated => $on_ip_entry_activate();
 
                     [suffix]
                     Button history_button {
@@ -84,11 +87,13 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                   Adw.SwitchRow show_binary_switch {
                     title: _("Show Binary");
                     subtitle: _("Display binary representation of IP addresses");
+                    notify::active => $on_show_binary_changed();
                   }
 
                   Adw.SwitchRow show_hex_switch {
                     title: _("Show Hexadecimal");
                     subtitle: _("Display hexadecimal representation of IP addresses");
+                    notify::active => $on_show_hex_changed();
                   }
                 }
 

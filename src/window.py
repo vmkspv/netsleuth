@@ -52,8 +52,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         super().__init__(**kwargs)
         self.calculator = IPCalculator()
         self.results = {}
+        self.ip_entry_timeout_id = None
         self.setup_mask_dropdown()
-        self.connect_signals()
         self.calculate_button.set_sensitive(False)
         self.history = self.load_history()
         self.results_stack.set_visible_child(self.empty_results)
@@ -66,17 +66,6 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
         expression = Gtk.PropertyExpression.new(Gtk.StringObject, None, "string")
         self.mask_dropdown.set_expression(expression)
-
-    def connect_signals(self):
-        self.calculate_button.connect("clicked", self.on_calculate_clicked)
-        self.show_binary_switch.connect("notify::active", self.on_show_binary_changed)
-        self.show_hex_switch.connect("notify::active", self.on_show_hex_changed)
-        self.ip_entry.connect("changed", self.on_ip_entry_changed)
-        self.ip_entry.get_delegate().connect("activate", self.on_ip_entry_activate)
-        self.ip_entry_timeout_id = None
-
-        if self.split_view:
-            self.split_view.connect("notify::collapsed", self.on_split_view_state_changed)
 
     def setup_fact_of_the_day(self):
         facts = [
@@ -159,11 +148,13 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             animation.set_easing(Adw.Easing.EASE_OUT_CUBIC)
             animation.play()
 
+    @Gtk.Template.Callback()
     def on_show_binary_changed(self, switch, pspec):
         self.calculator.set_show_binary(switch.get_active())
         if self.results_group_main.get_visible() or self.results_group.get_visible():
             self.on_calculate_clicked(None)
 
+    @Gtk.Template.Callback()
     def on_show_hex_changed(self, switch, pspec):
         self.calculator.set_show_hex(switch.get_active())
         if self.results_group_main.get_visible() or self.results_group.get_visible():
@@ -182,6 +173,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         toast.set_timeout(2)
         self.toast_overlay.add_toast(toast)
 
+    @Gtk.Template.Callback()
     def on_ip_entry_changed(self, entry):
         if self.ip_entry_timeout_id:
             GLib.source_remove(self.ip_entry_timeout_id)
@@ -214,6 +206,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
                 return False
         return True
 
+    @Gtk.Template.Callback()
     def on_ip_entry_activate(self, entry):
         if self.is_valid_ip(self.ip_entry.get_text()) and self.calculate_button.get_sensitive():
             self.on_calculate_clicked(None)
@@ -470,6 +463,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             self.results_group.set_visible(True)
             self.split_view.set_show_content(True)
 
+    @Gtk.Template.Callback()
     def on_split_view_state_changed(self, split_view, pspec):
         if not hasattr(self, "results") or not self.results:
             return
