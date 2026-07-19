@@ -26,9 +26,6 @@
     <color type="primary" scheme_preference="light">#6AA698</color>
     <color type="primary" scheme_preference="dark">#1E4C42</color>
   </branding>
-  <custom>
-    <value key="GnomeSoftware::key-colors">[(106, 166, 152), (30, 76, 66)]</value>
-  </custom>
   <url type="homepage">https://github.com/vmkspv/netsleuth</url>
   <url type="bugtracker">https://github.com/vmkspv/netsleuth/issues</url>
   <url type="vcs-browser">https://github.com/vmkspv/netsleuth</url>
