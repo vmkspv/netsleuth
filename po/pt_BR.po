@@ -2,13 +2,14 @@
 # Copyright (C) 2024-2026 Vladimir Kosolapov
 # This file is distributed under the same license as the Netsleuth package.
 # Kelvin Ribeiro Novais, 2024.
+# Cristiano Fraga G. Nunes <cfgnunes@gmail.com>, 2025, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
 "POT-Creation-Date: 2026-04-04 21:00+0300\n"
-"PO-Revision-Date: 2025-11-26 18:52-0300\n"
+"PO-Revision-Date: 2026-09-20 23:24-0300\n"
 "Last-Translator: Cristiano Fraga G. Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -100,7 +101,7 @@ msgstr "Registro PTR"
 
 #: src/calculator.py:51 src/window.py:416
 msgid "IPv4 Mapped Address"
-msgstr "Endereço Mapeado IPv4"
+msgstr "Endereço IPv4 Mapeado"
 
 #: src/calculator.py:52 src/window.py:417
 msgid "6to4 Prefix"
@@ -112,7 +113,7 @@ msgstr "Erro"
 
 #: src/calculator.py:56 src/cmdline.py:155
 msgid "Invalid IP address or mask"
-msgstr "Endereço de IP ou máscara inválidos"
+msgstr "Endereço IP ou máscara inválidos"
 
 #: src/calculator.py:79 src/window.py:418
 msgid "Private (Class A)"
@@ -186,7 +187,7 @@ msgstr ""
 "Copyright (C) 2024-2026 Vladimir Kosolapov\n"
 "Licença GPLv3+: GNU GPL versão 3 ou posterior <https://gnu.org/licenses/gpl."
 "html>.\n"
-"Este é um software livre: você pode modificá-lo e redistribuí-lo.\n"
+"Este é um software livre: você é livre para alterá-lo e redistribuí-lo.\n"
 "NÃO HÁ QUALQUER GARANTIA, na medida permitida por lei.\n"
 "\n"
 "Relate os bugs em: <https://github.com/vmkspv/netsleuth/issues>."
@@ -210,7 +211,7 @@ msgstr "uso:"
 #. Translators: Metainfo and translations for the Lenspect <https://github.com/vmkspv/lenspect>
 #: src/main.py:75
 msgid "Scan files for threats"
-msgstr "Analisar arquivos em busca de malware"
+msgstr "Analisar arquivos em busca de ameaças"
 
 #: src/window.blp:41
 msgid "About Netsleuth"
@@ -222,7 +223,7 @@ msgstr "Detalhes"
 
 #: src/window.blp:66
 msgid "IP Address"
-msgstr "Endereço de IP"
+msgstr "Endereço IP"
 
 #: src/window.blp:71 src/window.py:238
 msgid "History"
@@ -238,7 +239,7 @@ msgstr "Mostrar Binário"
 
 #: src/window.blp:86
 msgid "Display binary representation of IP addresses"
-msgstr "Mostrar representação binária dos endereços IP"
+msgstr "Exibir representação binária dos endereços IP"
 
 #: src/window.blp:90
 msgid "Show Hexadecimal"
@@ -274,7 +275,7 @@ msgstr "Sem Resultados"
 
 #: src/window.blp:174
 msgid "Your calculation results will appear here"
-msgstr "Seus resultados de cálculo aparecerão aqui"
+msgstr "Os resultados dos cálculos aparecerão aqui"
 
 #: src/window.py:83
 msgid ""
