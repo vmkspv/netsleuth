@@ -430,7 +430,11 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         with open(file_path, "w", encoding="utf-8") as f:
             dump(export_results, f, ensure_ascii=False, indent=2)
 
-        self.show_toast(_('Saved to {file}').format(file=file_name))
+        toast = Adw.Toast.new(_('Saved to {file}').format(file=file_name))
+        toast.set_button_label(_('Open'))
+        toast.connect("button-clicked",
+            lambda _, f=file: Gtk.FileLauncher.new(f).launch(self))
+        self.toast_overlay.add_toast(toast)
 
     def format_for_export(self, value):
         if isinstance(value, str):
