@@ -16,7 +16,7 @@ gnome.compile_resources('netsleuth',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
-  dependencies: blueprint
+  dependencies: [blueprint, appstream_file]
 )
 
 python = import('python')

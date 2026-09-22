@@ -66,7 +66,7 @@ class NetsleuthApplication(Adw.Application):
         return translators.get(locale_code) or translators.get(locale_code[:2], '')
 
     def on_about_action(self, widget, param):
-        about = Adw.AboutDialog.new_from_appdata('io/github/vmkspv/netsleuth/metainfo.xml', self.version)
+        about = Adw.AboutDialog.new_from_appdata('/io/github/vmkspv/netsleuth/metainfo.xml', self.version)
         about.set_developers(['Vladimir Kosolapov https://github.com/vmkspv'])
         about.set_translator_credits(self.get_translator_credits())
         about.set_copyright('© 2024-2026 Vladimir Kosolapov')
