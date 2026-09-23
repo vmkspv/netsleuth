@@ -48,6 +48,19 @@
   <launchable type="desktop-id">io.github.vmkspv.netsleuth.desktop</launchable>
   <translation type="gettext">netsleuth</translation>
   <releases>
+    <release version="1.1.5" date="2026-09-23">
+      <url type="details">https://github.com/vmkspv/netsleuth/releases/tag/v1.1.5</url>
+      <description translate="no">
+        <ul>
+          <li>Updated GNOME runtime</li>
+          <li>Minor UI improvements</li>
+        </ul>
+        <p>Updated/added translations:</p>
+        <ul>
+          <li>Brazilian Portuguese (Cristiano Fraga G. Nunes)</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.1.4" date="2026-04-05">
       <url type="details">https://github.com/vmkspv/netsleuth/releases/tag/v1.1.4</url>
       <description translate="no">
