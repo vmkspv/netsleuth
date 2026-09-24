@@ -32,6 +32,7 @@ translators = {
     'bg': 'twlvnn kraftwerk https://github.com/twlvnn',
     'it': 'Albano Battistella https://github.com/albanobattistella',
     'ja': 'Ryo Nakano https://github.com/ryonakano',
+    'ka': 'Temuri Doghonadze https://github.com/NorwayFun',
     'pl': 'dawkagaming https://github.com/dawkagaming',
     'pt_BR': ('Cristiano Fraga G. Nunes https://github.com/cfgnunes\n'
               'Kelvin Ribeiro Novais https://github.com/KelvinNovais'),

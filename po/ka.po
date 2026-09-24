@@ -1,6 +1,6 @@
-# Georgian translation for netsleuth.
-# Copyright (C) 2026 netsleuth's authors.
-# This file is distributed under the same license as the netsleuth package.
+# Georgian translations for Netsleuth package.
+# Copyright (C) 2024-2026 Vladimir Kosolapov
+# This file is distributed under the same license as the Netsleuth package.
 # Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026.
 #
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2026-09-22 17:15+0300\n"
 "PO-Revision-Date: 2026-09-24 09:35+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
-"Language-Team: Georgian <(nothing)>\n"
+"Language-Team: \n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -155,7 +155,7 @@ msgstr "ქვექსელის ნიღაბი (ნაგულისხ
 
 #: src/cmdline.py:53
 msgid "show binary values"
-msgstr "ბინარული მნიშვნელობების ჩვეება"
+msgstr "ბინარული მნიშვნელობების ჩვენება"
 
 #: src/cmdline.py:58
 msgid "show hexadecimal values"
@@ -297,7 +297,7 @@ msgid ""
 "The 240.0.0.0/4 block was originally reserved for future experiments, but is "
 "now considered legacy."
 msgstr ""
-"240.0.0.0/24 თავიდან დაცული იყო მომავალი ექსპერიმენტებისთვის, მაგრამ ახლა "
+"240.0.0.0/4 თავიდან დაცული იყო მომავალი ექსპერიმენტებისთვის, მაგრამ ახლა "
 "მოძველებულად ითვლება."
 
 #: src/window.py:75
