@@ -1,0 +1,343 @@
+# Azerbaijani translations for Netsleuth package.
+# Copyright (C) 2024-2026 Vladimir Kosolapov
+# This file is distributed under the same license as the Netsleuth package.
+# Jamal Kamaladdinoglu <jamalkamaladdin@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: netsleuth\n"
+"Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
+"POT-Creation-Date: 2026-09-22 17:15+0300\n"
+"PO-Revision-Date: 2026-09-29 20:05+0000\n"
+"Last-Translator: Jamal Kamaladdinoglu <jamalkamaladdin@gmail.com>\n"
+"Language-Team: Azerbaijani\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Translators: Netsleuth is the application name. Do NOT translate or transliterate this string!
+#: data/io.github.vmkspv.netsleuth.desktop.in:3
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:6
+msgid "Netsleuth"
+msgstr "Netsleuth"
+
+#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.blp:35
+msgid "IP Subnet Calculator"
+msgstr "IP altşəbəkə kalkulyatoru"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#: data/io.github.vmkspv.netsleuth.desktop.in:11
+msgid "Network;IP;Subnet;Mask;Host;Calculator;"
+msgstr "Network;IP;Subnet;Mask;Host;Calculator;Şəbəkə;Altşəbəkə;Maska;Qovşaq;Kalkulyator;"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:7
+msgid "Calculate IP subnets"
+msgstr "IP altşəbəkələrini hesablayın"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:9 src/cmdline.py:34
+msgid ""
+"A simple utility for the calculation and analysis of IP subnet values, "
+"designed to simplify network configuration tasks."
+msgstr "IP altşəbəkə dəyərlərini hesablamaq və təhlil etmək üçün sadə tətbiq. Şəbəkə sazlanması işlərini asanlaşdırır."
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:14
+msgid "Calculation options"
+msgstr "Hesablama seçimləri"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:18
+msgid "List of results"
+msgstr "Nəticələrin siyahısı"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:22
+msgid "Split view layout"
+msgstr "Bölünmüş görünüş düzəni"
+
+#: src/calculator.py:41 src/window.py:399
+msgid "Address"
+msgstr "Ünvan"
+
+#: src/calculator.py:42 src/window.py:400
+msgid "Netmask"
+msgstr "Şəbəkə maskası"
+
+#: src/calculator.py:43 src/window.py:401
+msgid "Wildcard"
+msgstr "Əks maska"
+
+#: src/calculator.py:44 src/window.py:402
+msgid "Network"
+msgstr "Şəbəkə"
+
+#: src/calculator.py:45 src/window.py:403
+msgid "Broadcast"
+msgstr "Yayım ünvanı"
+
+#: src/calculator.py:46 src/window.py:404
+msgid "First Host"
+msgstr "İlk qovşaq"
+
+#: src/calculator.py:47 src/window.py:405
+msgid "Last Host"
+msgstr "Son qovşaq"
+
+#: src/calculator.py:48 src/window.py:115 src/window.py:406
+msgid "Total Hosts"
+msgstr "Qovşaqların ümumi sayı"
+
+#: src/calculator.py:49 src/window.py:407
+msgid "Category"
+msgstr "Kateqoriya"
+
+#: src/calculator.py:50 src/window.py:408
+msgid "PTR Record"
+msgstr "PTR qeydi"
+
+#: src/calculator.py:51 src/window.py:409
+msgid "IPv4 Mapped Address"
+msgstr "IPv4 ilə əlaqələndirilmiş ünvan"
+
+#: src/calculator.py:52 src/window.py:410
+msgid "6to4 Prefix"
+msgstr "6to4 prefiksi"
+
+#: src/calculator.py:56 src/cmdline.py:155
+msgid "Error"
+msgstr "Xəta"
+
+#: src/calculator.py:56 src/cmdline.py:155
+msgid "Invalid IP address or mask"
+msgstr "Yanlış IP ünvanı və ya maska"
+
+#: src/calculator.py:79 src/window.py:411
+msgid "Private (Class A)"
+msgstr "Özəl (A sinfi)"
+
+#: src/calculator.py:80 src/window.py:412
+msgid "Private (Class B)"
+msgstr "Özəl (B sinfi)"
+
+#: src/calculator.py:81 src/window.py:413
+msgid "Private (Class C)"
+msgstr "Özəl (C sinfi)"
+
+#: src/calculator.py:82 src/window.py:414
+msgid "Loopback"
+msgstr "Özünə yönləndirmə"
+
+#: src/calculator.py:83 src/window.py:415
+msgid "Link-Local (APIPA)"
+msgstr "Yerli bağlantı (APIPA)"
+
+#: src/calculator.py:84 src/window.py:416
+msgid "Multicast"
+msgstr "Çoxünvanlı yayım"
+
+#: src/calculator.py:85 src/window.py:417
+msgid "Reserved"
+msgstr "Ehtiyatda saxlanılıb"
+
+#: src/calculator.py:88 src/window.py:418
+msgid "Public"
+msgstr "Açıq"
+
+#: src/cmdline.py:42
+msgid "ip for calculation"
+msgstr "hesablanacaq IP ünvanı"
+
+#: src/cmdline.py:48
+msgid "subnet mask (default: 24)"
+msgstr "altşəbəkə maskası (standart: 24)"
+
+#: src/cmdline.py:53
+msgid "show binary values"
+msgstr "ikilik dəyərləri göstər"
+
+#: src/cmdline.py:58
+msgid "show hexadecimal values"
+msgstr "onaltılıq dəyərləri göstər"
+
+#: src/cmdline.py:64
+msgid "show this help message and exit"
+msgstr "bu yardım mətnini göstər və çıx"
+
+#: src/cmdline.py:69
+msgid "show version information and exit"
+msgstr "versiya məlumatını göstər və çıx"
+
+#: src/cmdline.py:122
+#, python-brace-format
+msgid ""
+"netsleuth {version}\n"
+"Copyright (C) 2024-2026 Vladimir Kosolapov\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/"
+"gpl.html>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+"\n"
+"Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>."
+msgstr "netsleuth {version}\nCopyright (C) 2024-2026 Vladimir Kosolapov\nLisenziya GPLv3+: GNU GPL 3-cü versiya və ya daha yenisi <https://gnu.org/licenses/gpl.html>.\nBu, azad proqram təminatıdır: onu dəyişə və yenidən paylaya bilərsiniz.\nQanunun icazə verdiyi həddə HƏR HANSI ZƏMANƏT VERİLMİR.\n\nXətaları bildirin: <https://github.com/vmkspv/netsleuth/issues>."
+
+#: src/cmdline.py:147
+msgid "options"
+msgstr "seçimlər"
+
+#: src/cmdline.py:148
+msgid "general"
+msgstr "ümumi"
+
+#: src/cmdline.py:151
+msgid "positional arguments"
+msgstr "mövqeli arqumentlər"
+
+#: src/cmdline.py:152
+msgid "usage:"
+msgstr "istifadə:"
+
+#. Translators: Metainfo and translations for the Lenspect <https://github.com/vmkspv/lenspect>
+#: src/main.py:74
+msgid "Scan files for threats"
+msgstr "Faylları təhdidlərə qarşı yoxlayın"
+
+#: src/window.blp:42
+msgid "About Netsleuth"
+msgstr "Netsleuth haqqında"
+
+#: src/window.blp:64
+msgid "Details"
+msgstr "Təfərrüatlar"
+
+#: src/window.blp:67
+msgid "IP Address"
+msgstr "IP ünvanı"
+
+#: src/window.blp:74 src/window.py:231
+msgid "History"
+msgstr "Tarixçə"
+
+#: src/window.blp:82
+msgid "Subnet Mask"
+msgstr "Altşəbəkə maskası"
+
+#: src/window.blp:88
+msgid "Show Binary"
+msgstr "İkilik göstərilişi göstər"
+
+#: src/window.blp:89
+msgid "Display binary representation of IP addresses"
+msgstr "IP ünvanlarını ikilik say sistemində göstər"
+
+#: src/window.blp:94
+msgid "Show Hexadecimal"
+msgstr "Onaltılıq göstərilişi göstər"
+
+#: src/window.blp:95
+msgid "Display hexadecimal representation of IP addresses"
+msgstr "IP ünvanlarını onaltılıq say sistemində göstər"
+
+#: src/window.blp:106
+msgid "Calculate"
+msgstr "Hesabla"
+
+#: src/window.blp:118
+msgid "Did you know?"
+msgstr "Bilirdinizmi?"
+
+#: src/window.blp:124 src/window.blp:161 src/window.blp:167
+msgid "Results"
+msgstr "Nəticələr"
+
+#: src/window.blp:135 src/window.blp:211
+msgid "Copy All"
+msgstr "Hamısını köçür"
+
+#: src/window.blp:143 src/window.blp:219
+msgid "Export"
+msgstr "İxrac et"
+
+#: src/window.blp:178
+msgid "No Results"
+msgstr "Nəticə yoxdur"
+
+#: src/window.blp:179
+msgid "Your calculation results will appear here"
+msgstr "Hesablama nəticələriniz burada görünəcək"
+
+#: src/window.py:72
+msgid ""
+"The 0.0.0.0 address is used to represent the default route or an unknown "
+"target network."
+msgstr "0.0.0.0 ünvanı standart marşrutu və ya naməlum hədəf şəbəkəni bildirir."
+
+#: src/window.py:73
+msgid ""
+"A PTR record enables reverse DNS lookup, translating an IP address back to a "
+"domain name."
+msgstr "PTR qeydi əks DNS sorğusu ilə IP ünvanını domen adına çevirməyə imkan verir."
+
+#: src/window.py:74
+msgid ""
+"The 240.0.0.0/4 block was originally reserved for future experiments, but is "
+"now considered legacy."
+msgstr "240.0.0.0/4 bloku əvvəlcə gələcək təcrübələr üçün ayrılmışdı, indi isə köhnəlmiş sayılır."
+
+#: src/window.py:75
+msgid ""
+"In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
+"to-point links."
+msgstr "/30 altşəbəkəsində yalnız 2 istifadə oluna bilən IP ünvanı var. Onlar çox vaxt nöqtədən-nöqtəyə bağlantılar üçün istifadə olunur."
+
+#: src/window.py:76
+msgid ""
+"Wildcard mask inverts subnet masks, providing flexible IP filtering in "
+"access lists."
+msgstr "Əks maska altşəbəkə maskasının bitlərini tərsinə çevirir və giriş siyahılarında IP ünvanlarını çevik süzgəcdən keçirməyə imkan verir."
+
+#: src/window.py:77
+msgid ""
+"An IP's binary representation always has 32 bits, regardless of the decimal "
+"notation used."
+msgstr "İstifadə olunan onluq yazılışdan asılı olmayaraq, IP ünvanının ikilik göstərilişi həmişə 32 bitdən ibarətdir."
+
+#: src/window.py:124
+msgid "Copy"
+msgstr "Köçür"
+
+#: src/window.py:169 src/window.py:347
+msgid "Copied to clipboard"
+msgstr "Mübadilə buferinə köçürüldü"
+
+#: src/window.py:222
+msgid "No History"
+msgstr "Tarixçə yoxdur"
+
+#: src/window.py:223
+msgid "Your calculation history will appear here"
+msgstr "Hesablama tarixçəniz burada görünəcək"
+
+#: src/window.py:240
+msgid "Clear"
+msgstr "Təmizlə"
+
+#: src/window.py:300
+#, python-brace-format
+msgid "Calculated: {ip}/{mask}"
+msgstr "Hesablandı: {ip}/{mask}"
+
+#: src/window.py:311
+msgid "History cleared"
+msgstr "Tarixçə təmizləndi"
+
+#: src/window.py:382
+msgid "Export results"
+msgstr "Nəticələri ixrac et"
+
+#: src/window.py:433
+#, python-brace-format
+msgid "Saved to {file}"
+msgstr "{file} faylında saxlanıldı"
+
+#: src/window.py:434
+msgid "Open"
+msgstr "Aç"
