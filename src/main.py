@@ -29,6 +29,7 @@ from .window import NetsleuthWindow
 from .cmdline import main as cli_main
 
 translators = {
+    'az': 'Jamal Kamaladdinoglu https://github.com/jamalkamaladdin',
     'bg': 'twlvnn kraftwerk https://github.com/twlvnn',
     'it': 'Albano Battistella https://github.com/albanobattistella',
     'ja': 'Ryo Nakano https://github.com/ryonakano',
