@@ -41,7 +41,6 @@ netsleuth_sources = [
   'calculator.py',
   'cmdline.py',
   'main.py',
-  'vlsm.py',
   'window.py'
 ]
 

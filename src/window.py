@@ -29,6 +29,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'NetsleuthWindow'
 
     toast_overlay = Gtk.Template.Child()
+    navigation_view = Gtk.Template.Child()
     split_view = Gtk.Template.Child()
 
     ip_entry = Gtk.Template.Child()
@@ -48,24 +49,37 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     results_group = Gtk.Template.Child()
     results_box = Gtk.Template.Child()
 
+    vlsm_ip_entry = Gtk.Template.Child()
+    vlsm_mask_dropdown = Gtk.Template.Child()
+    vlsm_subnets_box = Gtk.Template.Child()
+    vlsm_calculate_button = Gtk.Template.Child()
+
+    vlsm_results_group = Gtk.Template.Child()
+    vlsm_results_box = Gtk.Template.Child()
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.calculator = IPCalculator()
         self.results = {}
+        self.vlsm_results = []
+        self.subnet_rows = []
         self.ip_entry_timeout_id = None
         self.setup_mask_dropdown()
         self.calculate_button.set_sensitive(False)
+        self.vlsm_calculate_button.set_sensitive(False)
         self.history = self.load_history()
         self.results_stack.set_visible_child(self.empty_results)
         self.setup_fact_of_the_day()
 
     def setup_mask_dropdown(self):
         masks = [f"{i} - {self.calculator.int_to_dotted_netmask(i)}" for i in range(33)]
-        self.mask_dropdown.set_model(Gtk.StringList.new(masks))
-        self.mask_dropdown.set_selected(24)
-
+        model = Gtk.StringList.new(masks)
         expression = Gtk.PropertyExpression.new(Gtk.StringObject, None, "string")
-        self.mask_dropdown.set_expression(expression)
+
+        for dropdown in (self.mask_dropdown, self.vlsm_mask_dropdown):
+            dropdown.set_model(model)
+            dropdown.set_selected(24)
+            dropdown.set_expression(expression)
 
     def setup_fact_of_the_day(self):
         facts = [
@@ -108,38 +122,38 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         while self.results_box_main.get_first_child():
             self.results_box_main.remove(self.results_box_main.get_first_child())
 
-        def create_result_row(key, value):
-            if value is None:
-                return None
-            subtitle = str(value)
-            if key == _('Total Hosts'):
-                count, *math = subtitle.split(' ', 1)
-                subtitle = f"{count}{' ' + math[0] if math else ''}"
-            row = Adw.ActionRow(title=key, subtitle=subtitle, subtitle_selectable=True)
-            row.add_css_class("property")
-
-            copy_button = Gtk.Button(
-                icon_name="edit-copy-symbolic",
-                valign=Gtk.Align.CENTER,
-                tooltip_text=_('Copy')
-            )
-            copy_button.add_css_class("flat")
-            copy_value = value.replace('<tt>', '').replace('</tt>', '') if isinstance(value, str) else str(value)
-            copy_button.connect("clicked", self.on_copy_clicked, copy_value)
-
-            row.add_suffix(copy_button)
-            return row
-
         for key, value in results.items():
-            row = create_result_row(key, value)
+            row = self.create_result_row(key, value)
             if row:
-                row_clone = create_result_row(key, value)
+                row_clone = self.create_result_row(key, value)
                 self.results_box.append(row)
                 self.results_box_main.append(row_clone)
 
         self.results_group.set_opacity(0)
         self.results_group_main.set_opacity(0)
         self.fade_in_results()
+
+    def create_result_row(self, key, value):
+        if value is None:
+            return None
+        subtitle = str(value)
+        if key == _('Total Hosts'):
+            count, *math = subtitle.split(' ', 1)
+            subtitle = f"{count}{' ' + math[0] if math else ''}"
+        row = Adw.ActionRow(title=key, subtitle=subtitle, subtitle_selectable=True)
+        row.add_css_class("property")
+
+        copy_button = Gtk.Button(
+            icon_name="edit-copy-symbolic",
+            valign=Gtk.Align.CENTER,
+            tooltip_text=_('Copy')
+        )
+        copy_button.add_css_class("flat")
+        copy_value = value.replace('<tt>', '').replace('</tt>', '') if isinstance(value, str) else str(value)
+        copy_button.connect("clicked", self.on_copy_clicked, copy_value)
+
+        row.add_suffix(copy_button)
+        return row
 
     def fade_in_results(self):
         for group in [self.results_group, self.results_group_main]:
@@ -185,7 +199,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         if valid_text != text:
             entry.set_text(valid_text)
             entry.set_position(-1)
-        self.calculate_button.set_sensitive(self.is_valid_ip(valid_text))
+        button = self.calculate_button if entry == self.ip_entry else self.vlsm_calculate_button
+        button.set_sensitive(self.is_valid_ip(valid_text))
         self.ip_entry_timeout_id = None
         return GLib.SOURCE_REMOVE
 
@@ -208,8 +223,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     @Gtk.Template.Callback()
     def on_ip_entry_activate(self, entry):
-        if self.is_valid_ip(self.ip_entry.get_text()) and self.calculate_button.get_sensitive():
-            self.on_calculate_clicked(None)
+        button = self.calculate_button if entry == self.ip_entry else self.vlsm_calculate_button
+        if self.is_valid_ip(entry.get_text()) and button.get_sensitive():
+            button.emit("clicked")
 
     @Gtk.Template.Callback()
     def on_history_button_clicked(self, button):
@@ -372,6 +388,17 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         if not hasattr(self, "results") or not self.results:
             return
 
+        mappings = self.get_export_mappings()
+        self.export_json({
+            mappings.get(key, key): (
+                mappings.get(value, value) if mappings.get(key, key) == 'Category' and isinstance(value, str)
+                else self.format_for_export(value)
+            )
+            for key, value in self.results.items()
+            if value is not None
+        })
+
+    def export_json(self, data):
         filter_json = Gtk.FileFilter()
         filter_json.add_mime_type("application/json")
 
@@ -384,9 +411,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         dialog.set_default_filter(filter_json)
         dialog.set_filters(filters)
 
-        dialog.save(self, None, self.on_export_finish)
+        dialog.save(self, None, self.on_export_finish, data)
 
-    def on_export_finish(self, dialog, result):
+    def on_export_finish(self, dialog, result, data):
         try:
             file = dialog.save_finish(result)
         except GLib.Error:
@@ -395,7 +422,17 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         file_path = file.get_path()
         file_name = file.get_basename()
 
-        mappings = {
+        with open(file_path, "w", encoding="utf-8") as f:
+            dump(data, f, ensure_ascii=False, indent=2)
+
+        toast = Adw.Toast.new(_('Saved to {file}').format(file=file_name))
+        toast.set_button_label(_('Open'))
+        toast.connect("button-clicked",
+            lambda _, f=file: Gtk.FileLauncher.new(f).launch(self))
+        self.toast_overlay.add_toast(toast)
+
+    def get_export_mappings(self):
+        return {
             _('Address'): 'Address',
             _('Netmask'): 'Netmask',
             _('Wildcard'): 'Wildcard',
@@ -403,6 +440,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             _('Broadcast'): 'Broadcast',
             _('First Host'): 'First Host',
             _('Last Host'): 'Last Host',
+            _('Required Hosts'): 'Required Hosts',
             _('Total Hosts'): 'Total Hosts',
             _('Category'): 'Category',
             _('PTR Record'): 'PTR Record',
@@ -417,24 +455,6 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             _('Reserved'): 'Reserved',
             _('Public'): 'Public'
         }
-
-        export_results = {
-            mappings.get(key, key): (
-                mappings.get(value, value) if mappings.get(key, key) == 'Category' and isinstance(value, str)
-                else self.format_for_export(value)
-            )
-            for key, value in self.results.items()
-            if value is not None
-        }
-
-        with open(file_path, "w", encoding="utf-8") as f:
-            dump(export_results, f, ensure_ascii=False, indent=2)
-
-        toast = Adw.Toast.new(_('Saved to {file}').format(file=file_name))
-        toast.set_button_label(_('Open'))
-        toast.connect("button-clicked",
-            lambda _, f=file: Gtk.FileLauncher.new(f).launch(self))
-        self.toast_overlay.add_toast(toast)
 
     def format_for_export(self, value):
         if isinstance(value, str):
@@ -473,3 +493,102 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             return
 
         self.update_results_visibility(split_view.get_collapsed())
+
+    @Gtk.Template.Callback()
+    def on_subnet_planner_activated(self, row):
+        self.vlsm_ip_entry.set_text("")
+        self.vlsm_mask_dropdown.set_selected(24)
+        for subnet_row in self.subnet_rows:
+            self.vlsm_subnets_box.remove(subnet_row)
+        self.subnet_rows.clear()
+        self.subnet_count = 0
+        self.on_add_subnet_clicked()
+        self.vlsm_results_group.set_visible(False)
+        self.navigation_view.push_by_tag("vlsm")
+
+    @Gtk.Template.Callback()
+    def on_add_subnet_clicked(self, button=None):
+        self.subnet_count += 1
+        row = Adw.EntryRow(title=_('Subnet {number}').format(number=self.subnet_count))
+
+        row.hosts_spin = Gtk.SpinButton(
+            adjustment=Gtk.Adjustment(value=1, lower=1, upper=1, step_increment=1),
+            numeric=True,
+            width_chars=6,
+            valign=Gtk.Align.CENTER,
+            tooltip_text=_('Required Hosts')
+        )
+
+        row.remove_button = Gtk.Button(
+            icon_name="list-remove-symbolic",
+            valign=Gtk.Align.CENTER,
+            tooltip_text=_('Remove')
+        )
+        row.remove_button.add_css_class("flat")
+        row.remove_button.connect("clicked", lambda btn: self.on_remove_subnet(row))
+
+        row.add_suffix(row.hosts_spin)
+        row.add_suffix(row.remove_button)
+        row.remove_button.set_sensitive(bool(self.subnet_rows))
+        if self.subnet_rows:
+            self.subnet_rows[0].remove_button.set_sensitive(True)
+        self.vlsm_subnets_box.insert(row, len(self.subnet_rows))
+        self.subnet_rows.append(row)
+        self.on_vlsm_mask_changed(self.vlsm_mask_dropdown)
+
+    @Gtk.Template.Callback()
+    def on_vlsm_mask_changed(self, dropdown, pspec=None):
+        for row in self.subnet_rows:
+            row.hosts_spin.set_range(1, max(2 ** (32 - dropdown.get_selected()) - 2, 1))
+
+    def on_remove_subnet(self, row):
+        self.subnet_rows.remove(row)
+        self.vlsm_subnets_box.remove(row)
+        if len(self.subnet_rows) == 1:
+            self.subnet_rows[0].remove_button.set_sensitive(False)
+
+    @Gtk.Template.Callback()
+    def on_vlsm_calculate_clicked(self, button):
+        for row in self.subnet_rows:
+            row.hosts_spin.update()
+        subnets = [(row.get_text() or row.get_title(), row.hosts_spin.get_value_as_int())
+                   for row in self.subnet_rows]
+        results = self.calculator.calculate_vlsm(
+            self.vlsm_ip_entry.get_text(), self.vlsm_mask_dropdown.get_selected(), subnets
+        )
+        if isinstance(results, dict):
+            self.vlsm_results_group.set_visible(False)
+            self.show_toast(results[_('Error')])
+            return
+
+        self.vlsm_results = results
+        while self.vlsm_results_box.get_first_child():
+            self.vlsm_results_box.remove(self.vlsm_results_box.get_first_child())
+
+        for name, details in results:
+            expander = Adw.ExpanderRow(title=name, subtitle=details[_('Network')], use_markup=False)
+            for key, value in details.items():
+                expander.add_row(self.create_result_row(key, value))
+            self.vlsm_results_box.append(expander)
+
+        self.vlsm_results_group.set_visible(True)
+
+    @Gtk.Template.Callback()
+    def on_vlsm_copy_all_clicked(self, button):
+        text = '\n\n'.join(
+            f"{name}\n" + '\n'.join(f"{key}: {self.format_value(value, exclude_math=True)}"
+                                    for key, value in details.items())
+            for name, details in self.vlsm_results
+        )
+        clipboard = self.get_clipboard()
+        clipboard.set(text)
+        self.show_toast(_('Copied to clipboard'))
+
+    @Gtk.Template.Callback()
+    def on_vlsm_export_clicked(self, button):
+        mappings = self.get_export_mappings()
+        self.export_json([
+            {'Name': name, **{mappings.get(key, key): self.remove_math_formula(value)
+                              for key, value in details.items()}}
+            for name, details in self.vlsm_results
+        ])

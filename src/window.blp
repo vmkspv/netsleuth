@@ -17,35 +17,254 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
   }
 
   content: Adw.ToastOverlay toast_overlay {
-    child: Adw.NavigationSplitView split_view {
-      min-sidebar-width: 340;
-      max-sidebar-width: 420;
-      notify::collapsed => $on_split_view_state_changed();
-
-      sidebar: Adw.NavigationPage {
+    child: Adw.NavigationView navigation_view {
+      Adw.NavigationPage {
         title: bind template.title;
+
+        child: Adw.NavigationSplitView split_view {
+          min-sidebar-width: 340;
+          max-sidebar-width: 420;
+          notify::collapsed => $on_split_view_state_changed();
+
+          sidebar: Adw.NavigationPage {
+            title: bind template.title;
+
+            child: Adw.ToolbarView {
+              [top]
+              Adw.HeaderBar {
+                centering-policy: strict;
+
+                title-widget: Adw.WindowTitle {
+                  title: bind template.title;
+                  subtitle: _("IP Subnet Calculator");
+                };
+
+                [start]
+                Button about_button {
+                  icon-name: "help-about-symbolic";
+                  valign: center;
+                  tooltip-text: _("About Netsleuth");
+                  action-name: "app.about";
+                  styles ["flat"]
+                }
+              }
+
+              content: ScrolledWindow main_content {
+                hscrollbar-policy: never;
+                vscrollbar-policy: automatic;
+
+                child: Adw.Clamp {
+                  maximum-size: 420;
+
+                  child: Box {
+                    orientation: vertical;
+                    spacing: 16;
+                    margin-top: 24;
+                    margin-bottom: 24;
+                    margin-start: 16;
+                    margin-end: 16;
+
+                    Adw.PreferencesGroup {
+                      title: _("Details");
+
+                      Adw.EntryRow ip_entry {
+                        title: _("IP Address");
+                        changed => $on_ip_entry_changed();
+                        entry-activated => $on_ip_entry_activate();
+
+                        [suffix]
+                        Button history_button {
+                          icon-name: "document-open-recent-symbolic";
+                          tooltip-text: _("History");
+                          valign: center;
+                          clicked => $on_history_button_clicked();
+                          styles ["flat"]
+                        }
+                      }
+
+                      Adw.ComboRow mask_dropdown {
+                        title: _("Subnet Mask");
+                        enable-search: true;
+                        search-match-mode: substring;
+                      }
+
+                      Adw.SwitchRow show_binary_switch {
+                        title: _("Show Binary");
+                        subtitle: _("Display binary representation of IP addresses");
+                        notify::active => $on_show_binary_changed();
+                      }
+
+                      Adw.SwitchRow show_hex_switch {
+                        title: _("Show Hexadecimal");
+                        subtitle: _("Display hexadecimal representation of IP addresses");
+                        notify::active => $on_show_hex_changed();
+                      }
+                    }
+
+                    Adw.PreferencesGroup {
+                      Adw.ActionRow {
+                        title: _("Subnet Planner");
+                        subtitle: _("Divide a network by host count");
+                        activatable: true;
+                        activated => $on_subnet_planner_activated();
+
+                        [suffix]
+                        Image {
+                          icon-name: "go-next-symbolic";
+                          styles ["dimmed"]
+                        }
+                      }
+                    }
+
+                    Box {
+                      margin-top: 4;
+                      margin-bottom: 4;
+                      halign: center;
+
+                      Button calculate_button {
+                        label: _("Calculate");
+                        valign: center;
+                        width-request: 150;
+                        focus-on-click: false;
+                        clicked => $on_calculate_clicked();
+                        styles ["pill", "suggested-action"]
+                      }
+                    }
+
+                    Adw.PreferencesGroup fact_of_the_day_box {
+                      Adw.ActionRow fact_row {
+                        icon-name: "dialog-information-symbolic";
+                        title: _("Did you know?");
+                        can-focus: false;
+                      }
+                    }
+
+                    Adw.PreferencesGroup results_group_main {
+                      title: _("Results");
+                      visible: false;
+
+                      [header-suffix]
+                      Box {
+                        halign: end;
+                        spacing: 1;
+                        styles ["linked"]
+
+                        Button copy_all_button_main {
+                          icon-name: "edit-copy-symbolic";
+                          tooltip-text: _("Copy All");
+                          valign: center;
+                          clicked => $on_copy_all_clicked();
+                          styles ["flat"]
+                        }
+
+                        Button export_button_main {
+                          icon-name: "document-save-symbolic";
+                          tooltip-text: _("Export");
+                          valign: center;
+                          clicked => $on_export_clicked();
+                          styles ["flat"]
+                        }
+                      }
+
+                      ListBox results_box_main {
+                        styles ["boxed-list"]
+                      }
+                    }
+                  };
+                };
+              };
+            };
+          };
+
+          content: Adw.NavigationPage {
+            title: _("Results");
+
+            child: Adw.ToolbarView {
+              [top]
+              Adw.HeaderBar {
+                title-widget: Adw.WindowTitle {
+                  title: _("Results");
+                };
+              }
+
+              content: Stack results_stack {
+                transition-type: crossfade;
+
+                StackPage {
+                  name: "empty";
+                  child: Adw.StatusPage empty_results {
+                    icon-name: "io.github.vmkspv.netsleuth-symbolic";
+                    title: _("No Results");
+                    description: _("Your calculation results will appear here");
+                    can-focus: false;
+                  };
+                }
+
+                StackPage {
+                  name: "results";
+                  child: ScrolledWindow {
+                    hscrollbar-policy: never;
+                    vscrollbar-policy: automatic;
+
+                    child: Adw.Clamp {
+                      maximum-size: 420;
+
+                      child: Box {
+                        orientation: vertical;
+                        spacing: 16;
+                        margin-top: 24;
+                        margin-bottom: 24;
+                        margin-start: 16;
+                        margin-end: 16;
+
+                        Adw.PreferencesGroup results_group {
+                          visible: false;
+
+                          [header-suffix]
+                          Box {
+                            halign: end;
+                            styles ["linked"]
+
+                            Button copy_all_button {
+                              icon-name: "edit-copy-symbolic";
+                              tooltip-text: _("Copy All");
+                              valign: center;
+                              clicked => $on_copy_all_clicked();
+                              styles ["flat"]
+                            }
+
+                            Button export_button {
+                              icon-name: "document-save-symbolic";
+                              tooltip-text: _("Export");
+                              valign: center;
+                              clicked => $on_export_clicked();
+                              styles ["flat"]
+                            }
+                          }
+
+                          ListBox results_box {
+                            styles ["boxed-list"]
+                          }
+                        }
+                      };
+                    };
+                  };
+                }
+              };
+            };
+          };
+        };
+      }
+
+      Adw.NavigationPage {
+        title: _("Subnet Planner");
+        tag: "vlsm";
 
         child: Adw.ToolbarView {
           [top]
-          Adw.HeaderBar {
-            centering-policy: strict;
+          Adw.HeaderBar {}
 
-            title-widget: Adw.WindowTitle {
-              title: bind template.title;
-              subtitle: _("IP Subnet Calculator");
-            };
-
-            [start]
-            Button about_button {
-              icon-name: "help-about-symbolic";
-              valign: center;
-              tooltip-text: _("About Netsleuth");
-              action-name: "app.about";
-              styles ["flat"]
-            }
-          }
-
-          content: ScrolledWindow main_content {
+          content: ScrolledWindow {
             hscrollbar-policy: never;
             vscrollbar-policy: automatic;
 
@@ -61,39 +280,33 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                 margin-end: 16;
 
                 Adw.PreferencesGroup {
-                  title: _("Details");
+                  title: _("Network");
 
-                  Adw.EntryRow ip_entry {
+                  Adw.EntryRow vlsm_ip_entry {
                     title: _("IP Address");
                     changed => $on_ip_entry_changed();
                     entry-activated => $on_ip_entry_activate();
-
-                    [suffix]
-                    Button history_button {
-                      icon-name: "document-open-recent-symbolic";
-                      tooltip-text: _("History");
-                      valign: center;
-                      clicked => $on_history_button_clicked();
-                      styles ["flat"]
-                    }
                   }
 
-                  Adw.ComboRow mask_dropdown {
+                  Adw.ComboRow vlsm_mask_dropdown {
                     title: _("Subnet Mask");
                     enable-search: true;
                     search-match-mode: substring;
+                    notify::selected => $on_vlsm_mask_changed();
                   }
+                }
 
-                  Adw.SwitchRow show_binary_switch {
-                    title: _("Show Binary");
-                    subtitle: _("Display binary representation of IP addresses");
-                    notify::active => $on_show_binary_changed();
-                  }
+                Adw.PreferencesGroup {
+                  title: _("Subnets");
 
-                  Adw.SwitchRow show_hex_switch {
-                    title: _("Show Hexadecimal");
-                    subtitle: _("Display hexadecimal representation of IP addresses");
-                    notify::active => $on_show_hex_changed();
+                  ListBox vlsm_subnets_box {
+                    styles ["boxed-list"]
+
+                    Adw.ButtonRow {
+                      title: _("Add Subnet");
+                      start-icon-name: "list-add-symbolic";
+                      activated => $on_add_subnet_clicked();
+                    }
                   }
                 }
 
@@ -102,25 +315,17 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                   margin-bottom: 4;
                   halign: center;
 
-                  Button calculate_button {
+                  Button vlsm_calculate_button {
                     label: _("Calculate");
                     valign: center;
                     width-request: 150;
                     focus-on-click: false;
-                    clicked => $on_calculate_clicked();
+                    clicked => $on_vlsm_calculate_clicked();
                     styles ["pill", "suggested-action"]
                   }
                 }
 
-                Adw.PreferencesGroup fact_of_the_day_box {
-                  Adw.ActionRow fact_row {
-                    icon-name: "dialog-information-symbolic";
-                    title: _("Did you know?");
-                    can-focus: false;
-                  }
-                }
-
-                Adw.PreferencesGroup results_group_main {
+                Adw.PreferencesGroup vlsm_results_group {
                   title: _("Results");
                   visible: false;
 
@@ -130,24 +335,24 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                     spacing: 1;
                     styles ["linked"]
 
-                    Button copy_all_button_main {
+                    Button {
                       icon-name: "edit-copy-symbolic";
                       tooltip-text: _("Copy All");
                       valign: center;
-                      clicked => $on_copy_all_clicked();
+                      clicked => $on_vlsm_copy_all_clicked();
                       styles ["flat"]
                     }
 
-                    Button export_button_main {
+                    Button {
                       icon-name: "document-save-symbolic";
                       tooltip-text: _("Export");
                       valign: center;
-                      clicked => $on_export_clicked();
+                      clicked => $on_vlsm_export_clicked();
                       styles ["flat"]
                     }
                   }
 
-                  ListBox results_box_main {
+                  ListBox vlsm_results_box {
                     styles ["boxed-list"]
                   }
                 }
@@ -155,85 +360,7 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
             };
           };
         };
-      };
-
-      content: Adw.NavigationPage {
-        title: _("Results");
-
-        child: Adw.ToolbarView {
-          [top]
-          Adw.HeaderBar {
-            title-widget: Adw.WindowTitle {
-              title: _("Results");
-            };
-          }
-
-          content: Stack results_stack {
-            transition-type: crossfade;
-
-            StackPage {
-              name: "empty";
-              child: Adw.StatusPage empty_results {
-                icon-name: "io.github.vmkspv.netsleuth-symbolic";
-                title: _("No Results");
-                description: _("Your calculation results will appear here");
-                can-focus: false;
-              };
-            }
-
-            StackPage {
-              name: "results";
-              child: ScrolledWindow {
-                hscrollbar-policy: never;
-                vscrollbar-policy: automatic;
-
-                child: Adw.Clamp {
-                  maximum-size: 420;
-
-                  child: Box {
-                    orientation: vertical;
-                    spacing: 16;
-                    margin-top: 24;
-                    margin-bottom: 24;
-                    margin-start: 16;
-                    margin-end: 16;
-
-                    Adw.PreferencesGroup results_group {
-                      visible: false;
-
-                      [header-suffix]
-                      Box {
-                        halign: end;
-                        styles ["linked"]
-
-                        Button copy_all_button {
-                          icon-name: "edit-copy-symbolic";
-                          tooltip-text: _("Copy All");
-                          valign: center;
-                          clicked => $on_copy_all_clicked();
-                          styles ["flat"]
-                        }
-
-                        Button export_button {
-                          icon-name: "document-save-symbolic";
-                          tooltip-text: _("Export");
-                          valign: center;
-                          clicked => $on_export_clicked();
-                          styles ["flat"]
-                        }
-                      }
-
-                      ListBox results_box {
-                        styles ["boxed-list"]
-                      }
-                    }
-                  };
-                };
-              };
-            }
-          };
-        };
-      };
+      }
     };
   };
 }

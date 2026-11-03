@@ -17,7 +17,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from ipaddress import IPv4Interface, IPv4Address
+from ipaddress import IPv4Interface, IPv4Network, IPv4Address
 
 class IPCalculator:
     def __init__(self):
@@ -54,6 +54,31 @@ class IPCalculator:
             return results
         except ValueError:
             return {_('Error'): _('Invalid IP address or mask')}
+
+    def calculate_vlsm(self, ip, mask, subnets):
+        try:
+            network = IPv4Network(f"{ip}/{mask}", strict=False)
+        except ValueError:
+            return {_('Error'): _('Invalid IP address or mask')}
+
+        results = []
+        address = int(network.network_address)
+        for name, hosts in sorted(subnets, key=lambda subnet: subnet[1], reverse=True):
+            prefix = 32 - max((hosts + 1).bit_length(), 2)
+            if address + 2 ** (32 - prefix) > int(network.broadcast_address) + 1:
+                return {_('Error'): _('Subnets do not fit in the network')}
+            subnet = IPv4Network((address, prefix))
+            results.append((name, {
+                _('Network'): str(subnet),
+                _('Netmask'): str(subnet.netmask),
+                _('First Host'): str(subnet.network_address + 1),
+                _('Last Host'): str(subnet.broadcast_address - 1),
+                _('Broadcast'): str(subnet.broadcast_address),
+                _('Required Hosts'): str(hosts),
+                _('Total Hosts'): f"{subnet.num_addresses - 2}{self.get_host_count_math(prefix)}"
+            }))
+            address += subnet.num_addresses
+        return results
 
     def format_ip(self, ip):
         result = str(ip)
