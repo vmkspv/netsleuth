@@ -41,13 +41,15 @@ echo "alias netsleuth='flatpak run io.github.vmkspv.netsleuth'" >> ~/.bashrc
 
   ```
   > netsleuth --help
-  usage: netsleuth [ip_address] [-m MASK] [--binary] [--hex] [-h] [-v]
+  usage: netsleuth [ip_address] [-m MASK] [-s [NAME:]HOSTS] [--binary] [--hex] [-h] [-v]
 
   positional arguments:
     ip_address            ip for calculation
 
   options:
     -m MASK, --mask MASK  subnet mask (default: 24)
+    -s [NAME:]HOSTS, --subnet [NAME:]HOSTS
+                          subnet to plan, can be repeated
     --binary              show binary values
     --hex                 show hexadecimal values
 

@@ -60,6 +60,8 @@ class IPCalculator:
             network = IPv4Network(f"{ip}/{mask}", strict=False)
         except ValueError:
             return {_('Error'): _('Invalid IP address or mask')}
+        if any(hosts < 1 for name, hosts in subnets):
+            return {_('Error'): _('Invalid number of hosts')}
 
         results = []
         address = int(network.network_address)

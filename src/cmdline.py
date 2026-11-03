@@ -48,6 +48,13 @@ class CommandLineInterface:
             help=_('subnet mask (default: 24)')
         )
         parser.options_group.add_argument(
+            '-s', '--subnet',
+            type=self.parse_subnet,
+            action='append',
+            metavar='[NAME:]HOSTS',
+            help=_('subnet to plan, can be repeated')
+        )
+        parser.options_group.add_argument(
             '--binary',
             action='store_true',
             help=_('show binary values')
@@ -92,6 +99,11 @@ class CommandLineInterface:
                 pass
         raise argparse.ArgumentTypeError("")
 
+    def parse_subnet(self, value):
+        parts = value.rsplit(':', 1)
+        name, hosts = ('', parts[0]) if len(parts) == 1 else parts
+        return name, int(hosts) if hosts.isdecimal() else 0
+
     def format_output(self, results):
         if not results:
             return ""
@@ -134,10 +146,23 @@ Please report bugs to: <https://github.com/vmkspv/netsleuth/issues>.''').format(
         if args.version:
             self.print_version()
 
-        self.calculator.set_show_binary(args.binary)
-        self.calculator.set_show_hex(args.hex)
-        results = self.calculator.calculate(args.ip_address, args.mask)
-        print(self.format_output(results))
+        if args.subnet:
+            subnets = [(name or _('Subnet {number}').format(number=number), hosts)
+                       for number, (name, hosts) in enumerate(args.subnet, 1)]
+            results = self.calculator.calculate_vlsm(args.ip_address, args.mask, subnets)
+        else:
+            self.calculator.set_show_binary(args.binary)
+            self.calculator.set_show_hex(args.hex)
+            results = self.calculator.calculate(args.ip_address, args.mask)
+
+        if _('Error') in results:
+            print(f"{_('Error')}: {results[_('Error')]}", file=sys.stderr)
+            sys.exit(1)
+
+        if args.subnet:
+            print('\n\n'.join(f"{name}\n{self.format_output(details)}" for name, details in results))
+        else:
+            print(self.format_output(results))
 
 class TranslatedArgumentParser(argparse.ArgumentParser):
     def __init__(self, *args, **kwargs):
@@ -148,7 +173,7 @@ class TranslatedArgumentParser(argparse.ArgumentParser):
         self.general_group = self.add_argument_group(_('general'))
 
     def format_help(self):
-        self.positionals.title = _('positional arguments')
+        self._positionals.title = _('positional arguments')
         return super().format_help().replace('usage:', _('usage:'))
 
     def error(self, message):
