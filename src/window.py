@@ -50,6 +50,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     results_box = Gtk.Template.Child()
 
     vlsm_ip_entry = Gtk.Template.Child()
+    vlsm_history_button = Gtk.Template.Child()
     vlsm_mask_dropdown = Gtk.Template.Child()
     vlsm_subnets_box = Gtk.Template.Child()
     vlsm_calculate_button = Gtk.Template.Child()
@@ -99,12 +100,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         ip = self.ip_entry.get_text()
         mask = int(self.mask_dropdown.get_selected_item().get_string().split()[0])
 
-        new_item = {"ip": ip, "mask": mask}
-        self.history = [item for item in self.history if not (item["ip"] == ip and item["mask"] == mask)]
-        self.history.insert(0, new_item)
-        self.history = self.history[:20]
-
-        self.save_history()
+        self.add_history_item({"ip": ip, "mask": mask})
 
         results = self.calculator.calculate(ip, mask)
         self.results = results
@@ -229,6 +225,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     @Gtk.Template.Callback()
     def on_history_button_clicked(self, button):
+        planner = button == self.vlsm_history_button
+        history = [item for item in self.history if ("subnets" in item) == planner]
+
         history_list = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE)
         history_list.add_css_class("boxed-list-separate")
         history_list.add_css_class("history-list")
@@ -254,12 +253,12 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             icon_name="user-trash-symbolic",
             valign=Gtk.Align.CENTER,
             tooltip_text=_('Clear'),
-            sensitive=bool(self.history)
+            sensitive=bool(history)
         )
         clear_button.add_css_class("flat")
         clear_button.add_css_class("error")
         clear_button.connect("clicked", lambda btn: self.on_clear_history(
-            history_list, stack, clear_button, toast_overlay
+            history_list, stack, clear_button, toast_overlay, planner
         ))
 
         header_bar = Adw.HeaderBar()
@@ -285,9 +284,9 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         toast_overlay.set_child(toolbar_view)
         dialog.set_child(toast_overlay)
 
-        if self.history:
+        if history:
             stack.set_visible_child_name("history")
-            for item in self.history:
+            for item in history:
                 history_list.append(self.create_history_row(item, dialog))
         else:
             stack.set_visible_child_name("empty")
@@ -297,9 +296,16 @@ class NetsleuthWindow(Adw.ApplicationWindow):
 
     def create_history_row(self, item, dialog):
         title = f"{item['ip']}/{item['mask']}"
-        mask_string = self.mask_dropdown.get_model().get_string(item['mask']).split('-', 1)[1].strip()
+        if "subnets" in item:
+            subtitle = ', '.join(name or _('Subnet {number}').format(number=number)
+                                 for number, (name, hosts) in enumerate(item['subnets'], 1))
+        else:
+            subtitle = self.mask_dropdown.get_model().get_string(item['mask']).split('-', 1)[1].strip()
 
-        row = Adw.ActionRow(title=title, subtitle=mask_string, activatable=True)
+        row = Adw.ActionRow(
+            title=title, subtitle=GLib.markup_escape_text(subtitle),
+            subtitle_lines=1, activatable=True
+        )
         row.connect("activated", lambda r: self.on_history_item_activated(item, dialog))
 
         arrow = Gtk.Image(icon_name="go-next-symbolic")
@@ -309,14 +315,31 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         return row
 
     def on_history_item_activated(self, item, dialog):
-        self.ip_entry.set_text(item['ip'])
-        self.mask_dropdown.set_selected(item['mask'])
         dialog.close()
-        self.on_calculate_clicked(None)
+        if "subnets" in item:
+            self.vlsm_ip_entry.set_text(item['ip'])
+            self.vlsm_mask_dropdown.set_selected(item['mask'])
+            self.clear_subnet_rows()
+            for name, hosts in item['subnets']:
+                self.on_add_subnet_clicked()
+                self.subnet_rows[-1].set_text(name)
+                self.subnet_rows[-1].hosts_spin.set_value(hosts)
+            self.on_vlsm_calculate_clicked(None)
+        else:
+            self.ip_entry.set_text(item['ip'])
+            self.mask_dropdown.set_selected(item['mask'])
+            self.on_calculate_clicked(None)
         self.show_toast(_('Calculated: {ip}/{mask}').format(ip=item['ip'], mask=item['mask']))
 
-    def on_clear_history(self, history_list, stack, clear_button, toast_overlay):
-        self.history.clear()
+    def add_history_item(self, new_item):
+        planner = "subnets" in new_item
+        same_mode = [item for item in self.history if ("subnets" in item) == planner and item != new_item]
+        other_mode = [item for item in self.history if ("subnets" in item) != planner]
+        self.history = ([new_item] + same_mode)[:25] + other_mode
+        self.save_history()
+
+    def on_clear_history(self, history_list, stack, clear_button, toast_overlay, planner):
+        self.history = [item for item in self.history if ("subnets" in item) != planner]
         self.save_history()
 
         while history_list.get_first_child():
@@ -498,18 +521,19 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def on_subnet_planner_activated(self, row):
         self.vlsm_ip_entry.set_text("")
         self.vlsm_mask_dropdown.set_selected(24)
-        for subnet_row in self.subnet_rows:
-            self.vlsm_subnets_box.remove(subnet_row)
-        self.subnet_rows.clear()
-        self.subnet_count = 0
+        self.clear_subnet_rows()
         self.on_add_subnet_clicked()
         self.vlsm_results_group.set_visible(False)
         self.navigation_view.push_by_tag("vlsm")
 
+    def clear_subnet_rows(self):
+        for subnet_row in self.subnet_rows:
+            self.vlsm_subnets_box.remove(subnet_row)
+        self.subnet_rows.clear()
+
     @Gtk.Template.Callback()
     def on_add_subnet_clicked(self, button=None):
-        self.subnet_count += 1
-        row = Adw.EntryRow(title=_('Subnet {number}').format(number=self.subnet_count))
+        row = Adw.EntryRow(title=_('Subnet {number}').format(number=len(self.subnet_rows) + 1))
 
         row.hosts_spin = Gtk.SpinButton(
             adjustment=Gtk.Adjustment(value=1, lower=1, upper=1, step_increment=1),
@@ -544,6 +568,8 @@ class NetsleuthWindow(Adw.ApplicationWindow):
     def on_remove_subnet(self, row):
         self.subnet_rows.remove(row)
         self.vlsm_subnets_box.remove(row)
+        for number, subnet_row in enumerate(self.subnet_rows, 1):
+            subnet_row.set_title(_('Subnet {number}').format(number=number))
         if len(self.subnet_rows) == 1:
             self.subnet_rows[0].remove_button.set_sensitive(False)
 
@@ -561,12 +587,18 @@ class NetsleuthWindow(Adw.ApplicationWindow):
             self.show_toast(results[_('Error')])
             return
 
+        self.add_history_item({
+            "ip": self.vlsm_ip_entry.get_text(),
+            "mask": self.vlsm_mask_dropdown.get_selected(),
+            "subnets": [[row.get_text(), row.hosts_spin.get_value_as_int()] for row in self.subnet_rows]
+        })
+
         self.vlsm_results = results
         while self.vlsm_results_box.get_first_child():
             self.vlsm_results_box.remove(self.vlsm_results_box.get_first_child())
 
         for name, details in results:
-            expander = Adw.ExpanderRow(title=name, subtitle=details[_('Network')], use_markup=False)
+            expander = Adw.ExpanderRow(title=GLib.markup_escape_text(name), subtitle=details[_('Network')])
             for key, value in details.items():
                 expander.add_row(self.create_result_row(key, value))
             self.vlsm_results_box.append(expander)

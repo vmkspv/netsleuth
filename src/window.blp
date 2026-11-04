@@ -286,6 +286,15 @@ template $NetsleuthWindow: Adw.ApplicationWindow {
                     title: _("IP Address");
                     changed => $on_ip_entry_changed();
                     entry-activated => $on_ip_entry_activate();
+
+                    [suffix]
+                    Button vlsm_history_button {
+                      icon-name: "document-open-recent-symbolic";
+                      tooltip-text: _("History");
+                      valign: center;
+                      clicked => $on_history_button_clicked();
+                      styles ["flat"]
+                    }
                   }
 
                   Adw.ComboRow vlsm_mask_dropdown {
