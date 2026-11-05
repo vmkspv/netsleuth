@@ -258,7 +258,7 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         clear_button.add_css_class("flat")
         clear_button.add_css_class("error")
         clear_button.connect("clicked", lambda btn: self.on_clear_history(
-            history_list, stack, clear_button, toast_overlay, planner
+            history_list, stack, clear_button, toast_overlay, planner, dialog
         ))
 
         header_bar = Adw.HeaderBar()
@@ -338,17 +338,27 @@ class NetsleuthWindow(Adw.ApplicationWindow):
         self.history = ([new_item] + same_mode)[:25] + other_mode
         self.save_history()
 
-    def on_clear_history(self, history_list, stack, clear_button, toast_overlay, planner):
+    def on_clear_history(self, history_list, stack, clear_button, toast_overlay, planner, dialog):
+        removed_items = [item for item in self.history if ("subnets" in item) == planner]
         self.history = [item for item in self.history if ("subnets" in item) != planner]
         self.save_history()
 
-        while history_list.get_first_child():
-            history_list.remove(history_list.get_first_child())
+        history_list.remove_all()
         stack.set_visible_child_name("empty")
         clear_button.set_sensitive(False)
 
+        def on_undo_clicked(toast):
+            self.history = removed_items + self.history
+            self.save_history()
+
+            for item in removed_items:
+                history_list.append(self.create_history_row(item, dialog))
+            stack.set_visible_child_name("history")
+            clear_button.set_sensitive(True)
+
         toast = Adw.Toast.new(_('History cleared'))
-        toast.set_timeout(2)
+        toast.set_button_label(_('Undo'))
+        toast.connect("button-clicked", on_undo_clicked)
         toast_overlay.add_toast(toast)
 
     def save_history(self):
