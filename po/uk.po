@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netsleuth\n"
 "Report-Msgid-Bugs-To: https://github.com/vmkspv/netsleuth/issues\n"
-"POT-Creation-Date: 2026-09-22 17:15+0300\n"
-"PO-Revision-Date: 2026-09-22 17:30+0300\n"
+"POT-Creation-Date: 2026-11-05 13:00+0300\n"
+"PO-Revision-Date: 2026-11-05 14:00+0300\n"
 "Last-Translator: Vladimir Kosolapov\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Netsleuth"
 msgstr "Netsleuth"
 
-#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.blp:35
+#: data/io.github.vmkspv.netsleuth.desktop.in:4 src/window.blp:39
 msgid "IP Subnet Calculator"
 msgstr "Калькулятор IP-підмереж"
 
@@ -36,7 +36,7 @@ msgstr "Мережа;IP;Підмережа;Маска;Хост;Калькуля�
 
 #: data/io.github.vmkspv.netsleuth.metainfo.xml.in:7
 msgid "Calculate IP subnets"
-msgstr "Розрахуйте IP підмереж"
+msgstr "Розраховуйте IP підмереж"
 
 #: data/io.github.vmkspv.netsleuth.metainfo.xml.in:9 src/cmdline.py:34
 msgid ""
@@ -55,96 +55,116 @@ msgid "List of results"
 msgstr "Список результатів"
 
 #: data/io.github.vmkspv.netsleuth.metainfo.xml.in:22
+msgid "Subnet planner"
+msgstr "Планувальник підмереж"
+
+#: data/io.github.vmkspv.netsleuth.metainfo.xml.in:26
 msgid "Split view layout"
 msgstr "Адаптивний дизайн"
 
-#: src/calculator.py:41 src/window.py:399
+#: src/calculator.py:41 src/window.py:469
 msgid "Address"
 msgstr "Адреса"
 
-#: src/calculator.py:42 src/window.py:400
+#: src/calculator.py:42 src/calculator.py:75 src/window.py:470
 msgid "Netmask"
 msgstr "Маска"
 
-#: src/calculator.py:43 src/window.py:401
+#: src/calculator.py:43 src/window.py:471
 msgid "Wildcard"
-msgstr "Зворотня маска"
+msgstr "Зворотна маска"
 
-#: src/calculator.py:44 src/window.py:402
+#: src/calculator.py:44 src/calculator.py:74 src/window.blp:283
+#: src/window.py:472 src/window.py:611
 msgid "Network"
 msgstr "Адреса мережі"
 
-#: src/calculator.py:45 src/window.py:403
+#: src/calculator.py:45 src/calculator.py:78 src/window.py:473
 msgid "Broadcast"
 msgstr "Широкомовна адреса"
 
-#: src/calculator.py:46 src/window.py:404
+#: src/calculator.py:46 src/calculator.py:76 src/window.py:474
 msgid "First Host"
 msgstr "Перший хост"
 
-#: src/calculator.py:47 src/window.py:405
+#: src/calculator.py:47 src/calculator.py:77 src/window.py:475
 msgid "Last Host"
 msgstr "Останній хост"
 
-#: src/calculator.py:48 src/window.py:115 src/window.py:406
+#: src/calculator.py:48 src/calculator.py:80 src/window.py:136
+#: src/window.py:477
 msgid "Total Hosts"
 msgstr "Усього хостів"
 
-#: src/calculator.py:49 src/window.py:407
+#: src/calculator.py:49 src/window.py:478
 msgid "Category"
 msgstr "Категорія"
 
-#: src/calculator.py:50 src/window.py:408
+#: src/calculator.py:50 src/window.py:479
 msgid "PTR Record"
-msgstr "Зворотня адреса"
+msgstr "Зворотна адреса"
 
-#: src/calculator.py:51 src/window.py:409
+#: src/calculator.py:51 src/window.py:480
 msgid "IPv4 Mapped Address"
-msgstr "Відображувана IPv4-адреса"
+msgstr "Відображена IPv4-адреса"
 
-#: src/calculator.py:52 src/window.py:410
+#: src/calculator.py:52 src/window.py:481
 msgid "6to4 Prefix"
 msgstr "6to4-префікс"
 
-#: src/calculator.py:56 src/cmdline.py:155
+#: src/calculator.py:56 src/calculator.py:62 src/calculator.py:64
+#: src/calculator.py:71 src/cmdline.py:158 src/cmdline.py:159
+#: src/cmdline.py:180 src/window.py:597
 msgid "Error"
 msgstr "Помилка"
 
-#: src/calculator.py:56 src/cmdline.py:155
+#: src/calculator.py:56 src/calculator.py:62 src/cmdline.py:180
 msgid "Invalid IP address or mask"
-msgstr "Недійсний IP-адреса або маска"
+msgstr "Недійсна IP-адреса або маска"
 
-#: src/calculator.py:79 src/window.py:411
+#: src/calculator.py:64
+msgid "Invalid number of hosts"
+msgstr "Недійсна кількість хостів"
+
+#: src/calculator.py:71
+msgid "Subnets do not fit in the network"
+msgstr "Підмережі не вміщуються в мережу"
+
+#: src/calculator.py:79 src/window.py:476 src/window.py:553
+msgid "Required Hosts"
+msgstr "Потрібно хостів"
+
+#: src/calculator.py:106 src/window.py:482
 msgid "Private (Class A)"
-msgstr "Приватний (клас A)"
+msgstr "Приватна (клас A)"
 
-#: src/calculator.py:80 src/window.py:412
+#: src/calculator.py:107 src/window.py:483
 msgid "Private (Class B)"
-msgstr "Приватний (клас B)"
+msgstr "Приватна (клас B)"
 
-#: src/calculator.py:81 src/window.py:413
+#: src/calculator.py:108 src/window.py:484
 msgid "Private (Class C)"
-msgstr "Приватний (клас C)"
+msgstr "Приватна (клас C)"
 
-#: src/calculator.py:82 src/window.py:414
+#: src/calculator.py:109 src/window.py:485
 msgid "Loopback"
-msgstr "Зворотний зв'язок (Loopback)"
+msgstr "Зворотна петля (Loopback)"
 
-#: src/calculator.py:83 src/window.py:415
+#: src/calculator.py:110 src/window.py:486
 msgid "Link-Local (APIPA)"
 msgstr "Локальна адресація (APIPA)"
 
-#: src/calculator.py:84 src/window.py:416
+#: src/calculator.py:111 src/window.py:487
 msgid "Multicast"
 msgstr "Мультикаст"
 
-#: src/calculator.py:85 src/window.py:417
+#: src/calculator.py:112 src/window.py:488
 msgid "Reserved"
-msgstr "Зарезервований"
+msgstr "Зарезервована"
 
-#: src/calculator.py:88 src/window.py:418
+#: src/calculator.py:115 src/window.py:489
 msgid "Public"
-msgstr "Публічний"
+msgstr "Публічна"
 
 #: src/cmdline.py:42
 msgid "ip for calculation"
@@ -154,23 +174,27 @@ msgstr "ip для виконання розрахунку"
 msgid "subnet mask (default: 24)"
 msgstr "маска підмережі (за замовчуванням: 24)"
 
-#: src/cmdline.py:53
+#: src/cmdline.py:55
+msgid "subnet to plan, can be repeated"
+msgstr "підмережа для планування (можна повторювати)"
+
+#: src/cmdline.py:60
 msgid "show binary values"
 msgstr "вивести двійкові значення"
 
-#: src/cmdline.py:58
+#: src/cmdline.py:65
 msgid "show hexadecimal values"
 msgstr "вивести шістнадцяткові значення"
 
-#: src/cmdline.py:64
+#: src/cmdline.py:71
 msgid "show this help message and exit"
 msgstr "вивести цю довідку та вийти"
 
-#: src/cmdline.py:69
+#: src/cmdline.py:76
 msgid "show version information and exit"
 msgstr "вивести інформацію про версію та вийти"
 
-#: src/cmdline.py:122
+#: src/cmdline.py:134
 #, python-brace-format
 msgid ""
 "netsleuth {version}\n"
@@ -184,7 +208,7 @@ msgid ""
 msgstr ""
 "netsleuth {version}\n"
 "Copyright (C) 2024-2026 Vladimir Kosolapov\n"
-"Ліцензія GPLv3+: GNU GPL версії 3 або новішій <https://gnu.org/licenses/"
+"Ліцензія GPLv3+: GNU GPL версії 3 або новішої <https://gnu.org/licenses/"
 "gpl.html>.\n"
 "Це вільне ПЗ: ви можете вільно змінювати і поширювати його.\n"
 "Немає ЖОДНИХ ГАРАНТІЙ у межах чинного законодавства.\n"
@@ -192,92 +216,113 @@ msgstr ""
 "Будь ласка, повідомляйте про вади на: <https://github.com/vmkspv/netsleuth/"
 "issues>."
 
-#: src/cmdline.py:147
+#: src/cmdline.py:150 src/window.py:300 src/window.py:546 src/window.py:582
+#, python-brace-format
+msgid "Subnet {number}"
+msgstr "Підмережа {number}"
+
+#: src/cmdline.py:172
 msgid "options"
 msgstr "параметри"
 
-#: src/cmdline.py:148
+#: src/cmdline.py:173
 msgid "general"
-msgstr "загальні"
+msgstr "загальне"
 
-#: src/cmdline.py:151
+#: src/cmdline.py:176
 msgid "positional arguments"
 msgstr "позиційні аргументи"
 
-#: src/cmdline.py:152
+#: src/cmdline.py:177
 msgid "usage:"
 msgstr "використання:"
 
 #. Translators: Metainfo and translations for the Lenspect <https://github.com/vmkspv/lenspect>
-#: src/main.py:74
+#: src/main.py:76
 msgid "Scan files for threats"
 msgstr "Перевіряйте файли на загрози"
 
-#: src/window.blp:42
+#: src/window.blp:46
 msgid "About Netsleuth"
 msgstr "Про Netsleuth"
 
-#: src/window.blp:64
+#: src/window.blp:68
 msgid "Details"
 msgstr "Деталі"
 
-#: src/window.blp:67
+#: src/window.blp:71 src/window.blp:286
 msgid "IP Address"
 msgstr "IP-адреса"
 
-#: src/window.blp:74 src/window.py:231
+#: src/window.blp:78 src/window.blp:293 src/window.py:246
 msgid "History"
 msgstr "Історія"
 
-#: src/window.blp:82
+#: src/window.blp:86 src/window.blp:301
 msgid "Subnet Mask"
 msgstr "Маска підмережі"
 
-#: src/window.blp:88
+#: src/window.blp:92
 msgid "Show Binary"
 msgstr "Двійкові значення"
 
-#: src/window.blp:89
+#: src/window.blp:93
 msgid "Display binary representation of IP addresses"
-msgstr "Відображати двійкове представлення IP-адресiв"
+msgstr "Відображати двійкове представлення IP-адрес"
 
-#: src/window.blp:94
+#: src/window.blp:98
 msgid "Show Hexadecimal"
 msgstr "Шістнадцяткові значення"
 
-#: src/window.blp:95
+#: src/window.blp:99
 msgid "Display hexadecimal representation of IP addresses"
-msgstr "Відображати шістнадцяткове представлення IP-адресiв"
+msgstr "Відображати шістнадцяткове представлення IP-адрес"
 
-#: src/window.blp:106
+#: src/window.blp:106 src/window.blp:260
+msgid "Subnet Planner"
+msgstr "Планувальник підмереж"
+
+#: src/window.blp:107
+msgid "Divide a network by host count"
+msgstr "Розділіть мережу за кількістю хостів"
+
+#: src/window.blp:125 src/window.blp:328
 msgid "Calculate"
 msgstr "Розрахувати"
 
-#: src/window.blp:118
+#: src/window.blp:137
 msgid "Did you know?"
 msgstr "Чи знаєте ви?"
 
-#: src/window.blp:124 src/window.blp:161 src/window.blp:167
+#: src/window.blp:143 src/window.blp:180 src/window.blp:186 src/window.blp:338
 msgid "Results"
 msgstr "Результати"
 
-#: src/window.blp:135 src/window.blp:211
+#: src/window.blp:154 src/window.blp:230 src/window.blp:349
 msgid "Copy All"
 msgstr "Копіювати все"
 
-#: src/window.blp:143 src/window.blp:219
+#: src/window.blp:162 src/window.blp:238 src/window.blp:357
 msgid "Export"
 msgstr "Експортувати"
 
-#: src/window.blp:178
+#: src/window.blp:197
 msgid "No Results"
 msgstr "Нічого немає"
 
-#: src/window.blp:179
+#: src/window.blp:198
 msgid "Your calculation results will appear here"
 msgstr "Результати ваших розрахунків з'являться тут"
 
-#: src/window.py:72
+#: src/window.blp:309
+msgid "Subnets"
+msgstr "Підмережі"
+
+#: src/window.blp:315
+msgid "Add Subnet"
+msgstr "Додати підмережу"
+
+#: src/window.py:87
 msgid ""
 "The 0.0.0.0 address is used to represent the default route or an unknown "
 "target network."
@@ -285,7 +330,7 @@ msgstr ""
 "Адреса 0.0.0.0 використовується для позначення невідомої цільової мережі або "
 "маршруту за замовчуванням."
 
-#: src/window.py:73
+#: src/window.py:88
 msgid ""
 "A PTR record enables reverse DNS lookup, translating an IP address back to a "
 "domain name."
@@ -293,7 +338,7 @@ msgstr ""
 "PTR-запис дозволяє виконувати зворотний пошук DNS, перетворюючи IP-адресу на "
 "доменне ім'я."
 
-#: src/window.py:74
+#: src/window.py:89
 msgid ""
 "The 240.0.0.0/4 block was originally reserved for future experiments, but is "
 "now considered legacy."
@@ -301,23 +346,23 @@ msgstr ""
 "Спочатку блок 240.0.0.0/4 був зарезервований для майбутніх експериментів, "
 "але тепер вважається застарілим."
 
-#: src/window.py:75
+#: src/window.py:90
 msgid ""
 "In a /30 subnet, there are only 2 usable IP addresses, often used for point-"
 "to-point links."
 msgstr ""
-"У підмережі /30 є лише 2 IP-адреси, що використовуються, часто "
-"застосовуються для з'єднань точка-точка."
+"У підмережі /30 є лише 2 придатні IP-адреси, які часто використовують "
+"для з'єднань точка-точка."
 
-#: src/window.py:76
+#: src/window.py:91
 msgid ""
 "Wildcard mask inverts subnet masks, providing flexible IP filtering in "
 "access lists."
 msgstr ""
-"Зворотня маска інвертує маски підмереж, забезпечуючи гнучку фільтрацію IP у "
+"Зворотна маска інвертує маски підмереж, забезпечуючи гнучку фільтрацію IP у "
 "списках доступу."
 
-#: src/window.py:77
+#: src/window.py:92
 msgid ""
 "An IP's binary representation always has 32 bits, regardless of the decimal "
 "notation used."
@@ -325,44 +370,52 @@ msgstr ""
 "Двійкове представлення IP-адреси завжди містить 32 біти, незалежно від "
 "використаної десяткової нотації."
 
-#: src/window.py:124
+#: src/window.py:145
 msgid "Copy"
 msgstr "Копіювати"
 
-#: src/window.py:169 src/window.py:347
+#: src/window.py:179 src/window.py:396 src/window.py:627
 msgid "Copied to clipboard"
 msgstr "Скопійовано до буфера обміну"
 
-#: src/window.py:222
+#: src/window.py:237
 msgid "No History"
 msgstr "Нічого немає"
 
-#: src/window.py:223
+#: src/window.py:238
 msgid "Your calculation history will appear here"
 msgstr "Історія ваших розрахунків з'явиться тут"
 
-#: src/window.py:240
+#: src/window.py:255
 msgid "Clear"
 msgstr "Очистити"
 
-#: src/window.py:300
+#: src/window.py:332
 #, python-brace-format
 msgid "Calculated: {ip}/{mask}"
 msgstr "Розраховано: {ip}/{mask}"
 
-#: src/window.py:311
+#: src/window.py:359
 msgid "History cleared"
 msgstr "Історія очищена"
 
-#: src/window.py:382
+#: src/window.py:360
+msgid "Undo"
+msgstr "Вернути"
+
+#: src/window.py:442
 msgid "Export results"
 msgstr "Експорт результатів"
 
-#: src/window.py:433
+#: src/window.py:461
 #, python-brace-format
 msgid "Saved to {file}"
 msgstr "Збережено у {file}"
 
-#: src/window.py:434
+#: src/window.py:462
 msgid "Open"
 msgstr "Відкрити"
+
+#: src/window.py:559
+msgid "Remove"
+msgstr "Видалити"
